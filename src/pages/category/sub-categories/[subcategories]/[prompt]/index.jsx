@@ -9,7 +9,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { getQuestionApi } from "@/api/apiRoutes";
-import { getSelectedCategory, getSelectedSubCategory } from "@/store/reducers/tempDataSlice";
+import {  getSelectedCategory, getSelectedSubCategory } from "@/store/reducers/tempDataSlice";
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
@@ -96,7 +96,7 @@ const QuestionPrompt = () => {
         title={selectedSubCategory?.subcategory_name || selectedCategory?.category_name}
         content={t("home")}
         contentTwo={t("category")}
-        contentThree={selectedCategory?.category_name}
+        // contentThree={selectedCategory?.category_name}
         contentFour={selectedSubCategory?.subcategory_name}
       />
       <div className="container mb-14">

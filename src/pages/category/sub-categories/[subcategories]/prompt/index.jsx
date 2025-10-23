@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { withTranslation } from "react-i18next";
 import { t } from "@/utils";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentLanguage } from "@/store/reducers/languageSlice";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import {getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
-import { getSelectedCategory, getSelectedSubCategory } from "@/store/reducers/tempDataSlice";
-import {  selecttempdata } from '@/store/reducers/tempDataSlice'
+import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
+import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
+import { selecttempdata } from '@/store/reducers/tempDataSlice'
 
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
@@ -26,70 +26,69 @@ const QuestionPrompt = () => {
   const router = useRouter();
   const { catid, isSubcategory, subcatid } = router.query;
   let getData = useSelector(selecttempdata)
-console.log(getData);
+  const dispatch = useDispatch();
 
   const getAllData = async () => {
 
-  if (catid) {
-    try {
-      // First API call - Level Data
-      const LevelResponse = await getLevelDataApi({
-        category_id: catid,
-        subcategory_id: subcatid || "",
-        level: "1",
-      });
-
-      
-
-      // Second API call - Questions (only if Level API succeeded)
-      const questionsResponse = await getQuestionApi({
-        category_id: catid,
-        subcategory_id: subcatid || "",
-        level: "1",
-      });
-
-      console.log(questionsResponse);
-
-      if (!questionsResponse.error) {
-        let bookmark = getBookmarkData();
-        let questions_ids = Object.keys(bookmark).map((index) => {
-          return bookmark[index].question_id;
+    if (catid) {
+      try {
+        // First API call - Level Data
+        const LevelResponse = await getLevelDataApi({
+          category_id: catid,
+          subcategory_id: subcatid || "",
+          level: "1",
         });
 
-        let questions = questionsResponse.data.map((data) => {
-          let isBookmark = questions_ids.indexOf(data?.id) >= 0;
 
-          let question = data?.question;
-          let note = data?.note;
 
-          return {
-            ...data,
-            question: question,
-            note: note,
-            isBookmarked: isBookmark,
-            selected_answer: "",
-            isAnswered: false,
-          };
+        // Second API call - Questions (only if Level API succeeded)
+        const questionsResponse = await getQuestionApi({
+          category_id: catid,
+          subcategory_id: subcatid || "",
+          level: "1",
         });
 
-        setQuestions(questions);
-        setIsLoading(false);
-      }
 
-      if (questionsResponse.error) {
+        if (!questionsResponse.error) {
+          let bookmark = getBookmarkData();
+          let questions_ids = Object.keys(bookmark).map((index) => {
+            return bookmark[index].question_id;
+          });
+
+          let questions = questionsResponse.data.map((data) => {
+            let isBookmark = questions_ids.indexOf(data?.id) >= 0;
+
+            let question = data?.question;
+            let note = data?.note;
+
+            return {
+              ...data,
+              question: question,
+              note: note,
+              isBookmarked: isBookmark,
+              selected_answer: "",
+              isAnswered: false,
+            };
+          });
+
+          setQuestions(questions);
+          setIsLoading(false);
+        }
+
+        if (questionsResponse.error) {
+          setQuestions([]);
+          setIsLoading(false);
+          toast.error(t("no_que_found"));
+          router.push("/category");
+        }
+      } catch (error) {
+        console.error("API Error:", error);
         setQuestions([]);
         setIsLoading(false);
-        toast.error(t("no_que_found"));
-        router.push("/category");
+        toast.error(t("something_went_wrong"));
       }
-    } catch (error) {
-      console.error("API Error:", error);
-      setQuestions([]);
-      setIsLoading(false);
-      toast.error(t("something_went_wrong"));
     }
-  }
-};
+  };
 
   const getBookmarkData = () => {
     let bookmark = localStorage.getItem("bookmark");
@@ -104,6 +103,20 @@ console.log(getData);
     getAllData();
   }, [router.isReady, selectcurrentLanguage]);
 
+  const handleChangeCategory = (question) => {
+
+    dispatch(selectedSubCategorySuccess(question));
+    router.push({
+      pathname: `${router.pathname}/promptDetails`,
+      query: {
+        ...router.query,
+        questionId: question.id
+      },
+    })
+
+  }
+
+
   return (
     <Layout>
       <Breadcrumb
@@ -111,8 +124,8 @@ console.log(getData);
         title={selectedSubCategory?.subcategory_name || selectedCategory?.category_name}
         content={t("home")}
         contentTwo={t("category")}
-        contentThree={selectedCategory?.category_name}
-        contentFour={selectedSubCategory?.subcategory_name}
+        // contentThree={selectedCategory?.category_name}
+        contentFour={selectedCategory?.subcategory_name}
       />
       <div className="container mb-14">
         {isLoading ? (
@@ -126,24 +139,18 @@ console.log(getData);
             {questions.map((question) => (
               <div
                 key={question.id}
-                onClick={() => router.push({
-                  pathname: `${router.pathname}/promptDetails`,
-                  query: { 
-                    ...router.query,
-                    questionId: question.id 
-                  },
-                })}
+                onClick={() => handleChangeCategory(question)}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 p-4 group cursor-pointer"
               >
-                
-                  <div className=" overflow-hidden rounded-xl mb-2">
-                    <img
-                      src={question.image || "/images/homeSkeleton.png "}
-                      alt={question.question}
-                      className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-all duration-500"
-                    />
-                  </div>
-                
+
+                <div className=" overflow-hidden rounded-xl mb-2">
+                  <img
+                    src={question.image || "/images/homeSkeleton.png "}
+                    alt={question.question}
+                    className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-all duration-500"
+                  />
+                </div>
+
                 <div className="">
                   <h3 className="font-semibold text-lg mb-2">{question.question}</h3>
                   <p className="text-gray-600">

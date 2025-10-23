@@ -61,7 +61,6 @@ const QuizZone = () => {
 
   //handle category
   const handleChangeCategory = async (data) => {
-    console.log(data);
     
     dispatch(selectedCategorySuccess(data));
     // this is for premium category only
