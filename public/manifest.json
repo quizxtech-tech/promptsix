@@ -1,0 +1,23 @@
+    {
+    "name": "QuizXTech",
+    "short_name": "QuizX",
+    "description": "Fun quizzes & learning games",
+    "start_url": "/quiz-play?source=pwa",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#ffffff",
+    "theme_color": "#0ea5a4",
+    "icons": [
+        { "src": "/vercel.svg", "sizes": "192x192", "type": "image/png" }
+    ],
+    "shortcuts": [
+        {
+        "name": "Take Quiz",
+        "short_name": "Quiz",
+        "url": "/quiz",
+        "icons": [{ "src": "/icons/quizx.png", "sizes": "192x192" }]
+        }
+    ],
+    "categories": ["education", "games"]
+    }

@@ -64,7 +64,7 @@ const QuestionPrompt = () => {
         if (questionsResponse.error) {
           setQuestions([]);
           setIsLoading(false);
-          toast.error(t("no_que_found"));
+          toast.error(t("No Prompt Found."));
           router.push("/category");
         }
       } catch (error) {
