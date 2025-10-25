@@ -181,8 +181,8 @@ const Layout = ({ children }) => {
         hideTimerRef.current = setTimeout(() => {
           setShowPwaButton(false);
           hideTimerRef.current = null;
-        }, 20000000);
-      }, 20);
+        }, 20000);
+      }, 2000);
     } else {
       setShowPwaButton(false);
     }
