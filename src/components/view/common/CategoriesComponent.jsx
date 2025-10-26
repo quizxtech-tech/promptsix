@@ -7,9 +7,11 @@ import { resetremainingSecond } from "@/store/reducers/showRemainingSeconds";
 import { useDispatch } from "react-redux";
 import ThemeSvg from "@/components/ThemeSvg";
 import errorimg from "@/assets/images/error.svg";
+import ShareButton from "@/components/Common/ShareButton";
 
 const CategoriesComponent = ({ category, handleChangeCategory }) => {
   const [showAll, setShowAll] = useState(false);
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
   //truncate text
   const visibleCategories = category?.all 
     ? (showAll ? category.all : category.all.slice(0, 12))
