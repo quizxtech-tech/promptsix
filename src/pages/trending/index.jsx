@@ -11,7 +11,8 @@ import dynamic from "next/dynamic";
 import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
 import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
 import { selecttempdata } from '@/store/reducers/tempDataSlice'
-
+import ShareButton from "@/components/Common/ShareButton";
+import placeholder from '@/assets/images/placeholder.png'
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
     ssr: false,
@@ -32,11 +33,7 @@ const QuestionPrompt = () => {
     const getAllData = async () => {
 
         try {
-            // First API call - Level Data
-            const LevelResponse = await getLevelDataApi({
-                category_id: 8,
-                level: "1",
-            });
+            
 
 
 
@@ -134,6 +131,8 @@ const QuestionPrompt = () => {
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         {questions.map((question) => (
+                            <div className="relative">
+                                            <div className="absolute top-6 right-6 z-10"><ShareButton isLevel={true} data={question}/></div>
                             <div
                                 key={question.id}
                                 onClick={() => handleChangeSubCategory(question)}
@@ -142,19 +141,19 @@ const QuestionPrompt = () => {
 
                                 <div className=" overflow-hidden rounded-xl mb-2">
                                     <img
-                                        src={question.image || "/images/homeSkeleton.png "}
+                                        src={question.image || placeholder.src}
                                         alt={question.question}
                                         className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-all duration-500"
                                     />
                                 </div>
 
                                 <div className="">
-                                    <h3 className="font-semibold text-lg mb-2">{question.question}</h3>
+                                    <h3 className="font-semibold text-lg mb-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{question.question}</h3>
                                     <p className="text-gray-600">
                                         {truncate(question.optiona)}
                                     </p>
                                 </div>
-                            </div>
+                            </div></div>
                         ))}
                     </div>
                 )}

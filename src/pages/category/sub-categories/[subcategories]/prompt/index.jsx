@@ -11,7 +11,8 @@ import dynamic from "next/dynamic";
 import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
 import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
 import { selecttempdata } from '@/store/reducers/tempDataSlice'
-
+import ShareButton from "@/components/Common/ShareButton";
+import placeholder from '@/assets/images/placeholder.png'
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
@@ -21,12 +22,13 @@ const QuestionPrompt = () => {
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const selectcurrentLanguage = useSelector(selectCurrentLanguage);
-  const selectedCategory = useSelector(getSelectedCategory);
+  const selectedCategory = useSelector(getSelectedCategory);  
   const selectedSubCategory = useSelector(getSelectedSubCategory);
   const router = useRouter();
   const { catid, isSubcategory, subcatid } = router.query;
   let getData = useSelector(selecttempdata)
   const dispatch = useDispatch();
+console.log('this is subcat');
 
   const getAllData = async () => {
 
@@ -125,7 +127,7 @@ const QuestionPrompt = () => {
         content={t("home")}
         contentTwo={t("category")}
         // contentThree={selectedCategory?.category_name}
-        contentFour={selectedCategory?.subcategory_name}
+        contentFour={selectedCategory?.category_name}
       />
       <div className="container mb-14">
         {isLoading ? (
@@ -137,6 +139,8 @@ const QuestionPrompt = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {questions.map((question) => (
+              <div className="relative">
+                <div className="absolute top-6 right-6 z-10"><ShareButton data={question} isLevel={true} /></div>
               <div
                 key={question.id}
                 onClick={() => handleChangeCategory(question)}
@@ -145,7 +149,7 @@ const QuestionPrompt = () => {
 
                 <div className=" overflow-hidden rounded-xl mb-2">
                   <img
-                    src={question.image || "/images/homeSkeleton.png "}
+                    src={question.image || placeholder.src}
                     alt={question.question}
                     className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-all duration-500"
                   />
@@ -157,7 +161,7 @@ const QuestionPrompt = () => {
                     {truncate(question.optiona)}
                   </p>
                 </div>
-              </div>
+              </div></div>
             ))}
           </div>
         )}

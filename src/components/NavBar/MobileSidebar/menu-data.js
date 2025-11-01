@@ -24,6 +24,14 @@ const menu_data = [
     active: ''
   },
   {
+    id: 5,
+    mega_menu: false,
+    has_dropdown: false,
+    title: 'Prompt Heroes',
+    link: '/prompt-heroes',
+    active: ''
+  },
+  {
     id: 3,
     mega_menu: false,
     has_dropdown: false,

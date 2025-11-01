@@ -14,10 +14,11 @@ import { getSelectedCategory, getSelectedSubCategory } from "@/store/reducers/te
 import { IoCopyOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCheckmarkCircle, IoSparkles, IoArrowForward } from "react-icons/io5";
-
-import chatGPT from "../../../../../../assets/images/chatgpt.svg"; 
-import gemini from "../../../../../../assets/images/gemini.svg"; 
-import perplexity from "../../../../../../assets/images/perplexity.svg"; 
+import placeholder from '@/assets/images/placeholder.png'
+import chatGPT from "@/assets/images/chatgpt.svg"; 
+import gemini from "@/assets/images/gemini.svg"; 
+import perplexity from "@/assets/images/perplexity.svg"; 
+import ShareButton from "@/components/Common/ShareButton";
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
@@ -387,7 +388,7 @@ const PromptDetails = () => {
                   <motion.img
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    src={questionDetails.image}
+                    src={questionDetails.image || placeholder.src}
                     alt={`Visual representation of ${questionDetails.question} - AI prompt template`}
                     className="w-full h-full object-cover rounded-xl"
                     loading="eager"
@@ -495,6 +496,7 @@ const PromptDetails = () => {
                       )}
                     </AnimatePresence>
                   </motion.button>
+                  <div className="absolute top-3 right-19 sm:top-4 sm:right-20 "><ShareButton/></div>
 
                   <h2 className="text-sm sm:text-base font-semibold text-purple-400 mb-3 sm:mb-4 flex items-center gap-2">
                     <span className="w-1 h-4 sm:h-6 bg-purple-500 rounded-full" aria-hidden="true" />
@@ -565,7 +567,7 @@ const PromptDetails = () => {
                       className="relative"
                     >
                       <img
-                        src={model.image.src}
+                        src={model.image.src || placeholder.src}
                         alt={`${model.name} logo - AI assistant for prompt execution`}
                         className="w-12 h-12 sm:w-20 sm:h-20 mx-auto mb-2 sm:mb-3 rounded-full shadow-md"
                         loading="lazy"
@@ -634,7 +636,7 @@ const PromptDetails = () => {
                         <motion.img
                           // whileHover={{ scale: 1.1 }}
                           transition={{ duration: 0.6 }}
-                          src={question.image}
+                          src={question.image  || placeholder.src}
                           alt={`${question.question} - AI prompt template preview`}
                           className="w-full h-full object-cover rounded-xl"
                           loading="lazy"

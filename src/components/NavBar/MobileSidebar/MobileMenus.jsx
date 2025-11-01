@@ -330,7 +330,7 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                           ))}
                       </SelectContent>
                     </Select> */}
-                    <NavigationMenu className="[&>:nth-child(2)]:left-2 z-50">
+                    {/* <NavigationMenu className="[&>:nth-child(2)]:left-2 z-50">
                       <NavigationMenuList>
                         <NavigationMenuItem>
                           <NavigationMenuTrigger ref={webLanWidthRef}  className="w-max mx-2 !bg-primary-color !rounded-[5px] !text-white capitalize shadowBtn">
@@ -352,7 +352,7 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                           </NavigationMenuContent>
                         </NavigationMenuItem>
                       </NavigationMenuList>
-                    </NavigationMenu>
+                    </NavigationMenu> */}
                   </div>
                 </div>
               ) : (

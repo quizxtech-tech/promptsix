@@ -325,10 +325,10 @@ const Layout = ({ children }) => {
       typeof window !== "undefined" ? localStorage.getItem("theme") : null;
 
 
-    const primaryColor =
-      webSettings && webSettings?.primary_color
-        ? storedTheme === "dark" ? process.env.NEXT_PUBLIC_DARK_MODE_PRIMARY_COLOR : webSettings && webSettings?.primary_color
-        : "#EF5388FF";
+    const primaryColor = "#3837ff"
+      // webSettings && webSettings?.primary_color
+      //   ? storedTheme === "dark" ? process.env.NEXT_PUBLIC_DARK_MODE_PRIMARY_COLOR : webSettings && webSettings?.primary_color
+      //   : "#EF5388FF";
 
     const secondaryColor =
       webSettings && webSettings?.footer_color

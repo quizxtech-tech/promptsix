@@ -93,7 +93,7 @@ const PromptHeroes = () => {
     const getData = useSelector(selecttempdata);
 
     // Get Instagram handle from env
-    const instagramHandle = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || "@yourinstagram";
+    const instagramHandle =  "@promptland.in" ;
     const submissionEmail = process.env.NEXT_PUBLIC_SUBMISSION_EMAIL || "submit@yoursite.com";
 
     // SEO: Generate dynamic meta information
@@ -669,9 +669,9 @@ const PromptHeroes = () => {
                                         2
                                     </span>
                                     <div>
-                                        <span>Tag our account: </span>
+                                        <span>Tag or Mention our account: </span>
                                         <a 
-                                            href={`https://instagram.com/${instagramHandle.replace('@', '')}`}
+                                            href={`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="font-bold text-purple-600 hover:text-purple-700 inline-flex items-center gap-1"
@@ -687,12 +687,15 @@ const PromptHeroes = () => {
                                         3
                                     </span>
                                     <div>
-                                        <span>Send us an email at </span>
-                                        <a 
-                                            href={`mailto:${submissionEmail}`}
-                                            className="font-bold text-purple-600 hover:text-purple-700"
+                                        <span>Send us details on instagram at: </span>
+                                         <a 
+                                            href={`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="font-bold text-purple-600 hover:text-purple-700 inline-flex items-center gap-1"
                                         >
-                                            {submissionEmail}
+                                            <IoLogoInstagram className="w-5 h-5" />
+                                            {instagramHandle}
                                         </a>
                                         <span> with:</span>
                                         <ul className="mt-2 ml-4 space-y-1 text-sm">
@@ -723,7 +726,7 @@ const PromptHeroes = () => {
                                 Follow on Instagram
                             </Button>
                             
-                            <Button
+                            {/* <Button
                                 onClick={() => window.location.href = `mailto:${submissionEmail}`}
                                 variant="outline"
                                 className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50"
@@ -731,7 +734,7 @@ const PromptHeroes = () => {
                             >
                                 <IoSend className="mr-2" />
                                 Send Email
-                            </Button>
+                            </Button> */}
                         </div>
 
                         {/* Guidelines */}

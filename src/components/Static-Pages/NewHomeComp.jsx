@@ -1,12 +1,62 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Sparkles, Zap, TrendingUp, Users, ArrowRight, Copy, Wand2, ImagePlus, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getQuestionApi } from '@/api/apiRoutes';
 import toast from 'react-hot-toast';
-import { t } from '@/utils';
 import { useRouter } from 'next/navigation';
 
 const HomePage = () => {
+
+  const promptHeroes = [
+    {
+      question: "@artistic_soul",
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      optionb: "2.4K",
+      optionc: "Cyberpunk Neon"
+    },
+    {
+      question: "@creative_mind",
+      image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=400&h=400&fit=crop",
+      optionb: "1.8K",
+      optionc: "Fantasy Realm"
+    },
+    {
+      question: "@art_wizard",
+      image: "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=400&h=400&fit=crop",
+      optionb: "2.1K",
+      optionc: "Anime Dreams"
+    },
+    {
+      question: "@pixel_master",
+      image: "https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?w=400&h=400&fit=crop",
+      optionb: "1.5K",
+      optionc: "Retro Wave"
+    }
+  ];
+
+  const [hero, setHero] = useState(promptHeroes);
+
+  const getPromptHero = async () => {
+
+                const popularResponse = await getQuestionApi({
+                                category_id: 9,
+                                level: "1",
+                            });
+                            if (!popularResponse.error) {
+                              setHero(popularResponse.data);
+                            }else{
+                              setHero(promptHeroes);
+                            }
+                            
+                          }
+                          console.log(hero);
+
+  useEffect(() => {
+    getPromptHero();
+}, [])
+
   const dummyTrendingPrompts = [
     {
       title: "Ghibli Studio Magic",
@@ -71,32 +121,7 @@ const HomePage = () => {
 
   
 
-  const promptHeroes = [
-    {
-      username: "@artistic_soul",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
-      likes: "2.4K",
-      prompt: "Cyberpunk Neon"
-    },
-    {
-      username: "@creative_mind",
-      image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=400&h=400&fit=crop",
-      likes: "1.8K",
-      prompt: "Fantasy Realm"
-    },
-    {
-      username: "@art_wizard",
-      image: "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=400&h=400&fit=crop",
-      likes: "2.1K",
-      prompt: "Anime Dreams"
-    },
-    {
-      username: "@pixel_master",
-      image: "https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?w=400&h=400&fit=crop",
-      likes: "1.5K",
-      prompt: "Retro Wave"
-    }
-  ];
+  
    const getAllData = async () => {
     try {
         // Second API call - Questions (only if Level API succeeded)
@@ -159,7 +184,8 @@ const HomePage = () => {
   }, []);
 
   const handlePromptClick = async (prompt) => {
-    console.log(`Clicked on prompt with ID: ${prompt}`);
+    console.log(prompt);
+    
     router.push(`/trending/promptDetails/?questionId=${prompt.id}`);
   }
 
@@ -444,9 +470,9 @@ const HomePage = () => {
                 whileHover={{ y: -10 }}
                 className="group cursor-pointer"
               >
-                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 ">
                   {/* Image */}
-                  <div className="relative aspect-video overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden m-2 sm:m-3 rounded-2xl overflow-hidden">
                     <img
                       src={prompt.image}
                       alt={prompt.title}
@@ -467,7 +493,7 @@ const HomePage = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-4 sm:p-6">
+                  <div className="p-2 sm:p-3">
                     <h3 className="text-lg sm:text-xl font-bold mb-2">{prompt.title}</h3>
                     <p className="text-sm text-gray-400 mb-4">{prompt.description}</p>
                     
@@ -537,7 +563,7 @@ const HomePage = () => {
           </motion.div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-12">
-            {promptHeroes.map((hero, index) => (
+            {hero?.map((hero, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -552,7 +578,7 @@ const HomePage = () => {
                   <div className="relative aspect-square overflow-hidden">
                     <img
                       src={hero.image}
-                      alt={hero.username}
+                      alt={hero.question}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
@@ -560,14 +586,14 @@ const HomePage = () => {
                     {/* Likes */}
                     <div className="absolute top-2 sm:top-3 right-2 sm:right-3 flex items-center gap-1 px-2 sm:px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-xs">
                       <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                      <span className="text-xs">{hero.likes}</span>
+                      <span className="text-xs">{hero.optionb}</span>
                     </div>
                   </div>
 
                   {/* Info Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black to-transparent">
-                    <p className="text-xs font-semibold text-purple-400 mb-1">{hero.prompt}</p>
-                    <p className="text-xs sm:text-sm font-medium">{hero.username}</p>
+                    <p className="text-xs font-semibold text-purple-400 mb-1">{hero.optionc}</p>
+                    <p className="text-xs sm:text-sm font-medium">{hero.question}</p>
                   </div>
 
                   {/* Glow Effect */}

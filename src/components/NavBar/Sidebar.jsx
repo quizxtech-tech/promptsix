@@ -2,8 +2,10 @@
 
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 import dynamic from 'next/dynamic'
+import logo from '@/assets/images/logo.jpeg'
 const MobileMenus = dynamic(() => import('./MobileSidebar/MobileMenus'), { ssr: false })
 const Logo = dynamic(() => import('../Logo/Logo'), { ssr: false })
+
 
 const Sidebar = ({ isActive, setIsActive, image }) => {
   return (
@@ -15,7 +17,7 @@ const Sidebar = ({ isActive, setIsActive, image }) => {
           <div className='flex items-center justify-between m-[10px_10px]'>
             {/* Logo Section */}
             <div className='!py-0'>
-              <Logo image={image} isActive={isActive} setIsActive={setIsActive} />
+              <Logo image={logo.src} isActive={isActive} setIsActive={setIsActive} />
             </div>
           </div>
 

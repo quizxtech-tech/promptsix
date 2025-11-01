@@ -10,6 +10,9 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { signOut } from "firebase/auth";
 import { getUserCoinsApi } from "@/api/apiRoutes";
+import placeholder from '@/assets/images/placeholder.png'
+import logo from '@/assets/images/logo.jpeg'
+
 const Sidebar = dynamic(() => import("../NavBar/Sidebar"), { ssr: false });
 const NavBar = dynamic(() => import("../NavBar/NavBar"), { ssr: false });
 const Logo = dynamic(() => import("../Logo/Logo"), { ssr: false });
@@ -113,13 +116,13 @@ const Header = () => {
               <div className="xl:w-1/6 w-auto order-0 pt-3 pb-3">
                 {stickylogo ? (
                   <Logo
-                    image={stickylogoimage}
+                    image={logo.src}
                     isActive={isActive}
                     setIsActive={setIsActive}
                   />
                 ) : (
                   <Logo
-                    image={logoimage}
+                    image={logo.src}
                     isActive={isActive}
                     setIsActive={setIsActive}
                   />

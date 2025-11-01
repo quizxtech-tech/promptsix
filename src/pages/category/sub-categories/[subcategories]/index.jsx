@@ -27,7 +27,7 @@ const QuizZone = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const cateSlug = router.query.subcategories;
-  console.log(cateSlug);
+  console.log('this is outer subcat');
   
 
   const getAllData = async () => {

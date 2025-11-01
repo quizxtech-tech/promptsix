@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import ThemeSvg from "@/components/ThemeSvg";
 import errorimg from "@/assets/images/error.svg";
 import ShareButton from "@/components/Common/ShareButton";
+import placeholder from '@/assets/images/placeholder.png'
 
 const CategoriesComponent = ({ category, handleChangeCategory }) => {
   const [showAll, setShowAll] = useState(false);
@@ -16,6 +17,7 @@ const CategoriesComponent = ({ category, handleChangeCategory }) => {
   const visibleCategories = category?.all 
     ? (showAll ? category.all : category.all.slice(0, 12))
     : [];
+    
 
   const truncate = (txtlength) =>
     txtlength?.length > 17 ? `${txtlength.substring(0, 17)}...` : txtlength;
@@ -40,80 +42,17 @@ const CategoriesComponent = ({ category, handleChangeCategory }) => {
               const imageToShow =
                 data?.has_unlocked === "0" && data?.is_premium === "1";
               return (
-                <div className="" key={key}>
-                  {/* <Link href={`/quiz-zone/${data.slug}`} > */}
-                  {/* <li
-                    className="flex hover:cursor-pointer group:"
-                    onClick={(e) => handleChangeCategory(data)}
-                  >
-                    <div
-                      className={`group w-full flex rounded-[15px] items-start flex-col px-[30px] pb-5 bg-[var(--background-2)] darkSecondaryColor relative transition-all duration-300 ease-in-out overflow-hidden bordercolor
-                          bgWave 
-                          ${
-                            category.selected && category.selected.id === data?.id
-                              ? "active-one"
-                              : "unactive-one"
-                          }`}
-                    >
-                      <div className="flex justify-start items-center gap-4 w-full h-[80px] border-b-[0.5px] border-[#d3d3d3] dark:border-[#FFFFFF16]">
-                        <span className="ml-[10px] flex justify-center items-center z-1 text-white">
-                          <img
-                            className={`w-[45px] h-[45px] object-contain max-w-[100%] max-h-[100%] rounded-[5px] ${process.env.NEXT_PUBLIC_SHOW_ICON_WHITE_IN_DARK_MODE === "true" && !data?.image && 'dark:filter dark:brightness-0 dark:invert'}`}
-                            src={data?.image ? data?.image : `${elitePlaceholder.src}`}
-                            alt="image"
-                          />
-                        </span>
-                        <div className="flex justify-center items-baseline flex-col">
-                          <p className="text-base leading-[18px] font-bold text-text-color text-start mb-2 ">
-                            {truncate(data?.category_name)}
-                          </p>
-                          {data?.no_of !== "0" && data?.no_of !== "" ? (
-                            <p className="text-[13px] font-normal leading-4 text-text-color mb-[-5px] dark:opacity-85">
-                              {t("SubCategories")} : {data?.no_of}
-                            </p>
-                          ) : null}
-                        </div>
-                        <span className="absolute rtl:left-[22px]  ltr:right-[22px] top-[22px] text-text-color text-xl hidden transition-all duration-300 ease-in-out group-hover:block group-hover:transition-all group-hover:duration-2000 group-hover:ease-in-out">
-                          <FiChevronRight className="rtl:rotate-180" />
-                        </span>
-                      </div>
-                      <div className="mt-4 flex items-center w-full justify-between flex-wrap">
-                        <div className="flex gap-5">
-                          {data?.maxlevel !== "0" && (
-                            <span className="text-sm font-normal leading-[17px] text-text-color dark:opacity-65">
-                              {t("total") + " " + t("level") + ": "}
-                              {data?.maxlevel}
-                            </span>
-                          )}
-                          <span className="text-sm font-normal leading-4 text-text-color dark:opacity-65">
-                            {data?.no_of_que <= 1
-                              ? t("Question")
-                              : t("questions")}{" "}
-                            : {data?.no_of_que}
-                          </span>
-                        </div>
-                        {imageToShow ? (
-                          <img
-                            className="absolute rtl:left-4 ltr:right-4"
-                            src={premium.src}
-                            alt="premium"
-                            width={30}
-                            height={30}
-                          />
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                    </div>
-                  </li> */}
+                <div className="relative" key={key}>
+                  
 
+                        {/* <div className="absolute top-4 right-4 z-10"> <ShareButton/> </div> */}
                   <li onClick={(e) => handleChangeCategory(data)} className="group">
                     <div className="flex-center flex-col p-2 gap-2">
-                      <div className="overflow-hidden rounded-[18px]">
-                        <img src={data?.image || "/images/homeSkeleton.png"}  alt="" className="object-cover rounded-[18px] group-hover:scale-105 transition-all duration-500" />
+                      <div className="overflow-hidden rounded-[18px] relative">
+                        <img src={data?.image || placeholder.src}  alt="" className="object-cover rounded-[18px] group-hover:scale-105 transition-all duration-500" />
                       </div>
                       <div className="w-full">
-                        <h2 className="text-start text-xl font-medium">{data?.category_name}</h2>
+                        <h2 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-bold text-3xl bg-clip-text text-transparent text-center">{data?.category_name}</h2>
                       </div>
                     </div>
                   </li>

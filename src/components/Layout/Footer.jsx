@@ -9,6 +9,9 @@ import Logo from "../Logo/Logo";
 import { getImageSource, t } from "@/utils";
 import appstoreimg from "@/assets/images/appstore.svg";
 import palystoreimg from "@/assets/images/playstore.svg";
+import logo from "@/assets/images/logo.jpeg";
+import {IoLogoInstagram } from "react-icons/io5";
+
 
 const Footer = () => {
   const systemconfig = useSelector(sysConfigdata);
@@ -46,18 +49,18 @@ const Footer = () => {
 
   return (
     <Fragment>
-      <div style={{ background: "var(--secondary-color)" }} className="text-white commonMT darkSecondaryColor overflow-hidden">
+      <div style={{ background: "var(--secondary-color)" }} className="text-white darkSecondaryColor overflow-hidden">
       <div className="h-[3px] bg-primary-color filter blur-[3px]"></div>
         <div className="container mx-auto px-4 pt-8 pb-4 md:pt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Left Section */}
             <div className="mb-4">
               <div className="mb-8" role="banner">
-                <Logo image={footer_logo} />
+                <Logo image={logo.src} />
               </div>
-              <p className="text-md text-gray-300 max-w-sm mb-[52px]">{company_text}</p>
+              <p className="text-md text-gray-300 max-w-sm mb-[52px]">PromptLand is your ultimate AI prompt library for efficient image editing. Browse thousands of ready-to-use prompts, explore trending styles, and join our creative community.</p>
               <div className="flex items-center gap-4">
-              {appiosLink && (
+              {/* {appiosLink && (
                   <Link
                     href={appiosLink}
                     target="_blank"
@@ -88,7 +91,7 @@ const Footer = () => {
                       loading="lazy"
                     />
                   </Link>
-                )}
+                )} */}
                 
               </div>
             </div>
@@ -146,7 +149,7 @@ const Footer = () => {
             {/* Find Us Section */}
             <div className="space-y-4">
               <h4 className="text-xl md:text-2xl font-medium" role="heading">{t("find_us_here")}</h4>
-              <address className="not-italic">
+              {/* <address className="not-italic">
                 <ul className="space-y-3">
                   {address_text && (
                     <li className="text-gray-300">{address_text}</li>
@@ -172,26 +175,19 @@ const Footer = () => {
                     </li>
                   )}
                 </ul>
-              </address>
+              </address> */}
+
               <div className="flex flex-wrap items-center gap-10 pt-6">
-                {SocialMedia &&
-                  SocialMedia.map((data, index) => (
-                    <Link
-                      key={index}
-                      href={data?.link}
+               <Link
+                      key={1}
+                      href={`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="transition-transform hover:scale-110 rounded-full border border-white p-[2px]"
-                      aria-label={`Visit our ${data?.link.split('.')[1]} page`}
+                      aria-label={`Visit our ${`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`} page`}
                     >
-                      <img
-                        src={getImageSource(data?.icon)}
-                        alt={`${data?.link.split('.')[1]} icon`}
-                        className="w-6 h-6"
-                        loading="lazy"
-                      />
+                     <IoLogoInstagram className="w-10 h-10 p-2" />
                     </Link>
-                  ))}
               </div>
             </div>
           </div>

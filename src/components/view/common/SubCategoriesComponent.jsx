@@ -4,6 +4,8 @@ import { FiChevronRight } from "react-icons/fi";
 import { t } from "@/utils";
 import errorimg from "@/assets/images/error.svg";
 import ThemeSvg from "@/components/ThemeSvg";
+import ShareButton from "@/components/Common/ShareButton";
+import placeholder from '@/assets/images/placeholder.png'
 
 const SubCategoriesComponent = ({ subCategory, handleChangeSubCategory }) => {
   const [showAll, setShowAll] = useState(false);
@@ -32,63 +34,17 @@ const SubCategoriesComponent = ({ subCategory, handleChangeSubCategory }) => {
               return (
                 <div
                   key={elem?.id}
-                  className=""
-                  onClick={(e) => {
+                  className="relative"
+                  
+                ><div className="absolute top-4 right-4 z-10"> <ShareButton isLevel={false} data={elem} /> </div>
+                  <div className="" onClick={(e) => {
                     handleChangeSubCategory(elem);
-                  }}
-                >
-                  <div className="">
-                    {/* <div
-                      className={`group relative flex flex-col break-words max-991:h-auto py-[18px] px-3 border-none rounded-[8px] gap-4 cursor-pointer overflow-hidden bg-[var(--background-2)] darkSecondaryColor bordercolor bgWave`}
-                    >
-                      <div className=" flex items-center justify-start gap-4 w-full relative max-w-[360px]:flex-wrap ">
-                        <span className=" ml-3 flex justify-center items-start z-1 text-white">
-                          <img
-                            className={`w-[30px] h-[30px] max-w-full max-h-full object-contain rounded-[5px] ${
-                              process.env
-                                .NEXT_PUBLIC_SHOW_ICON_WHITE_IN_DARK_MODE ===
-                                "true" &&
-                              !elem?.image &&
-                              "dark:filter dark:brightness-0 dark:invert"
-                            }`}
-                            src={
-                              elem?.image
-                                ? elem?.image
-                                : `${elitePlaceholder.src}`
-                            }
-                            alt="image"
-                          />
-                        </span>
-                        <div className=" flex flex-col justify-center items-start relative w-full">
-                          <p className=" text-base font-bold leading-5 text-text-color ">
-                            {elem?.subcategory_name}
-                          </p>
-
-                          <div className="flex justify-center items-center w-full mt-4 max-1200:flex-col max-1200:gap-[10px] max-1200:items-start max-1200:w-foll max-767:flex-row max-767:gap-[20px] max-767:items-center max-767:w-full max-[399px]:flex-col max-[399px]:gap-[10px_0px] max-[399px]:item-start max-[399px]:w-full ">
-                            {elem?.maxlevel !== "0" && (
-                              <p className="text-[14px] w-full font-normal leading-4 text-text-color between-1200-1399:text-[12px] m-0">
-                                {" "}
-                                {t("levels")} : {elem?.maxlevel}
-                              </p>
-                            )}
-                            <p className="text-[14px] w-full font-normal leading-4 text-text-color between-1200-1399:text-[12px]">
-                              {" "}
-                              {elem?.no_of_que <= 1
-                                ? t("Question")
-                                : t("questions")}{" "}
-                              : {elem?.no_of_que}
-                            </p>
-                          </div>
-                        </div>
-                        <span className="absolute ltr:right-5 rtl:left-5 rtl:rotate-180 top-[2px] text-text-color text-[20px] invisible transition-visibility ease-in-out duration-300 group-hover:visible">
-                          <FiChevronRight />
-                        </span>
-                      </div>
-                    </div> */}
+                  }}>
+                    
                     <div className="group">
                     <div className="flex-center flex-col p-2 gap-2">
                       <div className="overflow-hidden rounded-[18px]">
-                        <img src={elem?.image || "/images/homeSkeleton.png"}  alt="" className="object-cover rounded-[18px] group-hover:scale-105 transition-all duration-500" />
+                        <img src={elem?.image ||  placeholder.src}  alt="" className="object-cover rounded-[18px] group-hover:scale-105 transition-all duration-500" />
                       </div>
                       <div className="w-full">
                         <h2 className="text-start text-xl font-medium">{elem?.subcategory_name}</h2>
