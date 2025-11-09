@@ -390,7 +390,7 @@ const PromptDetails = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     src={questionDetails.image || placeholder.src}
                     alt={`Visual representation of ${questionDetails.question} - AI prompt template`}
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-full object-contain rounded-xl"
                     loading="eager"
                     itemProp="image"
                   />
@@ -681,22 +681,22 @@ const PromptDetails = () => {
 };
 
 // SEO: Static generation for better SEO and performance
-export async function getStaticPaths() {
-  // This would fetch all question IDs from your API
-  // For now, return fallback: 'blocking' to generate pages on-demand
-  return {
-    paths: [],
-    fallback: 'blocking',
-  };
-}
+// export async function getStaticPaths() {
+//   // This would fetch all question IDs from your API
+//   // For now, return fallback: 'blocking' to generate pages on-demand
+//   return {
+//     paths: [],
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
-  // This would fetch the question data server-side
-  // For client-side data fetching, you can remove this
-  return {
-    props: {},
-    revalidate: 3600, // Revalidate every hour
-  };
-}
+// export async function getStaticProps({ params }) {
+//   // This would fetch the question data server-side
+//   // For client-side data fetching, you can remove this
+//   return {
+//     props: {},
+//     revalidate: 3600, // Revalidate every hour
+//   };
+// }
 
 export default withTranslation()(PromptDetails);

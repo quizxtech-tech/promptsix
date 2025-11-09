@@ -27,11 +27,10 @@ import { store } from "@/store/store";
 import PushNotificationLayout from "../FirebaseNotification/FirebaseNotification";
 import toast from "react-hot-toast";
 import { IoHomeOutline, IoGridOutline, IoFlameOutline, IoPeopleCircleOutline, IoClose } from "react-icons/io5";
+import InstallPWAButton from "../installPWAButton";
 const TopHeader = dynamic(() => import("../NavBar/TopHeader"), { ssr: false });
 const Header = dynamic(() => import("./Header"), { ssr: false });
 const Footer = dynamic(() => import("./Footer"), { ssr: false });
-import Image from "next/image";
-import darkModeStar from "../../assets/images/darkModeStar.png";
 
 const Layout = ({ children }) => {
   const navigate = useRouter();
@@ -45,11 +44,6 @@ const Layout = ({ children }) => {
 
   const dispatch = useDispatch();
 
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showPwaButton, setShowPwaButton] = useState(false);
-  const [isPwaInstalled, setIsPwaInstalled] = useState(false);
-  const showTimerRef = useRef(null);
-  const hideTimerRef = useRef(null);
 
   const currentPath = pathname || "/";
 
@@ -84,30 +78,7 @@ const Layout = ({ children }) => {
     },
   ];
 
-  const handleClosePwaButton = () => {
-    if (hideTimerRef.current) {
-      clearTimeout(hideTimerRef.current);
-      hideTimerRef.current = null;
-    }
-    setShowPwaButton(false);
-  };
-
-  const handleInstallPwa = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const choiceResult = await deferredPrompt.userChoice;
-      setDeferredPrompt(null);
-      if (choiceResult?.outcome === "accepted") {
-        setIsPwaInstalled(true);
-        if (typeof window !== "undefined") {
-          localStorage.setItem("pwaInstalled", "true");
-        }
-        handleClosePwaButton();
-      }
-    } else {
-      toast.error("Your device does not support installing this app.");
-    }
-  };
+ 
 
   useEffect(() => {
     const handleBeforeUnload = () => {
@@ -121,83 +92,6 @@ const Layout = ({ children }) => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleBeforeInstallPrompt = (event) => {
-      event.preventDefault();
-      setDeferredPrompt(event);
-    };
-
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
-    return () => {
-      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-    const checkInstallationStatus = () => {
-      const installedViaStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-      const storedFlag = localStorage.getItem("pwaInstalled") === "true";
-      if (installedViaStandalone || storedFlag) {
-        setIsPwaInstalled(true);
-      }
-    };
-
-    const handleAppInstalled = () => {
-      setIsPwaInstalled(true);
-      localStorage.setItem("pwaInstalled", "true");
-      setDeferredPrompt(null);
-      handleClosePwaButton();
-      toast.success("App installed successfully.");
-    };
-
-    checkInstallationStatus();
-    window.addEventListener("appinstalled", handleAppInstalled);
-
-    return () => {
-      window.removeEventListener("appinstalled", handleAppInstalled);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (showTimerRef.current) {
-      clearTimeout(showTimerRef.current);
-      showTimerRef.current = null;
-    }
-    if (hideTimerRef.current) {
-      clearTimeout(hideTimerRef.current);
-      hideTimerRef.current = null;
-    }
-    const isEligibleForPwa =
-      currentPath === "/" ||
-      currentPath.startsWith("/home") ||
-      currentPath.startsWith("/category");
-    if (isEligibleForPwa) {
-      showTimerRef.current = setTimeout(() => {
-        setShowPwaButton(true);
-        hideTimerRef.current = setTimeout(() => {
-          setShowPwaButton(false);
-          hideTimerRef.current = null;
-        }, 20000);
-      }, 2000);
-    } else {
-      setShowPwaButton(false);
-    }
-    return () => {
-      if (showTimerRef.current) {
-        clearTimeout(showTimerRef.current);
-        showTimerRef.current = null;
-      }
-      if (hideTimerRef.current) {
-        clearTimeout(hideTimerRef.current);
-        hideTimerRef.current = null;
-      }
-    };
-  }, [currentPath]);
-  
 
   useEffect(() => {
     const state = store.getState();
@@ -453,27 +347,7 @@ const Layout = ({ children }) => {
           })}
         </div>
       </nav>
-      {showPwaButton && (
-        <div className="fixed right-4 bottom-28 z-50 md:hidden">
-          <div className="relative">
-            <button
-              type="button"
-              onClick={handleClosePwaButton}
-              className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/80 text-white"
-              aria-label="Dismiss install prompt"
-            >
-              <IoClose className="h-4 w-4" />
-            </button>
-            <button
-              type="button"
-              onClick={handleInstallPwa}
-              className="flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-purple-500/30"
-            >
-              Install App
-            </button>
-          </div>
-        </div>
-      )}
+     <InstallPWAButton />
     </PushNotificationLayout>
   );
 };

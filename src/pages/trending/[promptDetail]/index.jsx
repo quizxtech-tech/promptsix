@@ -390,7 +390,7 @@ const PromptDetails = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     src={questionDetails.image || placeholder.src}
                     alt={`Visual representation of ${questionDetails.question} - AI prompt template`}
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-full object-contain rounded-xl"
                     loading="eager"
                     itemProp="image"
                   />
@@ -603,7 +603,7 @@ const PromptDetails = () => {
               animate={{ x: 0, opacity: 1 }}
               className="text-lg sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-8 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent"
             >
-              R                                                                                                                                                                                                   ecommended Prompts
+              Recommended Prompts
             </motion.h2>
             <div 
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
@@ -686,7 +686,7 @@ export async function getStaticPaths() {
   // For now, return fallback: 'blocking' to generate pages on-demand
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: false,
   };
 }
 

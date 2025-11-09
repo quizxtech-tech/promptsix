@@ -154,32 +154,34 @@ const TopHeader = () => {
   //api render
   useEffect(() => {
     if (router.pathname === "/" || router.pathname === "/category") {
-      const getLanguages = async () => {
-        const response = await getLanguagesApi({
-          id: "",
-        });
+      // const getLanguages = async () => {
+      //   const response = await getLanguagesApi({
+      //     id: "",
+      //   });
 
-        if (!response?.error) {
-          dispatch(languagesReceived(response));
-          if (selectcurrentLanguage.code == null) {
-            let index = response?.data?.filter((data) => {
-              if (response?.data?.length == 1) {
-                return { code: data.code, name: data.name, id: data.id };
-              } else if (data.default_active == "1") {
-                return { code: data.code, name: data.name, id: data.id };
-              }
-            });
+      //   if (!response?.error) {
+      //     dispatch(languagesReceived(response));
+      //     if (selectcurrentLanguage.code == null) {
+      //       let index = response?.data?.filter((data) => {
+      //         if (response?.data?.length == 1) {
+      //           return { code: data.code, name: data.name, id: data.id };
+      //         } else if (data.default_active == "1") {
+      //           return { code: data.code, name: data.name, id: data.id };
+      //         }
+      //       });
 
-            setCurrentLanguage(index[0].language, index[0].code, index[0].id);
-          }
-        }
+      //       setCurrentLanguage(index[0].language, index[0].code, index[0].id);
+      //     }
+      //   }
 
-        if (response.message == errorCodeDataNotFound) {
-          setCurrentLanguage("English (US)", "en", "14");
-        }
-      };
+      //   if (response.message == errorCodeDataNotFound) {
+      //     setCurrentLanguage("English (US)", "en", "14");
+      //   }
+      // };
 
-      getLanguages();
+      // getLanguages();
+    
+    setCurrentLanguage("promptLand", "pl", "64");
     }
   }, [router, selectcurrentLanguage]);
 

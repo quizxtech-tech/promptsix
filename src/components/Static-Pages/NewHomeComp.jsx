@@ -6,37 +6,43 @@ import { Sparkles, Zap, TrendingUp, Users, ArrowRight, Copy, Wand2, ImagePlus, S
 import { getQuestionApi } from '@/api/apiRoutes';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import trendingData from '@/data/trending.js';
+import promptHeroes from '@/data/promptHeroes.js';
+import { isLogin } from '@/utils';
+
 
 const HomePage = () => {
 
-  const promptHeroes = [
-    {
-      question: "@artistic_soul",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
-      optionb: "2.4K",
-      optionc: "Cyberpunk Neon"
-    },
-    {
-      question: "@creative_mind",
-      image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=400&h=400&fit=crop",
-      optionb: "1.8K",
-      optionc: "Fantasy Realm"
-    },
-    {
-      question: "@art_wizard",
-      image: "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=400&h=400&fit=crop",
-      optionb: "2.1K",
-      optionc: "Anime Dreams"
-    },
-    {
-      question: "@pixel_master",
-      image: "https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?w=400&h=400&fit=crop",
-      optionb: "1.5K",
-      optionc: "Retro Wave"
-    }
-  ];
+  
 
-  const [hero, setHero] = useState(promptHeroes);
+  // const promptHeroes = [
+  //   {
+  //     question: "@artistic_soul",
+  //     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+  //     optionb: "2.4K",
+  //     optionc: "Cyberpunk Neon"
+  //   },
+  //   {
+  //     question: "@creative_mind",
+  //     image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=400&h=400&fit=crop",
+  //     optionb: "1.8K",
+  //     optionc: "Fantasy Realm"
+  //   },
+  //   {
+  //     question: "@art_wizard",
+  //     image: "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=400&h=400&fit=crop",
+  //     optionb: "2.1K",
+  //     optionc: "Anime Dreams"
+  //   },
+  //   {
+  //     question: "@pixel_master",
+  //     image: "https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?w=400&h=400&fit=crop",
+  //     optionb: "1.5K",
+  //     optionc: "Retro Wave"
+  //   }
+  // ];
+
+  const [hero, setHero] = useState([]);
 
   const getPromptHero = async () => {
 
@@ -51,39 +57,37 @@ const HomePage = () => {
                             }
                             
                           }
-                          console.log(hero);
 
   useEffect(() => {
     getPromptHero();
 }, [])
 
-  const dummyTrendingPrompts = [
-    {
-      title: "Ghibli Studio Magic",
-      description: "Transform your photos into Studio Ghibli masterpieces",
-      image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=300&fit=crop",
-      uses: "12.5K",
-      tag: "Hot"
-    },
-    {
-      title: "Anime Portrait Pro",
-      description: "Professional anime-style character portraits",
-      image: "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?w=400&h=300&fit=crop",
-      uses: "10.2K",
-      tag: "Trending"
-    },
-    {
-      title: "Superhero Transform",
-      description: "Become your favorite superhero with AI power",
-      image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=300&fit=crop",
-      uses: "8.9K",
-      tag: "Popular"
-    }
-  ];
+  // const dummyTrendingPrompts = [
+  //   {
+  //     title: "Ghibli Studio Magic",
+  //     description: "Transform your photos into Studio Ghibli masterpieces",
+  //     image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=300&fit=crop",
+  //     uses: "12.5K",
+  //     tag: "Hot"
+  //   },
+  //   {
+  //     title: "Anime Portrait Pro",
+  //     description: "Professional anime-style character portraits",
+  //     image: "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?w=400&h=300&fit=crop",
+  //     uses: "10.2K",
+  //     tag: "Trending"
+  //   },
+  //   {
+  //     title: "Superhero Transform",
+  //     description: "Become your favorite superhero with AI power",
+  //     image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=300&fit=crop",
+  //     uses: "8.9K",
+  //     tag: "Popular"
+  //   }
+  // ];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [trendingPrompts, setTrendingPrompts] = useState([]);
-  console.log("Trending Prompts Data:", trendingPrompts);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
@@ -130,7 +134,6 @@ const HomePage = () => {
             level: "1",
         });
 
-        console.log(questionsResponse);
 
         if (!questionsResponse.error) {
            
@@ -165,13 +168,14 @@ const HomePage = () => {
             // Update the state with transformed data
             setTrendingPrompts(transformedTrendingPrompts);
 
-            console.log("Transformed Trending Prompts:", transformedTrendingPrompts);
+        }else{
+
+          setTrendingPrompts(trendingData);
         }
 
     } catch (error) {
         console.error("API Error:", error);
         // Keep dummy data on error
-        setTrendingPrompts(dummyTrendingPrompts);
     }
 };
 
@@ -184,9 +188,13 @@ const HomePage = () => {
   }, []);
 
   const handlePromptClick = async (prompt) => {
-    console.log(prompt);
-    
-    router.push(`/trending/promptDetails/?questionId=${prompt.id}`);
+if(isLogin()){
+  router.push(`/trending/promptDetails/?questionId=${prompt.id}`);
+
+}else {
+  toast.error("Please login to view prompt details");
+  router.push('/auth/login');
+}   
   }
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);

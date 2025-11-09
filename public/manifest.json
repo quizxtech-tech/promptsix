@@ -1,23 +1,38 @@
-    {
-    "name": "QuizXTech",
-    "short_name": "QuizX",
-    "description": "Fun quizzes & learning games",
-    "start_url": "/quiz-play?source=pwa",
-    "scope": "/",
-    "display": "standalone",
-    "orientation": "portrait",
-    "background_color": "#ffffff",
-    "theme_color": "#0ea5a4",
-    "icons": [
-        { "src": "/vercel.svg", "sizes": "192x192", "type": "image/png" }
-    ],
-    "shortcuts": [
-        {
-        "name": "Take Quiz",
-        "short_name": "Quiz",
-        "url": "/quiz",
-        "icons": [{ "src": "/icons/quizx.png", "sizes": "192x192" }]
-        }
-    ],
-    "categories": ["education", "games"]
+{
+  "name": "Prompt Land",
+  "short_name": "PromptLand",
+  "description": "Explore AI image editing more efficiently with PromptLand",
+  "start_url": "/category?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#3837ff",
+  "icons": [
+    { 
+      "src": "/placeholder.png", 
+      "sizes": "192x192", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    { 
+      "src": "/logo-512.png", 
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "any maskable"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "Quiz",
+      "short_name": "Quiz",
+      "url": "/category?source=pwa",
+      "icons": [{ 
+        "src": "/placeholder.png", 
+        "sizes": "192x192",
+        "type": "image/png"
+      }]
+    }
+  ],
+  "categories": ["productivity", "utilities"]
+}
