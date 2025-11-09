@@ -8,6 +8,17 @@ const CustomDocument = () => {
   return (
     <Html lang="en" version={process.env.NEXT_PUBLIC_WEB_CURRENT_VERSION}>
       <Head>
+         {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Theme color for browser UI */}
+        <meta name="theme-color" content="#3837ff" />
+        
+        {/* Apple Touch Icon for iOS */}
+        <link rel="apple-touch-icon" href="/placeholder.png" />
+        
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

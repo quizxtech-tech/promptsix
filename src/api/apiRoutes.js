@@ -287,7 +287,7 @@ export const getCategoriesApi = async ({ type = "", sub_type = "" }) => {
     const formData = new FormData();
     if (type) formData.append("type", type);
     if (sub_type) formData.append("sub_type", sub_type);
-    if (language_id) formData.append("language_id", 64);
+    if (language_id) formData.append("language_id", language_id);
 
     const response = await api.post(apiEndPoints.getCategoriesApi, formData);
 
@@ -316,7 +316,7 @@ export const getSubcategoriesApi = async ({
   let { id: language_id } = await getLanguage();
   try {
     const formData = new FormData();
-    if (language_id) formData.append("language_id", 64);
+    if (language_id) formData.append("language_id", language_id);
     if (category_id) formData.append("category_slug", category_id);
     if (subcategory_id) formData.append("subcategory_slug", subcategory_id);
 
@@ -679,7 +679,7 @@ export const getQuestionApi = async ({
   try {
     const formData = new FormData();
     if (category_id) formData.append("category", category_id);
-    if (language_id) formData.append("language_id", 64);
+    if (language_id) formData.append("language_id", language_id);
     if (level) formData.append("level", level);
     if (subcategory_id) formData.append("subcategory", subcategory_id);
     const response = await api.post(apiEndPoints.getQuestionApi, formData);

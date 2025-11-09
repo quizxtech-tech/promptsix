@@ -181,7 +181,7 @@ const TopHeader = () => {
 
       // getLanguages();
     
-    setCurrentLanguage("promptLand", "pl", "64");
+    setCurrentLanguage("English (US)", "en", "14");
     }
   }, [router, selectcurrentLanguage]);
 
