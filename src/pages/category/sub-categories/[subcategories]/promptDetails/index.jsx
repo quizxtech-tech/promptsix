@@ -15,9 +15,13 @@ import { IoCopyOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCheckmarkCircle, IoSparkles, IoArrowForward } from "react-icons/io5";
 import placeholder from '@/assets/images/placeholder.png'
-import chatGPT from "@/assets/images/chatgpt.svg"; 
-import gemini from "@/assets/images/gemini.svg"; 
-import perplexity from "@/assets/images/perplexity.svg"; 
+import chatGPT from "@/assets/images/chatgpt.svg";
+import gemini from "@/assets/images/gemini.svg";
+import qwen from "@/assets/images/qwen.jpeg";
+import adobe from "@/assets/images/adobe.png";
+import freepik from "@/assets/images/freepik.png";
+import canva from "@/assets/images/canva.jpeg";
+import krea from "@/assets/images/krea.webp";
 import ShareButton from "@/components/Common/ShareButton";
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
@@ -26,9 +30,13 @@ const Layout = dynamic(() => import("@/components/Layout/Layout"), {
 
 // AI Models data
 const aiModels = [
+  { name: "nano banana", image: gemini, url: "https://bard.google.com", description: "Google's AI assistant" },
   { name: "ChatGPT", image: chatGPT, url: "https://chat.openai.com", description: "OpenAI's conversational AI" },
-  { name: "Bard", image: gemini, url: "https://bard.google.com", description: "Google's AI assistant" },
-  { name: "Claude", image: perplexity, url: "https://claude.ai", description: "Anthropic's AI assistant" },
+  { name: "krea", image: krea, url: "https://www.krea.ai/features/ai-image-generator", description: "Anthropic's AI assistant" },
+  { name: "freepik", image: freepik, url: "https://www.freepik.com/ai/image-generator", description: "Anthropic's AI assistant" },
+  { name: "Qwen-Image-Edit",  image: qwen, url: "https://qwenimageedit.run/", description: "Qwen-Image-Edit provides a free chat-style image editor for long and precise visual edits using advanced prompt processing."},
+  { name: "Adobe Firefly", image: adobe, url: "https://firefly.adobe.com", description: "Adobe’s free Firefly web editor supports prompt-based editing, generative fill, style transfer, and precise visual refinements for creative professionals."},
+  { name: "canva", image: canva, url: "https://www.canva.com/ai-image-generator/", description: "Anthropic's AI assistant" },
 ];
 
 // Animation variants
@@ -235,6 +243,8 @@ const PromptDetails = () => {
           
           const filtered = response.data.filter(q => q.id !== questionId);
           const randomQuestions = filtered.sort(() => 0.5 - Math.random()).slice(0, 4);
+          console.log(randomQuestions);
+          
           setRecommendedQuestions(randomQuestions);
         }
         setIsLoading(false);
@@ -380,7 +390,6 @@ const PromptDetails = () => {
               {/* Background Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 opacity-50" aria-hidden="true" />
               
-              {questionDetails?.image && (
                 <motion.div
                   variants={imageVariants}
                   className="relative h-full sm:h-72 lg:h-96 xl:h-[40rem] overflow-hidden p-6 flex sm:flex-row flex-col gap-6"
@@ -436,7 +445,6 @@ const PromptDetails = () => {
                     </motion.p>
                   </div>
                 </motion.div>
-              )}
               
               <div className="relative p-4 sm:p-8 lg:p-10">
                 {/* Prompt Section */}
@@ -603,7 +611,7 @@ const PromptDetails = () => {
               animate={{ x: 0, opacity: 1 }}
               className="text-lg sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-8 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent"
             >
-              R                                                                                                                                                                                                   ecommended Prompts
+              Recommended Prompts
             </motion.h2>
             <div 
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
@@ -631,19 +639,18 @@ const PromptDetails = () => {
                     variants={cardHoverVariants}
                     className="bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 h-full"
                   >
-                    {question.image && (
+                    
                       <div className="relative h-[85%] sm:h-56 overflow-hidden p-3">
                         <motion.img
                           // whileHover={{ scale: 1.1 }}
                           transition={{ duration: 0.6 }}
-                          src={question.image  || placeholder.src}
+                          src={question.image !== "" ? question.image : placeholder.src}
                           alt={`${question.question} - AI prompt template preview`}
                           className="w-full h-full object-cover rounded-xl"
                           loading="lazy"
                           itemProp="image"
                         />
                       </div>
-                    )}
                     <div className="p-3 sm:p-6">
                       <h3 
                         className="font-bold text-sm sm:text-lg mb-2 text-gray-800 line-clamp-2 group-hover:text-purple-600 transition-colors duration-300"

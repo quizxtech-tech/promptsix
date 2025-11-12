@@ -1,6 +1,6 @@
 // import { Skeleton } from 'antd'
-import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
+import Skeleton from "react-loading-skeleton";
 
 const QuestionSkeleton = () => {
   return (

@@ -202,7 +202,7 @@ const PromptHeroes = () => {
         try {
             // Fetch Most Popular (Level 1)
             const popularResponse = await getQuestionApi({
-                category_id: 9,
+                category_id: 4,
                 level: "1",
             });
 
@@ -212,7 +212,7 @@ const PromptHeroes = () => {
 
             // Fetch All Works (Level 2)
             const allWorksResponse = await getQuestionApi({
-                category_id: 9,
+                category_id: 4,
                 level: "2",
             });
 

@@ -43,7 +43,7 @@ const PromptHeros = () => {
    const getQuestionDetails = async () => {
       try {
         const response = await getQuestionApi({
-          category_id: 8,
+          category_id: 4,
           subcategory_id: subcatid || "",
           level: "1",
         });

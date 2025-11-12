@@ -30,8 +30,8 @@ export const protectedRoutes = [
   '/profile/',
   '/play-bookmark-questions/',
   '/multi-match-questions/',
-  '/category/',
-  '/trending/',
-  '/prompt-heroes/',
-  '/prompt/',
+  // '/category/',
+  // '/trending/',
+  // '/prompt-heroes/',
+  // '/prompt/',
 ]

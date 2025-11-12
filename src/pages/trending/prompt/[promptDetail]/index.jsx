@@ -15,9 +15,13 @@ import { IoCopyOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCheckmarkCircle, IoSparkles, IoArrowForward } from "react-icons/io5";
 import placeholder from '@/assets/images/placeholder.png'
-import chatGPT from "@/assets/images/chatgpt.svg"; 
-import gemini from "@/assets/images/gemini.svg"; 
-import perplexity from "@/assets/images/perplexity.svg"; 
+import chatGPT from "@/assets/images/chatgpt.svg";
+import gemini from "@/assets/images/gemini.svg";
+import qwen from "@/assets/images/qwen.jpeg";
+import adobe from "@/assets/images/adobe.png";
+import freepik from "@/assets/images/freepik.png";
+import canva from "@/assets/images/canva.jpeg";
+import krea from "@/assets/images/krea.webp";
 import ShareButton from "@/components/Common/ShareButton";
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
@@ -26,9 +30,13 @@ const Layout = dynamic(() => import("@/components/Layout/Layout"), {
 
 // AI Models data
 const aiModels = [
+  { name: "nano banana", image: gemini, url: "https://bard.google.com", description: "Google's AI assistant" },
   { name: "ChatGPT", image: chatGPT, url: "https://chat.openai.com", description: "OpenAI's conversational AI" },
-  { name: "Bard", image: gemini, url: "https://bard.google.com", description: "Google's AI assistant" },
-  { name: "Claude", image: perplexity, url: "https://claude.ai", description: "Anthropic's AI assistant" },
+  { name: "krea", image: krea, url: "https://www.krea.ai/features/ai-image-generator", description: "Anthropic's AI assistant" },
+  { name: "freepik", image: freepik, url: "https://www.freepik.com/ai/image-generator", description: "Anthropic's AI assistant" },
+  { name: "Qwen-Image-Edit",  image: qwen, url: "https://qwenimageedit.run/", description: "Qwen-Image-Edit provides a free chat-style image editor for long and precise visual edits using advanced prompt processing."},
+  { name: "Adobe Firefly", image: adobe, url: "https://firefly.adobe.com", description: "Adobe’s free Firefly web editor supports prompt-based editing, generative fill, style transfer, and precise visual refinements for creative professionals."},
+  { name: "canva", image: canva, url: "https://www.canva.com/ai-image-generator/", description: "Anthropic's AI assistant" },
 ];
 
 // Animation variants
@@ -90,7 +98,7 @@ const PromptDetails = () => {
   const selectedCategory = useSelector(getSelectedCategory);
   const selectedSubCategory = useSelector(getSelectedSubCategory);
   const router = useRouter();
-  const { catid, subcatid, questionId } = router.query;
+  const { catid, subcatid, id } = router.query;
 
   // SEO: Generate dynamic meta information
   const generateMetaData = () => {
@@ -99,11 +107,11 @@ const PromptDetails = () => {
     const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://yoursite.com';
     const currentUrl = typeof window !== 'undefined' ? window.location.href : `${siteUrl}${router.asPath}`;
     const siteName = "AI Prompt Library"; // Change to your site name
-    
+
     const title = `${questionDetails.question} | ${siteName}`;
     const description = questionDetails.optiona || `Explore ${questionDetails.question} - Professional AI prompts for ChatGPT, Claude, and Bard. Get instant results with our curated prompt library.`;
     const imageUrl = questionDetails.image || `${siteUrl}/default-og-image.jpg`;
-    
+
     // Generate keywords from question and category
     const keywords = [
       questionDetails.question,
@@ -126,7 +134,7 @@ const PromptDetails = () => {
     if (!questionDetails) return null;
 
     const metaData = generateMetaData();
-    
+
     // Article Schema
     const articleSchema = {
       "@context": "https://schema.org",
@@ -221,19 +229,19 @@ const PromptDetails = () => {
   };
 
   const getQuestionDetails = async () => {
-    if (questionId) {
+    if (id) {
       try {
         const response = await getQuestionApi({
-          category_id: 8,
+          category_id: 3,
           subcategory_id: subcatid || "",
           level: "1",
         });
 
         if (!response.error) {
-          const question = response.data.find(q => q.id === questionId);
+          const question = response.data.find(q => q.id === id);
           setQuestionDetails(question);
-          
-          const filtered = response.data.filter(q => q.id !== questionId);
+
+          const filtered = response.data.filter(q => q.id !== id);
           const randomQuestions = filtered.sort(() => 0.5 - Math.random()).slice(0, 4);
           setRecommendedQuestions(randomQuestions);
         }
@@ -260,7 +268,7 @@ const PromptDetails = () => {
   useEffect(() => {
     if (!router.isReady) return;
     getQuestionDetails();
-  }, [router.isReady, questionId, selectcurrentLanguage]);
+  }, [router.isReady, id, selectcurrentLanguage]);
 
   const metaData = generateMetaData();
   const structuredData = generateStructuredData();
@@ -304,7 +312,7 @@ const PromptDetails = () => {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-          
+
           {/* Structured Data - JSON-LD */}
           {structuredData && (
             <>
@@ -379,65 +387,63 @@ const PromptDetails = () => {
             >
               {/* Background Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 opacity-50" aria-hidden="true" />
-              
-              {questionDetails?.image && (
-                <motion.div
-                  variants={imageVariants}
-                  className="relative h-full sm:h-72 lg:h-96 xl:h-[40rem] overflow-hidden p-6 flex sm:flex-row flex-col gap-6"
-                >
-                  <motion.img
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    src={questionDetails.image || placeholder.src}
-                    alt={`Visual representation of ${questionDetails.question} - AI prompt template`}
-                    className="w-full h-full object-contain rounded-xl"
-                    loading="eager"
-                    itemProp="image"
-                  />
-                  {/* Title with Icon */}
-                  <div className="w-full">
-                    <motion.div
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      className="flex items-start gap-3 mb-4 sm:mb-6"
-                    >
-                      <motion.div
-                        animate={{
-                          rotate: [0, 10, -10, 0],
-                          scale: [1, 1.1, 1]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          repeatDelay: 3
-                        }}
-                        aria-hidden="true"
-                      >
-                        <IoSparkles className="text-2xl sm:text-3xl text-purple-600 flex-shrink-0 mt-1" />
-                      </motion.div>
-                      <h1 
-                        id="prompt-title"
-                        className="text-xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent leading-tight"
-                        itemProp="headline"
-                      >
-                        {questionDetails?.question}
-                      </h1>
-                    </motion.div>
 
-                    <motion.p
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.4 }}
-                      className="text-sm sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed"
-                      itemProp="description"
+              <motion.div
+                variants={imageVariants}
+                className="relative h-full sm:h-72 lg:h-96 xl:h-[40rem] overflow-hidden p-6 flex sm:flex-row flex-col gap-6"
+              >
+                <motion.img
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  src={questionDetails.image || placeholder.src}
+                  alt={`Visual representation of ${questionDetails.question} - AI prompt template`}
+                  className="w-full h-full object-contain rounded-xl"
+                  loading="eager"
+                  itemProp="image"
+                />
+                {/* Title with Icon */}
+                <div className="w-full">
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex items-start gap-3 mb-4 sm:mb-6"
+                  >
+                    <motion.div
+                      animate={{
+                        rotate: [0, 10, -10, 0],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatDelay: 3
+                      }}
+                      aria-hidden="true"
                     >
-                      {questionDetails?.optiona}
-                    </motion.p>
-                  </div>
-                </motion.div>
-              )}
-              
+                      <IoSparkles className="text-2xl sm:text-3xl text-purple-600 flex-shrink-0 mt-1" />
+                    </motion.div>
+                    <h1
+                      id="prompt-title"
+                      className="text-xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent leading-tight"
+                      itemProp="headline"
+                    >
+                      {questionDetails?.question}
+                    </h1>
+                  </motion.div>
+
+                  <motion.p
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-sm sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed"
+                    itemProp="description"
+                  >
+                    {questionDetails?.optiona}
+                  </motion.p>
+                </div>
+              </motion.div>
+
               <div className="relative p-4 sm:p-8 lg:p-10">
                 {/* Prompt Section */}
                 <motion.div
@@ -496,13 +502,13 @@ const PromptDetails = () => {
                       )}
                     </AnimatePresence>
                   </motion.button>
-                  <div className="absolute top-3 right-19 sm:top-4 sm:right-20 "><ShareButton/></div>
+                  <div className="absolute top-3 right-19 sm:top-4 sm:right-20 "><ShareButton /></div>
 
                   <h2 className="text-sm sm:text-base font-semibold text-purple-400 mb-3 sm:mb-4 flex items-center gap-2">
                     <span className="w-1 h-4 sm:h-6 bg-purple-500 rounded-full" aria-hidden="true" />
                     {t("prompt")}
                   </h2>
-                  <p 
+                  <p
                     className="text-xs sm:text-base text-gray-100 leading-relaxed pr-8 sm:pr-12 font-mono"
                     itemProp="text"
                   >
@@ -514,8 +520,8 @@ const PromptDetails = () => {
           </article>
 
           {/* AI Models Section */}
-          <motion.section 
-            variants={itemVariants} 
+          <motion.section
+            variants={itemVariants}
             className="mb-8 sm:mb-16"
             aria-labelledby="ai-models-title"
           >
@@ -527,7 +533,7 @@ const PromptDetails = () => {
             >
               {t("Try with Ai models")}
             </motion.h2>
-            <nav 
+            <nav
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6"
               aria-label="AI model selection"
             >
@@ -560,7 +566,7 @@ const PromptDetails = () => {
                       className="absolute inset-0 bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100 rounded-2xl sm:rounded-3xl"
                       aria-hidden="true"
                     />
-                    
+
                     <motion.div
                       whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                       transition={{ duration: 0.5 }}
@@ -576,7 +582,7 @@ const PromptDetails = () => {
                     <h3 className="relative font-semibold text-xs sm:text-base text-gray-800">
                       {model.name}
                     </h3>
-                    
+
                     {/* Arrow Icon on Hover */}
                     <motion.div
                       initial={{ opacity: 0, x: -10 }}
@@ -593,7 +599,7 @@ const PromptDetails = () => {
           </motion.section>
 
           {/* Recommended Questions Section */}
-          <motion.section 
+          <motion.section
             variants={itemVariants}
             aria-labelledby="recommended-title"
           >
@@ -605,7 +611,7 @@ const PromptDetails = () => {
             >
               Recommended Prompts
             </motion.h2>
-            <div 
+            <div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
               role="list"
               aria-label="Recommended AI prompts"
@@ -620,7 +626,7 @@ const PromptDetails = () => {
                   custom={index}
                   onClick={() => router.push({
                     pathname: router.pathname,
-                    query: { ...router.query, questionId: question.id },
+                    query: { ...router.query, id: question.id },
                   })}
                   className="cursor-pointer group"
                   role="listitem"
@@ -631,33 +637,31 @@ const PromptDetails = () => {
                     variants={cardHoverVariants}
                     className="bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 h-full"
                   >
-                    {question.image && (
-                      <div className="relative h-[85%] sm:h-56 overflow-hidden p-3">
-                        <motion.img
-                          // whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.6 }}
-                          src={question.image || placeholder.src}
-                          alt={`${question.question} - AI prompt template preview`}
-                          className="w-full h-full object-cover rounded-xl"
-                          loading="lazy"
-                          itemProp="image"
-                        />
-                      </div>
-                    )}
+                    <div className="relative h-[85%] sm:h-56 overflow-hidden p-3">
+                      <motion.img
+                        // whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                        src={question.image || placeholder.src}
+                        alt={`${question.question} - AI prompt template preview`}
+                        className="w-full h-full object-cover rounded-xl"
+                        loading="lazy"
+                        itemProp="image"
+                      />
+                    </div>
                     <div className="p-3 sm:p-6">
-                      <h3 
+                      <h3
                         className="font-bold text-sm sm:text-lg mb-2 text-gray-800 line-clamp-2 group-hover:text-purple-600 transition-colors duration-300"
                         itemProp="headline"
                       >
                         {question.question}
                       </h3>
-                      <p 
+                      <p
                         className="text-xs sm:text-sm text-gray-600 line-clamp-2 leading-relaxed"
                         itemProp="description"
                       >
                         {question.optiona}
                       </p>
-                      
+
                       {/* Read More Arrow */}
                       <motion.div
                         initial={{ x: 0, opacity: 0 }}
@@ -681,22 +685,22 @@ const PromptDetails = () => {
 };
 
 // SEO: Static generation for better SEO and performance
-export async function getStaticPaths() {
-  // This would fetch all question IDs from your API
-  // For now, return fallback: 'blocking' to generate pages on-demand
-  return {
-    paths: [],
-    fallback: false,
-  };
-}
+// export async function getStaticPaths() {
+//   // This would fetch all question IDs from your API
+//   // For now, return fallback: 'blocking' to generate pages on-demand
+//   return {
+//     paths: [],
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
-  // This would fetch the question data server-side
-  // For client-side data fetching, you can remove this
-  return {
-    props: {},
-    revalidate: 3600, // Revalidate every hour
-  };
-}
+// export async function getStaticProps({ params }) {
+//   // This would fetch the question data server-side
+//   // For client-side data fetching, you can remove this
+//   return {
+//     props: {},
+//     revalidate: 3600, // Revalidate every hour
+//   };
+// }
 
 export default withTranslation()(PromptDetails);

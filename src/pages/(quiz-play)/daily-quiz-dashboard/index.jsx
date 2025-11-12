@@ -1,6 +1,6 @@
 "use client";
 import { lazy, Suspense, useEffect, useState } from "react";
-import Breadcrumb from "@/components/Common/Breadcrumb";
+import Breadcrumb from "../../../components/Common/Breadcrumb";
 import { withTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { sysConfigdata } from "@/store/reducers/settingsSlice";

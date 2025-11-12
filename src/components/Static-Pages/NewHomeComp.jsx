@@ -47,7 +47,7 @@ const HomePage = () => {
   const getPromptHero = async () => {
 
                 const popularResponse = await getQuestionApi({
-                                category_id: 9,
+                                category_id: 4,
                                 level: "1",
                             });
                             if (!popularResponse.error) {
@@ -130,7 +130,7 @@ const HomePage = () => {
     try {
         // Second API call - Questions (only if Level API succeeded)
         const questionsResponse = await getQuestionApi({
-            category_id: 8,
+            category_id: 3,
             level: "1",
         });
 
@@ -618,7 +618,7 @@ if(isLogin()){
             className="text-center space-y-4"
           >
             <motion.a
-              href={`${process.env.NEXT_PUBLIC_APP_WEB_URL}/prompt-heroes`}
+              href={`${process.env.NEXT_PUBLIC_APP_WEB_URL}/promptHeroes/`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-full font-semibold hover:shadow-2xl hover:shadow-yellow-500/50 transition-all duration-300"

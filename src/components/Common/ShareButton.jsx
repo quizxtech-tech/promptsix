@@ -6,6 +6,7 @@ import { IoShareSocial } from "react-icons/io5";
 import { FaInstagram, FaWhatsapp, FaSnapchatGhost, FaFacebookF } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const ShareButton = ({ isSubCat, isLevel, data, shareUrl, title, description, className = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ const ShareButton = ({ isSubCat, isLevel, data, shareUrl, title, description, cl
 
     // Case 1: Level page (prompt details)
     if (isLevel && data.category && data.id) {
-      return `${baseUrl}/category/sub-categories/${data.category_slug}/prompt/promptDetails/?catid=${data.category}&subcatid=${data.subcategory || ''}&questionId=${data.id}`;
+      return `${baseUrl}/category/sub-categories/${data.category_slug}/promptDetails/?catid=${data.category}&subcatid=${data.subcategory || ''}&questionId=${data.id}`;
     }else{
       return `${baseUrl}/category/sub-categories/${data.category_name}/prompt/?catid=${data.maincat_id}&subcatid=${data.id}&isSubcategory=1`;
     }
@@ -148,10 +149,10 @@ const ShareButton = ({ isSubCat, isLevel, data, shareUrl, title, description, cl
     if (customAction && key === 'instagram') {
       try {
         await navigator.clipboard.writeText(href);
-        alert('Link copied! Open Instagram and paste it in your story or post.');
+        toast.success('Link copied! Open Instagram and paste it in your story or post.');
       } catch (error) {
         console.error('Failed to copy:', error);
-        alert('Failed to copy link. Please try again.');
+        toast.error('Failed to copy link. Please try again.');
       }
       setIsOpen(false);
       return;
@@ -175,15 +176,15 @@ const ShareButton = ({ isSubCat, isLevel, data, shareUrl, title, description, cl
   };
 
   // Debug logging (remove in production)
-  useEffect(() => {
-    console.log('ShareButton Debug:', {
-      isSubCat,
-      isLevel,
-      data,
-      generatedUrl: generateURL(),
-      finalUrl,
-    });
-  }, [isSubCat, isLevel, data, finalUrl]);
+  // useEffect(() => {
+  //   console.log('ShareButton Debug:', {
+  //     isSubCat,
+  //     isLevel,
+  //     data,
+  //     generatedUrl: generateURL(),
+  //     finalUrl,
+  //   });
+  // }, [isSubCat, isLevel, data, finalUrl]);
 
   return (
     <div ref={containerRef} className={`relative inline-flex ${className}`}>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-import { getBookmarkData, t } from "@/utils";
+import { getBookmarkData, t } from "../../utils/index";
 import toast from "react-hot-toast";
 
 function Bookmark({ id, onClick, type }) {

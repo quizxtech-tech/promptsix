@@ -7,7 +7,7 @@ import { questionsData } from '@/store/reducers/tempDataSlice'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 const Layout = dynamic(() => import('@/components/Layout/Layout'), { ssr: false })
-import { t } from '@/utils'
+import { t } from '@/utils/index.jsx'
 import { Suspense } from 'react'
 import QuestionSkeleton from '../../../components/view/common/QuestionSkeleton.jsx'
 import ReviewAnswer from '../../../components/Common/ReviewAnswer.jsx'

@@ -21,35 +21,27 @@ const Layout = dynamic(() => import("@/components/Layout/Layout"), {
 const QuestionPrompt = () => {
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [categorySlug, setCategorySlug] = useState(null); // Add state for category slug
   const selectcurrentLanguage = useSelector(selectCurrentLanguage);
   const selectedCategory = useSelector(getSelectedCategory);  
   const selectedSubCategory = useSelector(getSelectedSubCategory);
   const router = useRouter();
-  const { catid, isSubcategory, subcatid } = router.query;
+  const { catid, isSubcategory, subcatid, subcategories } = router.query; // Get subcategories from URL
   let getData = useSelector(selecttempdata)
   const dispatch = useDispatch();
-console.log('this is subcat');
+  
+  console.log('Router query:', router.query);
+  console.log('Selected category:', selectedCategory);
 
   const getAllData = async () => {
-
     if (catid) {
       try {
-        // First API call - Level Data
-        const LevelResponse = await getLevelDataApi({
-          category_id: catid,
-          subcategory_id: subcatid || "",
-          level: "1",
-        });
-
-
-
-        // Second API call - Questions (only if Level API succeeded)
+        // Second API call - Questions
         const questionsResponse = await getQuestionApi({
           category_id: catid,
           subcategory_id: subcatid || "",
           level: "1",
         });
-
 
         if (!questionsResponse.error) {
           let bookmark = getBookmarkData();
@@ -102,32 +94,44 @@ console.log('this is subcat');
 
   useEffect(() => {
     if (!router.isReady) return;
+    
+    // Get category slug from URL or Redux
+    const slug = subcategories || selectedCategory?.category_slug;
+    setCategorySlug(slug);
+    
+    console.log('Category slug determined:', slug);
+    
     getAllData();
   }, [router.isReady, selectcurrentLanguage]);
 
   const handleChangeCategory = (question) => {
-
     dispatch(selectedSubCategorySuccess(question));
+    
+    // Use categorySlug from state (URL) instead of Redux
+    const slugToUse = categorySlug || router.query.subcategories || 'category';
+    
+    console.log('Navigating with slug:', slugToUse);
+    
     router.push({
-      pathname: `${router.pathname}/promptDetails`,
+      pathname: `/category/sub-categories/${slugToUse}/promptDetails`,
       query: {
-        ...router.query,
+        catid: catid,
+        isSubcategory: isSubcategory,
+        subcatid: subcatid,
+        // subcategories: slugToUse,
         questionId: question.id
       },
-    })
-
+    });
   }
-
 
   return (
     <Layout>
       <Breadcrumb
         showBreadcrumb={true}
-        title={selectedSubCategory?.subcategory_name || selectedCategory?.category_name}
+        title={selectedSubCategory?.subcategory_name || selectedCategory?.category_name || categorySlug}
         content={t("home")}
         contentTwo={t("category")}
-        // contentThree={selectedCategory?.category_name}
-        contentFour={selectedCategory?.category_name}
+        contentFour={selectedCategory?.category_name || categorySlug}
       />
       <div className="container mb-14">
         {isLoading ? (
@@ -139,29 +143,30 @@ console.log('this is subcat');
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {questions.map((question) => (
-              <div className="relative">
-                <div className="absolute top-6 right-6 z-10"><ShareButton data={question} isLevel={true} /></div>
-              <div
-                key={question.id}
-                onClick={() => handleChangeCategory(question)}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 p-4 group cursor-pointer"
-              >
-
-                <div className=" overflow-hidden rounded-xl mb-2">
-                  <img
-                    src={question.image || placeholder.src}
-                    alt={question.question}
-                    className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-all duration-500"
-                  />
+              <div className="relative" key={question.id}>
+                <div className="absolute top-6 right-6 z-10">
+                  <ShareButton data={question} isLevel={true} />
                 </div>
+                <div
+                  onClick={() => handleChangeCategory(question)}
+                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 p-4 group cursor-pointer"
+                >
+                  <div className="overflow-hidden rounded-xl mb-2">
+                    <img
+                      src={question.image || placeholder.src}
+                      alt={question.question}
+                      className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-all duration-500"
+                    />
+                  </div>
 
-                <div className="">
-                  <h3 className="font-semibold text-lg mb-2">{question.question}</h3>
-                  <p className="text-gray-600">
-                    {truncate(question.optiona)}
-                  </p>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">{question.question}</h3>
+                    <p className="text-gray-600">
+                      {truncate(question.optiona)}
+                    </p>
+                  </div>
                 </div>
-              </div></div>
+              </div>
             ))}
           </div>
         )}

@@ -39,7 +39,7 @@ const QuestionPrompt = () => {
 
             // Second API call - Questions (only if Level API succeeded)
             const questionsResponse = await getQuestionApi({
-                category_id: 8,
+                category_id: 3,
                 level: "1",
             });
 
@@ -100,10 +100,10 @@ const QuestionPrompt = () => {
 
     const handleChangeSubCategory = (question) => {
         router.push({
-            pathname: `${router.pathname}/promptDetails`,
+            pathname: `/trending/prompt/${question.question}`,
             query: {
                 ...router.query,
-                questionId: question.id
+                id: question.id
             },
         })
         dispatch(selectedSubCategorySuccess(question));

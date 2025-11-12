@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { RenderHtmlContent, decryptAnswer, getImageSource, handleBookmarkClick, imgError, reportQuestion } from '@/utils'
 import { useSelector } from 'react-redux'
-import { sysConfigdata } from '@/store/reducers/settingsSlice'
+import { sysConfigdata } from '../../store/reducers/settingsSlice'
 import { RiArrowLeftDoubleLine, RiArrowRightDoubleLine } from 'react-icons/ri'
-import { t } from '@/utils'
+import { t } from '@/utils/index.jsx'
 
 import Bookmark from './Bookmark'
 
