@@ -115,13 +115,12 @@ RewriteRule ^multi-match-questions/review-answer/?$ /multi-match-questions/revie
 # PROMPT HEROES
 # ------------------------------
 RewriteRule ^prompt-heroes/?$ /prompt-heroes/index.html [L,QSA]
-RewriteRule ^prompt-heroes/([^/]+)/?$ /prompt-heroes/$1/index.html [L,QSA]
 
 # ------------------------------
 # TRENDING
 # ------------------------------
 RewriteRule ^trending/?$ /trending/index.html [L,QSA]
-RewriteRule ^trending/prompt/([^/]+)/?$ /trending/prompt/$1/index.html [L,QSA]
+RewriteRule ^trending/prompt/[^/]+/?$ /trending/prompt/[promptDetail]/index.html [L,QSA]
 
 # ------------------------------
 # OTHER STATIC PAGES

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import toast from "react-hot-toast";
 import { withTranslation } from "react-i18next";
-import { t } from "@/utils";
+import { isLogin, t } from "@/utils";
 import { useSelector } from "react-redux";
 import { selectCurrentLanguage } from "@/store/reducers/languageSlice";
 import Breadcrumb from "@/components/Common/Breadcrumb";
@@ -23,7 +23,9 @@ import freepik from "@/assets/images/freepik.png";
 import canva from "@/assets/images/canva.jpeg";
 import krea from "@/assets/images/krea.webp";
 import ShareButton from "@/components/Common/ShareButton";
-
+import { Wand2,ArrowRight } from "lucide-react";
+import unlock from "@/assets/images/unlock.jpg";
+import Image from "next/image";
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
 });
@@ -446,75 +448,89 @@ const PromptDetails = () => {
 
               <div className="relative p-4 sm:p-8 lg:p-10">
                 {/* Prompt Section */}
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 sm:p-6 lg:p-8 rounded-2xl shadow-xl overflow-hidden group"
-                  role="region"
-                  aria-label="AI Prompt Content"
-                >
-                  {/* Animated Background Pattern */}
-                  <motion.div
-                    animate={{
-                      backgroundPosition: ["0% 0%", "100% 100%"],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      repeatType: "reverse"
-                    }}
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: "linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6), linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6)",
-                      backgroundSize: "20px 20px",
-                      backgroundPosition: "0 0, 10px 10px"
-                    }}
-                    aria-hidden="true"
-                  />
-
-                  <motion.button
-                    onClick={handleCopyPrompt}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 sm:p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group z-10"
-                    aria-label={copied ? "Prompt copied to clipboard" : "Copy prompt to clipboard"}
-                  >
-                    <AnimatePresence mode="wait">
-                      {copied ? (
-                        <motion.div
-                          key="check"
-                          initial={{ scale: 0, rotate: -180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          exit={{ scale: 0, rotate: 180 }}
-                        >
-                          <IoCheckmarkCircle className="text-lg sm:text-xl text-green-400" aria-hidden="true" />
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="copy"
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          exit={{ scale: 0 }}
-                        >
-                          <IoCopyOutline className="text-lg sm:text-xl text-white" aria-hidden="true" />
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.button>
-                  <div className="absolute top-3 right-19 sm:top-4 sm:right-20 "><ShareButton /></div>
-
-                  <h2 className="text-sm sm:text-base font-semibold text-purple-400 mb-3 sm:mb-4 flex items-center gap-2">
-                    <span className="w-1 h-4 sm:h-6 bg-purple-500 rounded-full" aria-hidden="true" />
-                    {t("prompt")}
-                  </h2>
-                  <p
-                    className="text-xs sm:text-base text-gray-100 leading-relaxed pr-8 sm:pr-12 font-mono"
-                    itemProp="text"
-                  >
-                    {questionDetails?.optionb}
-                  </p>
-                </motion.div>
+                {isLogin() ? (<motion.div
+                                  initial={{ y: 20, opacity: 0 }}
+                                  animate={{ y: 0, opacity: 1 }}
+                                  transition={{ delay: 0.5 }}
+                                  className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 sm:p-6 lg:p-8 rounded-2xl shadow-xl overflow-hidden group"
+                                  role="region"
+                                  aria-label="AI Prompt Content"
+                                >
+                                  {/* Animated Background Pattern */}
+                                  <motion.div
+                                    animate={{
+                                      backgroundPosition: ["0% 0%", "100% 100%"],
+                                    }}
+                                    transition={{
+                                      duration: 20,
+                                      repeat: Infinity,
+                                      repeatType: "reverse"
+                                    }}
+                                    className="absolute inset-0 opacity-10"
+                                    style={{
+                                      backgroundImage: "linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6), linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6)",
+                                      backgroundSize: "20px 20px",
+                                      backgroundPosition: "0 0, 10px 10px"
+                                    }}
+                                    aria-hidden="true"
+                                  />
+                
+                                  <motion.button
+                                    onClick={handleCopyPrompt}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 sm:p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group z-10"
+                                    aria-label={copied ? "Prompt copied to clipboard" : "Copy prompt to clipboard"}
+                                  >
+                                    <AnimatePresence mode="wait">
+                                      {copied ? (
+                                        <motion.div
+                                          key="check"
+                                          initial={{ scale: 0, rotate: -180 }}
+                                          animate={{ scale: 1, rotate: 0 }}
+                                          exit={{ scale: 0, rotate: 180 }}
+                                        >
+                                          <IoCheckmarkCircle className="text-lg sm:text-xl text-green-400" aria-hidden="true" />
+                                        </motion.div>
+                                      ) : (
+                                        <motion.div
+                                          key="copy"
+                                          initial={{ scale: 0 }}
+                                          animate={{ scale: 1 }}
+                                          exit={{ scale: 0 }}
+                                        >
+                                          <IoCopyOutline className="text-lg sm:text-xl text-white" aria-hidden="true" />
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
+                                  </motion.button>
+                                  <div className="absolute top-3 right-19 sm:top-4 sm:right-20 "><ShareButton /></div>
+                
+                                  <h2 className="text-sm sm:text-base font-semibold text-purple-400 mb-3 sm:mb-4 flex items-center gap-2">
+                                    <span className="w-1 h-4 sm:h-6 bg-purple-500 rounded-full" aria-hidden="true" />
+                                    {t("prompt")}
+                                  </h2>
+                                  <p
+                                    className="text-xs sm:text-base text-gray-100 leading-relaxed pr-8 sm:pr-12 font-mono"
+                                    itemProp="text"
+                                  >
+                                    {questionDetails?.optionb}
+                                  </p>
+                                </motion.div>) : (<>
+                                  <div>
+                                    <Image src={unlock} alt="" width={600} height={600} className="mx-auto" ></Image>
+                                    <motion.a
+                                      href={`${process.env.NEXT_PUBLIC_APP_WEB_URL}/auth/login`}
+                                      whileHover={{ scale: 1.05 }}
+                                      whileTap={{ scale: 0.95 }}
+                                      className=" max-w-fit mx-auto w-max text-white group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300"
+                                    >
+                                      <Wand2 className="w-5 h-5" />
+                                      Login to Unlock this Prompt
+                                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </motion.a>
+                
+                                  </div></>)}
               </div>
             </motion.section>
           </article>

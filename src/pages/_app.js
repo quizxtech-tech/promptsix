@@ -2,7 +2,7 @@
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import { Toaster } from "react-hot-toast";
-import { Router } from "next/router";
+import { Router, useRouter } from "next/router";
 import NProgress from "nprogress";
 import InspectElement from "@/components/InspectElement/InspectElement";
 import Routes from "@/components/ZoneGuard/Routes";
@@ -15,11 +15,15 @@ import "react-loading-skeleton/dist/skeleton.css";
 import "react-tooltip/dist/react-tooltip.css";
 // import '../../public/assets/css/style.css'
 import "../style/global.css";
+import * as gtag from '../../public/lib/gtag';
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
 // ** Configure JSS & ClassName
 const App = ({ Component, pageProps }) => {
+
+  const router = useRouter();
   Router.events.on("routeChangeStart", () => {
     NProgress.start();
   });
@@ -30,6 +34,20 @@ const App = ({ Component, pageProps }) => {
     NProgress.done();
   });
 
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    
+    // Track page views on route change
+    router.events.on('routeChangeComplete', handleRouteChange)
+    
+    // Cleanup
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
   return (
 
     <>
@@ -38,6 +56,7 @@ const App = ({ Component, pageProps }) => {
         <meta name="theme-color" content="#3837ff" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/placeholder.png" />
+        <meta name="google-adsense-account" content="ca-pub-3759020577120040"></meta>
       </Head>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>

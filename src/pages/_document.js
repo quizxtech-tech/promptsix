@@ -8,6 +8,24 @@ const CustomDocument = () => {
   return (
     <Html lang="en" version={process.env.NEXT_PUBLIC_WEB_CURRENT_VERSION}>
       <Head>
+         <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-XMEVN4E8QF`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XMEVN4E8QF', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+        
+        <meta name="google-adsense-account" content="ca-pub-3759020577120040"></meta>
          {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
         
@@ -50,7 +68,8 @@ const CustomDocument = () => {
           }}
         />
         {/* set your adsense script url here */}
-        {/* <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9667891148162497" crossorigin="anonymous"></script> --> */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3759020577120040"
+     crossorigin="anonymous"></script>
       </Head>
       <body>
         <Main />
