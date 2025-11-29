@@ -155,7 +155,8 @@ export default function InstallPWAButton() {
     setIsVisible(false);
   };
 
-  const showOnPaths = ['/', '/quiz-play'].includes(router.pathname);
+  const showOnPaths = ['/', '/category','/trending','/prompt-heroes'].includes(router.pathname);
+  
   
   // Don't render if not on allowed paths or already installed
   if (!showOnPaths) {
