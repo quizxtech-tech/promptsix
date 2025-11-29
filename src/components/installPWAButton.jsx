@@ -90,15 +90,11 @@ export default function InstallPWAButton() {
     // Listen for the install prompt
     window.addEventListener('beforeinstallprompt', handleInstallPrompt);
 
-    // Timeout check - if event doesn't fire in 15 seconds, log why
-    // const eventTimeoutCheck = setTimeout(() => {
-      
-    // }, 15000);
+    
     
     return () => {
       if (showTimer) clearTimeout(showTimer);
       if (hideTimer) clearTimeout(hideTimer);
-      clearTimeout(eventTimeoutCheck);
       window.removeEventListener('beforeinstallprompt', handleInstallPrompt);
     };
   }, [router.pathname]);
