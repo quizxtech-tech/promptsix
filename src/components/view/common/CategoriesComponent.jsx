@@ -38,7 +38,7 @@ const CategoriesComponent = ({ category, handleChangeCategory }) => {
       {category?.all ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {visibleCategories.map((data, key) => {
+            {category?.all.map((data, key) => {
               const imageToShow =
                 data?.has_unlocked === "0" && data?.is_premium === "1";
               return (
@@ -47,11 +47,11 @@ const CategoriesComponent = ({ category, handleChangeCategory }) => {
 
                         {/* <div className="absolute top-4 right-4 z-10"> <ShareButton/> </div> */}
                   <li onClick={(e) => handleChangeCategory(data)} className="group">
-                    <div className="flex-center flex-col p-2 gap-2">
+                    <div className="flex-start flex-col p-2 gap-2">
                       <div className="overflow-hidden rounded-[18px] relative">
                         <img src={data?.image || placeholder.src}  alt="" className="object-cover rounded-[18px] group-hover:scale-105 transition-all duration-500" />
                       </div>
-                      <div className="w-full">
+                      <div className="relative w-fit transform -translate-y-full text-white px-4 py-2.5 rounded-[13px] bg-white/10 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.25)] font-semibold">
                         <h2 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-bold text-3xl bg-clip-text text-transparent text-center">{data?.category_name}</h2>
                       </div>
                     </div>
@@ -63,7 +63,7 @@ const CategoriesComponent = ({ category, handleChangeCategory }) => {
           </div>
           
           {/* Show More/Less button */}
-          {category.all.length > 12 && (
+          {/* {category.all.length > 12 && (
             <div className="flex justify-center mt-6">
               <button
                 onClick={() => setShowAll(!showAll)}
@@ -72,7 +72,7 @@ const CategoriesComponent = ({ category, handleChangeCategory }) => {
                 {showAll ? t("show_less") : t("show_more")}
               </button>
             </div>
-          )}
+          )} */}
         </>
       ) : (
         <div className="errorDiv">

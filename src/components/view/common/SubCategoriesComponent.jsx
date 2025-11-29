@@ -30,7 +30,7 @@ const SubCategoriesComponent = ({ subCategory, handleChangeSubCategory }) => {
 
         {subCategory && subCategory?.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {visibleSubCategories.map((elem, key) => {
+            {subCategory.map((elem, key) => {
               return (
                 <div
                   key={elem?.id}
@@ -55,18 +55,7 @@ const SubCategoriesComponent = ({ subCategory, handleChangeSubCategory }) => {
                 </div>
               );
             })}
-
-            {/* Show More/Less button */}
-            {subCategory.length > 12 && (
-              <div className="col-span-full flex justify-center mt-6">
-                <button
-                  onClick={() => setShowAll(!showAll)}
-                  className="px-6 py-2 bg-primary-color text-white rounded-md hover:bg-primary-dark transition-colors"
-                >
-                  {showAll ? t("show_less") : t("show_more")}
-                </button>
-              </div>
-            )}
+              
           </div>
         ) : (
           <div className="errorDiv">
