@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-10">1. Introduction</h2>
       <p className="text-base text-gray-700 leading-relaxed mb-6">
-        [Your Website Name] respects your privacy. This Privacy Policy explains how we collect, use, and protect your information.
+        Promptland.in respects your privacy. This Privacy Policy explains how we collect, use, and protect your information.
       </p>
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-10">2. Information We Collect</h2>

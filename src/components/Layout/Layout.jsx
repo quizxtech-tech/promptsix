@@ -78,15 +78,15 @@ const Layout = ({ children }) => {
     },
   ];
 
- 
+
 
   useEffect(() => {
     const handleBeforeUnload = () => {
       sessionStorage.setItem("manualRefresh_Home", "true");
     };
-  
+
     window.addEventListener("beforeunload", handleBeforeUnload);
-  
+
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
@@ -219,10 +219,10 @@ const Layout = ({ children }) => {
       typeof window !== "undefined" ? localStorage.getItem("theme") : null;
 
 
-    const primaryColor = "#3837ff"
-      // webSettings && webSettings?.primary_color
-      //   ? storedTheme === "dark" ? process.env.NEXT_PUBLIC_DARK_MODE_PRIMARY_COLOR : webSettings && webSettings?.primary_color
-      //   : "#EF5388FF";
+    const primaryColor = "#0090FF"
+    // webSettings && webSettings?.primary_color
+    //   ? storedTheme === "dark" ? process.env.NEXT_PUBLIC_DARK_MODE_PRIMARY_COLOR : webSettings && webSettings?.primary_color
+    //   : "#EF5388FF";
 
     const secondaryColor =
       webSettings && webSettings?.footer_color
@@ -264,13 +264,13 @@ const Layout = ({ children }) => {
 
   // this function is for primary color gradient
   const primaryColor = document.documentElement.style.getPropertyValue("--primary-color");
-  
+
   useEffect(() => {
     if (primaryColor) {
       const hsl = hexToHSL(primaryColor);
       const lightHex = hslToHex(hsl.h, hsl.s, Math.min(hsl.s + 15, 100));
       const darkHex = hslToHex(hsl.h, hsl.s, Math.max(hsl.l - 35, 0));
-      
+
       document.documentElement.style.setProperty('--gradient-from', lightHex);
       document.documentElement.style.setProperty('--gradient-to', darkHex);
     }
@@ -282,10 +282,10 @@ const Layout = ({ children }) => {
     const r = ((bigint >> 16) & 255) / 255;
     const g = ((bigint >> 8) & 255) / 255;
     const b = (bigint & 255) / 255;
-  
+
     const max = Math.max(r, g, b), min = Math.min(r, g, b);
     let h, s, l = (max + min) / 2;
-  
+
     if (max === min) {
       h = s = 0;
     } else {
@@ -298,23 +298,23 @@ const Layout = ({ children }) => {
       }
       h /= 6;
     }
-  
+
     return {
       h: Math.round(h * 360),
       s: Math.round(s * 100),
       l: Math.round(l * 100)
     };
   }
-  
+
   function hslToHex(h, s, l) {
     s /= 100;
     l /= 100;
-  
+
     const k = n => (n + h / 30) % 12;
     const a = s * Math.min(l, 1 - l);
     const f = n =>
       Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)))));
-  
+
     return `#${[f(0), f(8), f(4)].map(x => x.toString(16).padStart(2, '0')).join('')}`;
   }
 
@@ -347,7 +347,7 @@ const Layout = ({ children }) => {
           })}
         </div>
       </nav>
-     <InstallPWAButton />
+      <InstallPWAButton />
     </PushNotificationLayout>
   );
 };

@@ -19,7 +19,6 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,
@@ -33,29 +32,17 @@ messaging.onBackgroundMessage((payload) => {
 // PWA Caching (Added for Install Button)
 // ========================================
 
-const CACHE_NAME = 'quiz-app-v1';
-const urlsToCache = [
-  '/',
-  '/quiz-play',
-];
+const CACHE_NAME = 'promptland-v1';
 
-// Install event - cache important files
+// Install event - skip caching specific URLs during install
+// They'll be cached dynamically on first visit via fetch handler
 self.addEventListener('install', (event) => {
   console.log('[ServiceWorker] Installing...');
   
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('[ServiceWorker] Caching app shell');
-        return cache.addAll(urlsToCache);
-      })
-      .then(() => {
-        console.log('[ServiceWorker] Installed successfully');
-        return self.skipWaiting();
-      })
-      .catch((err) => {
-        console.error('[ServiceWorker] Install failed:', err);
-      })
+    self.skipWaiting().then(() => {
+      console.log('[ServiceWorker] Installed successfully');
+    })
   );
 });
 

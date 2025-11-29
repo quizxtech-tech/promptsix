@@ -29,7 +29,7 @@ const AboutUs = () => {
                 <p className="text-xl text-gray-600 mb-8">Transforming Your Images with AI-Powered Creativity</p>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                  Welcome to [Your Website Name], your ultimate destination for AI image editing prompts. We're passionate about making advanced AI image transformation accessible to everyone, whether you're a digital artist, content creator, or simply someone who loves experimenting with creative styles.
+                  Welcome to Promptland.in, your ultimate destination for AI image editing prompts. We're passionate about making advanced AI image transformation accessible to everyone, whether you're a digital artist, content creator, or simply someone who loves experimenting with creative styles.
                 </p>
 
                 <h2 className="text-3xl font-semibold text-gray-900 mb-4 mt-10">What We Do</h2>

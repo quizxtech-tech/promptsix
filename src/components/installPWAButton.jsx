@@ -41,22 +41,22 @@ export default function InstallPWAButton() {
       return;
     }
 
-    // // Check if browser likely supports PWA installation
-    // const browserSupportsInstall = (isAndroid && (isChrome || isEdge || isSamsungBrowser)) || 
-    //                                (isIOSDevice && isSafari);
+    // Check if browser likely supports PWA installation
+    const browserSupportsInstall = (isAndroid && (isChrome || isEdge || isSamsungBrowser)) || 
+                                   (isIOSDevice && isSafari);
     
-    // if (!browserSupportsInstall) {
-    //   if (isFirefox) {
-    //     console.log("❌ PWA Button will NOT show - Firefox doesn't support PWA installation prompts");
-    //   } else if (isIOSDevice && !isSafari) {
-    //     console.log("❌ PWA Button will NOT show - iOS only supports PWA in Safari");
-    //   } else if (!isAndroid && !isIOSDevice) {
-    //     console.log("❌ PWA Button will NOT show - Desktop/unsupported device");
-    //   } else {
-    //     console.log("❌ PWA Button will NOT show - Browser doesn't support beforeinstallprompt");
-    //   }
-    //   return;
-    // }
+    if (!browserSupportsInstall) {
+      if (isFirefox) {
+        console.log("❌ PWA Button will NOT show - Firefox doesn't support PWA installation prompts");
+      } else if (isIOSDevice && !isSafari) {
+        console.log("❌ PWA Button will NOT show - iOS only supports PWA in Safari");
+      } else if (!isAndroid && !isIOSDevice) {
+        console.log("❌ PWA Button will NOT show - Desktop/unsupported device");
+      } else {
+        console.log("❌ PWA Button will NOT show - Browser doesn't support beforeinstallprompt");
+      }
+      return;
+    }
 
 
   
@@ -84,7 +84,7 @@ export default function InstallPWAButton() {
         hideTimer = setTimeout(() => {
           setIsVisible(false);
         }, 20000);
-      }, 10000);
+      }, 5000);
     };
 
     // Listen for the install prompt
@@ -117,14 +117,14 @@ export default function InstallPWAButton() {
 
     // Handle other browsers
     if (!deferredPrompt) {
-      // console.error("❌ Installation failed: deferredPrompt is null");
-      // console.error("This means 'beforeinstallprompt' event never fired");
-      // console.error("Possible reasons:");
-      // console.error("  - PWA manifest is missing or invalid");
-      // console.error("  - Service worker registration failed");
-      // console.error("  - App doesn't meet PWA criteria");
-      // console.error("  - Browser doesn't support PWA installation");
-      // console.error("  - App is already installed");
+      console.error("❌ Installation failed: deferredPrompt is null");
+      console.error("This means 'beforeinstallprompt' event never fired");
+      console.error("Possible reasons:");
+      console.error("  - PWA manifest is missing or invalid");
+      console.error("  - Service worker registration failed");
+      console.error("  - App doesn't meet PWA criteria");
+      console.error("  - Browser doesn't support PWA installation");
+      console.error("  - App is already installed");
       
       toast.error("Installation not available. Check console for details.");
       return;

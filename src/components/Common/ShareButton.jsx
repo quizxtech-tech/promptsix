@@ -8,7 +8,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-const ShareButton = ({ isSubCat, isLevel, data, shareUrl, title, description, className = "" }) => {
+const ShareButton = ({ isSubCat, isLevel, data, shareUrl, title, description, className = "", showOnTop }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
   const router = useRouter();
@@ -209,7 +209,7 @@ const ShareButton = ({ isSubCat, isLevel, data, shareUrl, title, description, cl
             animate={{ opacity: 1, scale: 1, y: 12 }}
             exit={{ opacity: 0, scale: 0.9, y: 8 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="absolute top-full right-0 z-50 mt-3 origin-top-right rounded-2xl bg-white p-3 shadow-xl ring-1 ring-black/5"
+            className={`absolute ${showOnTop ? "bottom-[150%]" : "top-full"} right-0 z-50 mt-3 origin-top-right rounded-2xl bg-white p-3 shadow-xl ring-1 ring-black/5`}
           >
             <div className="flex gap-2">
               {shareItems.map((item) => {

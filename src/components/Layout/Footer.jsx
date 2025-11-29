@@ -9,7 +9,7 @@ import Logo from "../Logo/Logo";
 import { getImageSource, t } from "@/utils";
 import appstoreimg from "@/assets/images/appstore.svg";
 import palystoreimg from "@/assets/images/playstore.svg";
-import logo from "@/assets/images/logo.jpeg";
+import logo from "@/assets/images/logo.png";
 import {IoLogoInstagram } from "react-icons/io5";
 
 

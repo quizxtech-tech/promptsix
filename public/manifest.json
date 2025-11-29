@@ -7,17 +7,17 @@
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#3837ff",
+  "theme_color": "#0090FF",
   "icons": [
-    { 
-      "src": "/promptland-192.png", 
-      "sizes": "192x192", 
+    {
+      "src": "/promptland-192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
-    { 
-      "src": "/promptland-512.png", 
-      "sizes": "512x512", 
+    {
+      "src": "/promptland-512.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
@@ -27,12 +27,17 @@
       "name": "Category",
       "short_name": "Category",
       "url": "/category?source=pwa",
-      "icons": [{ 
-        "src": "/placeholder.png", 
-        "sizes": "192x192",
-        "type": "image/png"
-      }]
+      "icons": [
+        {
+          "src": "/placeholder.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ],
-  "categories": ["productivity", "utilities"]
+  "categories": [
+    "productivity",
+    "utilities"
+  ]
 }

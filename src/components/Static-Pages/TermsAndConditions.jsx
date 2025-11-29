@@ -27,7 +27,7 @@ const TermAndConditions = () => {
       <p className="text-sm text-gray-500 mb-8">Last Updated: October 26, 2025</p>
       
       <p className="text-lg text-gray-700 leading-relaxed mb-8">
-        Please read these Terms and Conditions carefully before using [Your Website Name].
+        Please read these Terms and Conditions carefully before using Promptland.in.
       </p>
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-10">1. Acceptance of Terms</h2>
@@ -37,7 +37,7 @@ const TermAndConditions = () => {
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-10">2. Service Description</h2>
       <p className="text-base text-gray-700 leading-relaxed mb-3">
-        [Your Website Name] provides:
+        Promptland.in provides:
       </p>
       <ul className="list-disc list-inside text-base text-gray-700 mb-6 space-y-2 ml-4">
         <li>AI image editing prompts organized by category</li>
@@ -58,7 +58,7 @@ const TermAndConditions = () => {
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-10">4. Content Ownership</h2>
       <p className="text-base text-gray-700 leading-relaxed mb-3">
-        <span className="font-semibold">Prompts:</span> All prompts on our website are owned by [Your Website Name] unless otherwise stated. You may use them for personal and commercial image creation.
+        <span className="font-semibold">Prompts:</span> All prompts on our website are owned by Promptland.in unless otherwise stated. You may use them for personal and commercial image creation.
       </p>
       <p className="text-base text-gray-700 leading-relaxed mb-3">
         <span className="font-semibold">User Submissions:</span> When you share your work in the Prompt Heroes section, you retain ownership of your images but grant us a non-exclusive license to display them on our platform.
@@ -90,7 +90,7 @@ const TermAndConditions = () => {
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-10">7. Limitation of Liability</h2>
       <p className="text-base text-gray-700 leading-relaxed mb-6">
-        [Your Website Name] shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or prompts.
+        Promptland.in shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or prompts.
       </p>
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4 mt-10">8. Content Moderation</h2>

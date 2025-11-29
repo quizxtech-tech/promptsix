@@ -8,9 +8,17 @@ const CustomDocument = () => {
   return (
     <Html lang="en" version={process.env.NEXT_PUBLIC_WEB_CURRENT_VERSION}>
       <Head>
-         <script
+        {/* Google AdSense - MUST BE FIRST */}
+        <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-XMEVN4E8QF`}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3759020577120040"
+          crossOrigin="anonymous"
+        />
+
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XMEVN4E8QF"
         />
         <script
           dangerouslySetInnerHTML={{
@@ -24,17 +32,16 @@ const CustomDocument = () => {
             `,
           }}
         />
-        
-        <meta name="google-adsense-account" content="ca-pub-3759020577120040"></meta>
-         {/* PWA Manifest */}
+
+        {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        
+
         {/* Theme color for browser UI */}
-        <meta name="theme-color" content="#3837ff" />
-        
+        <meta name="theme-color" content="#0090FF" />
+
         {/* Apple Touch Icon for iOS */}
         <link rel="apple-touch-icon" href="/placeholder.png" />
-        
+
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,7 +54,8 @@ const CustomDocument = () => {
         <script
           async
           src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
-        ></script>
+        />
+
         {/* Dark mode initialization script to prevent flashing */}
         <script
           dangerouslySetInnerHTML={{
@@ -67,9 +75,6 @@ const CustomDocument = () => {
             `,
           }}
         />
-        {/* set your adsense script url here */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3759020577120040"
-     crossorigin="anonymous"></script>
       </Head>
       <body>
         <Main />

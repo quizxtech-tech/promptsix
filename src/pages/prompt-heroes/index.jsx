@@ -24,6 +24,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoHeart, IoShareSocial, IoClose, IoSend, IoLogoInstagram } from "react-icons/io5";
 import { FiExternalLink } from "react-icons/fi";
+import ShareButton from "@/components/Common/ShareButton";
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
     ssr: false,
@@ -627,7 +628,7 @@ const PromptHeroes = () => {
                                         variant="outline"
                                         size="lg"
                                     >
-                                        <IoShareSocial className="w-5 h-5" />
+                                        <ShareButton showOnTop={true}/>
                                     </Button>
                                 </div>
                             </div>

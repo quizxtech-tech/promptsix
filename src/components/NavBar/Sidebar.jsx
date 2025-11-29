@@ -2,7 +2,7 @@
 
 import { Sheet, SheetContent } from '@/components/ui/sheet'
 import dynamic from 'next/dynamic'
-import logo from '@/assets/images/logo.jpeg'
+import logo from '@/assets/images/logo.png'
 const MobileMenus = dynamic(() => import('./MobileSidebar/MobileMenus'), { ssr: false })
 const Logo = dynamic(() => import('../Logo/Logo'), { ssr: false })
 

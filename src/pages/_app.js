@@ -38,38 +38,39 @@ const App = ({ Component, pageProps }) => {
     const handleRouteChange = (url) => {
       gtag.pageview(url)
     }
-    
+
     // Track page views on route change
     router.events.on('routeChangeComplete', handleRouteChange)
-    
+
     // Cleanup
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
 
+
   return (
 
     <>
-    <Head>
+      <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#3837ff" />
+        <meta name="theme-color" content="#0090FF" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/placeholder.png" />
         <meta name="google-adsense-account" content="ca-pub-3759020577120040"></meta>
       </Head>
-    <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <I18nextProvider i18n={language}>
-          <Toaster position="top-center" containerClassName="toast-custom" />
-          <InspectElement>
-            <Routes>
-              <Component {...pageProps} />
-            </Routes>
-          </InspectElement>
-        </I18nextProvider>
-      </Provider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <I18nextProvider i18n={language}>
+            <Toaster position="top-center" containerClassName="toast-custom" />
+            <InspectElement>
+              <Routes>
+                <Component {...pageProps} />
+              </Routes>
+            </InspectElement>
+          </I18nextProvider>
+        </Provider>
+      </QueryClientProvider>
     </>
   );
 };

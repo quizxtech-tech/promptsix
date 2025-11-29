@@ -9,38 +9,15 @@ import { useRouter } from 'next/navigation';
 import trendingData from '@/data/trending.js';
 import promptHeroes from '@/data/promptHeroes.js';
 import { isLogin } from '@/utils';
-
-
+import art from '../../../public/images/icon/art.png';
+import car from '../../../public/images/icon/car.png';
+import couple from '../../../public/images/icon/couple.png';
+import rocket from '../../../public/images/icon/rocket.png'
+import studio from '../../../public/images/icon/studio.png';
+import trending from '../../../public/images/icon/trending.png';
 const HomePage = () => {
 
   
-
-  // const promptHeroes = [
-  //   {
-  //     question: "@artistic_soul",
-  //     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
-  //     optionb: "2.4K",
-  //     optionc: "Cyberpunk Neon"
-  //   },
-  //   {
-  //     question: "@creative_mind",
-  //     image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=400&h=400&fit=crop",
-  //     optionb: "1.8K",
-  //     optionc: "Fantasy Realm"
-  //   },
-  //   {
-  //     question: "@art_wizard",
-  //     image: "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=400&h=400&fit=crop",
-  //     optionb: "2.1K",
-  //     optionc: "Anime Dreams"
-  //   },
-  //   {
-  //     question: "@pixel_master",
-  //     image: "https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?w=400&h=400&fit=crop",
-  //     optionb: "1.5K",
-  //     optionc: "Retro Wave"
-  //   }
-  // ];
 
   const [hero, setHero] = useState([]);
 
@@ -62,29 +39,7 @@ const HomePage = () => {
     getPromptHero();
 }, [])
 
-  // const dummyTrendingPrompts = [
-  //   {
-  //     title: "Ghibli Studio Magic",
-  //     description: "Transform your photos into Studio Ghibli masterpieces",
-  //     image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=300&fit=crop",
-  //     uses: "12.5K",
-  //     tag: "Hot"
-  //   },
-  //   {
-  //     title: "Anime Portrait Pro",
-  //     description: "Professional anime-style character portraits",
-  //     image: "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?w=400&h=300&fit=crop",
-  //     uses: "10.2K",
-  //     tag: "Trending"
-  //   },
-  //   {
-  //     title: "Superhero Transform",
-  //     description: "Become your favorite superhero with AI power",
-  //     image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=300&fit=crop",
-  //     uses: "8.9K",
-  //     tag: "Popular"
-  //   }
-  // ];
+  
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [trendingPrompts, setTrendingPrompts] = useState([]);
@@ -93,40 +48,8 @@ const HomePage = () => {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
   const router = useRouter();
 
-  const heroSlides = [
-    {
-      title: "Transform Your Images with AI Magic",
-      subtitle: "Turn ordinary photos into extraordinary Ghibli art, anime style, and more",
-      image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=600&fit=crop",
-      gradient: "from-purple-600 via-pink-600 to-blue-600"
-    },
-    {
-      title: "Unleash Creative Superpowers",
-      subtitle: "Transform into superheroes, explore anime worlds, and celebrate festivals",
-      image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop",
-      gradient: "from-blue-600 via-cyan-600 to-teal-600"
-    },
-    {
-      title: "Join the Prompt Revolution",
-      subtitle: "Discover trending prompts and share your masterpieces with our community",
-      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop",
-      gradient: "from-orange-600 via-red-600 to-pink-600"
-    }
-  ];
 
-  const categories = [
-    { name: "Anime Style", icon: "🎨", color: "from-pink-500 to-rose-500", count: "500+" },
-    { name: "Ghibli Art", icon: "🌸", color: "from-green-500 to-emerald-500", count: "300+" },
-    { name: "Superhero", icon: "⚡", color: "from-blue-500 to-cyan-500", count: "250+" },
-    { name: "Festival", icon: "🎉", color: "from-purple-500 to-violet-500", count: "180+" },
-    { name: "Portrait", icon: "👤", color: "from-orange-500 to-amber-500", count: "400+" },
-    { name: "Fantasy", icon: "🧙", color: "from-indigo-500 to-blue-500", count: "350+" }
-  ];
-
-  
-
-  
-   const getAllData = async () => {
+     const getAllData = async () => {
     try {
         // Second API call - Questions (only if Level API succeeded)
         const questionsResponse = await getQuestionApi({
@@ -179,6 +102,44 @@ const HomePage = () => {
     }
 };
 
+
+
+
+  const heroSlides = [
+    {
+      title: "Transform Your Images with AI Magic",
+      subtitle: "Turn ordinary photos into extraordinary Ghibli art, anime style, and more",
+      image: trendingPrompts[0]?.image || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=600&fit=crop",
+      gradient: "from-purple-600 via-pink-600 to-blue-600"
+    },
+    {
+      title: "Unleash Creative Superpowers",
+      subtitle: "Transform into superheroes, explore anime worlds, and celebrate festivals",
+      image: trendingPrompts[1]?.image ||  "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop",
+      gradient: "from-blue-600 via-cyan-600 to-teal-600"
+    },
+    {
+      title: "Join the Prompt Revolution",
+      subtitle: "Discover trending prompts and share your masterpieces with our community",
+      image: trendingPrompts[2]?.image || "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop",
+      gradient: "from-orange-600 via-red-600 to-pink-600"
+    }
+  ];
+
+  const categories = [
+    { name: "Trending", image: trending.src, color: "from-pink-500 to-rose-500", count: "500+" },
+    { name: "sweet couple ", image: couple.src, color: "from-green-500 to-emerald-500", count: "300+" },
+    { name: "personal studio", image: studio.src, color: "from-blue-500 to-cyan-500", count: "250+" },
+    { name: "Art", image: art.src, color: "from-purple-500 to-violet-500", count: "180+" },
+    { name: "Your Profession", image: rocket.src, color: "from-orange-500 to-amber-500", count: "400+" },
+    { name: "fan of car", image: car.src, color: "from-indigo-500 to-blue-500", count: "350+" }
+  ];
+
+  
+
+  
+
+
   useEffect(() => {
     getAllData();
     const timer = setInterval(() => {
@@ -188,8 +149,12 @@ const HomePage = () => {
   }, []);
 
   const handlePromptClick = async (prompt) => {
+    console.log(prompt);
+    
 if(isLogin()){
-  router.push(`/trending/promptDetails/?questionId=${prompt.id}`);
+
+  const title = prompt.title.replaceAll(" ", "-");
+  router.push(`/trending/prompt/${title}/?id=${prompt.id}`);
 
 }else {
   toast.error("Please login to view prompt details");
@@ -398,20 +363,19 @@ if(isLogin()){
             {categories.map((category, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.00, y: 0 }}
                 className="group cursor-pointer"
               >
-                <div className="relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
+                <div className="group !pt-0 relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
                   <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300 `} />
                   
                   <div className="relative z-10 flex-center flex-col">
-                    <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{category.icon}</div>
+                    <div className="text-3xl sm:text-4xl transition duration-1000 transform group-hover:scale-150"><img src={category.image} alt="" /></div>
                     <h3 className="text-xs sm:text-sm font-semibold mb-1 sm:mb-2">{category.name}</h3>
-                    <p className="text-xs text-gray-400">{category.count} prompts</p>
                   </div>
 
                   <div className={`absolute -inset-1 bg-gradient-to-r ${category.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10`} />
@@ -480,7 +444,7 @@ if(isLogin()){
               >
                 <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 ">
                   {/* Image */}
-                  <div className="relative aspect-video overflow-hidden m-2 sm:m-3 rounded-2xl overflow-hidden">
+                  <div className="relative aspect-square overflow-hidden m-2 sm:m-3 rounded-2xl overflow-hidden">
                     <img
                       src={prompt.image}
                       alt={prompt.title}
