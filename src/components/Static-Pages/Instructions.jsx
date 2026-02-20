@@ -1,256 +1,137 @@
 'use client'
 import React from 'react'
+import { motion } from 'framer-motion'
 import { withTranslation } from 'react-i18next'
-import Skeleton from 'react-loading-skeleton'
-import { useSelector } from 'react-redux'
 import Breadcrumb from '@/components/Common/Breadcrumb'
 import { settingsData } from '@/store/reducers/settingsSlice'
 import dynamic from 'next/dynamic'
 import { t } from '@/utils'
+import { FaSearch, FaMousePointer, FaCopy, FaRobot, FaUpload, FaShareAlt, FaLightbulb, FaExclamationTriangle, FaQuestionCircle } from 'react-icons/fa'
+
 const Layout = dynamic(() => import('../Layout/Layout'), { ssr: false })
 
 const Instructions = () => {
-  const selectdata = useSelector(settingsData)
+  const steps = [
+    { icon: FaSearch, title: "Browse Categories", desc: "Explore organized categories for different artistic styles", gradient: "from-purple-600 to-pink-600" },
+    { icon: FaMousePointer, title: "Select a Prompt", desc: "Click on the prompt that matches your desired style", gradient: "from-blue-600 to-cyan-600" },
+    { icon: FaCopy, title: "Copy the Prompt", desc: "Click copy to save the full prompt to your clipboard", gradient: "from-green-600 to-emerald-600" },
+    { icon: FaRobot, title: "Choose AI Model", desc: "Select from recommended AI platforms", gradient: "from-orange-600 to-red-600" },
+    { icon: FaUpload, title: "Upload & Generate", desc: "Upload your image and paste the prompt to create", gradient: "from-pink-600 to-rose-600" },
+    { icon: FaShareAlt, title: "Share Your Work", desc: "Submit your creation to Prompt Heroes gallery", gradient: "from-indigo-600 to-purple-600" }
+  ]
 
-  const appdata = selectdata && selectdata.filter(item => item.type === 'instructions')
-  const data = appdata && appdata[0]?.message
+  const tips = [
+    "Use high-resolution images for better results",
+    "Copy the entire prompt without modifications",
+    "Try multiple AI platforms for comparison",
+    "Check example images for guidance"
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  }
+
   return (
     <Layout>
-      <Breadcrumb showBreadcrumb={true} content={t("home")} title={t('instruction')} contentFour={t('instruction')} />
-      <div className='container mx-auto'> 
-      <div className='mt-6 mb-12 md:my-[60px] mx-0 '>
-        <div className='morphisam darkSecondaryColor'>
+      <Breadcrumb showBreadcrumb={true} content={t("home")} title="Instructions" contentFour="Instructions" />
 
-          <div className="max-w-5xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">How to Use Our Platform</h1>
-      <p className="text-xl text-gray-600 mb-12">Follow these simple steps to transform your images with AI</p>
+      <div className='min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white py-12 sm:py-16 lg:py-20'>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-pink-900/10 to-blue-900/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.05),transparent_50%)] pointer-events-none" />
 
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 mb-12">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6">Getting Started</h2>
-        
-        <div className="space-y-6">
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-indigo-600 mb-3">Step 1: Browse Categories</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Explore our organized categories including Modal, Festival, Anime, Superhero, and more. Each category contains themed prompts for different artistic styles.
-            </p>
-          </div>
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
+          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="max-w-6xl mx-auto">
 
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-indigo-600 mb-3">Step 2: Check Trending Prompts</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Visit the Trending section to see what's popular in the community right now. These prompts are being used by creators worldwide to produce stunning results.
-            </p>
-          </div>
+            {/* Header */}
+            <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+              <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 backdrop-blur-sm mb-6" whileHover={{ scale: 1.05 }}>
+                <FaQuestionCircle className="w-4 h-4 text-blue-400" />
+                <span className="text-xs sm:text-sm font-medium">How It Works</span>
+              </motion.div>
 
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-indigo-600 mb-3">Step 3: Get Inspired by Prompt Heroes</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Browse the Prompt Heroes gallery to see real examples of images created using our prompts. This helps you visualize possibilities before creating your own.
-            </p>
-          </div>
-        </div>
-      </div>
+              <motion.h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6" variants={itemVariants}>
+                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                  How to Use Our Platform
+                </span>
+              </motion.h1>
 
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-8 mb-12">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6">Creating Your Edited Image</h2>
-        
-        <div className="space-y-6">
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-purple-600 mb-3">Step 1: Select Your Category</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Click on the category that matches your desired style. Some categories have subcategories for more specific themes.
-            </p>
-          </div>
+              <motion.p className="text-xl sm:text-2xl text-gray-300 mb-6 font-medium" variants={itemVariants}>
+                Follow these simple steps to transform your images with AI
+              </motion.p>
+            </motion.div>
 
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-purple-600 mb-3">Step 2: Choose a Prompt</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Browse through the prompt cards and click on the one that appeals to you. Each card shows a preview and brief description.
-            </p>
-          </div>
+            {/* Steps Grid */}
+            <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" variants={containerVariants}>
+              {steps.map((step, index) => {
+                const Icon = step.icon
+                return (
+                  <motion.div key={index} variants={itemVariants} whileHover={{ y: -5 }} className="group">
+                    <div className="relative p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 h-full">
+                      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center mb-4`}>
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="text-sm font-semibold text-gray-400 mb-2">Step {index + 1}</div>
+                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                      <p className="text-sm text-gray-400">{step.desc}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </motion.div>
 
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-purple-600 mb-3">Step 3: View Prompt Details</h2>
-            <p className="text-base text-gray-700 leading-relaxed mb-3">
-              You'll be redirected to the prompt details page where you can see:
-            </p>
-            <ul className="list-disc list-inside text-base text-gray-700 space-y-2 ml-4">
-              <li>The full prompt text</li>
-              <li>Recommended AI models</li>
-              <li>Recommended Prompts</li>
-            </ul>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-purple-600 mb-3">Step 4: Copy the Prompt</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Click the "Copy" button to copy the prompt to your clipboard. Make sure the entire prompt is copied before proceeding.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-purple-600 mb-3">Step 5: Choose an AI Model</h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Click on one of the recommended AI model buttons. We'll redirect you to that platform. Different models may produce different results, so feel free to experiment.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-purple-600 mb-3">Step 6: Generate Your Image</h2>
-            <p className="text-base text-gray-700 leading-relaxed mb-3">On the AI platform:</p>
-            <ul className="list-disc list-inside text-base text-gray-700 space-y-2 ml-4">
-              <li>Upload your original image</li>
-              <li>Paste the prompt you copied</li>
-              <li>Adjust any platform-specific settings</li>
-              <li>Click generate and wait for your edited image</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-lg p-8 mb-12">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6">Sharing Your Creation</h2>
-        
-        <p className="text-lg text-gray-700 leading-relaxed mb-4 font-medium">Join Prompt Heroes:</p>
-        <p className="text-base text-gray-700 leading-relaxed mb-4">
-          If you're proud of your creation, share it with our community!
-        </p>
-        
-        <ol className="list-decimal list-inside text-base text-gray-700 space-y-2 ml-4">
-          <li>Click "Share Your Work" button</li>
-          <li>Upload your edited image</li>
-          <li>Credit the prompt you used</li>
-          <li>Add a brief description (optional)</li>
-          <li>Submit for review</li>
-        </ol>
-        
-        <p className="text-base text-gray-700 leading-relaxed mt-6">
-          The best submissions are featured on our homepage and Prompt Heroes gallery.
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6 mb-12">
-        <div className="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Tips for Best Results</h2>
-          <ul className="space-y-3">
-            <li className="text-base text-gray-700">
-              <span className="font-semibold">Image Quality:</span> Use high-resolution images for better AI processing results.
-            </li>
-            <li className="text-base text-gray-700">
-              <span className="font-semibold">Prompt Accuracy:</span> Copy the entire prompt without modifications unless you understand prompt engineering.
-            </li>
-            <li className="text-base text-gray-700">
-              <span className="font-semibold">Platform Selection:</span> Different AI models excel at different styles. Try multiple platforms for comparison.
-            </li>
-            <li className="text-base text-gray-700">
-              <span className="font-semibold">Face and Details:</span> Some styles work better with specific subject types. Check example images for guidance.
-            </li>
-            <li className="text-base text-gray-700">
-              <span className="font-semibold">Experimentation:</span> Don't hesitate to try different prompts on the same image.
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Troubleshooting</h2>
-          <div className="space-y-4">
-            <div>
-              <p className="font-semibold text-base text-gray-900 mb-2">Prompt Not Working?</p>
-              <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 ml-4">
-                <li>Ensure you copied the complete prompt</li>
-                <li>Check if the AI platform has specific format requirements</li>
-                <li>Verify your image meets the platform's size requirements</li>
+            {/* Tips Section */}
+            <motion.div variants={itemVariants} className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-2xl p-8 border border-blue-500/20 mb-12">
+              <div className="flex items-center gap-3 mb-6">
+                <FaLightbulb className="w-6 h-6 text-yellow-400" />
+                <h2 className="text-2xl font-bold">Pro Tips</h2>
+              </div>
+              <ul className="grid md:grid-cols-2 gap-4">
+                {tips.map((tip, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="text-green-400 mt-1">✓</span>
+                    <span className="text-gray-300">{tip}</span>
+                  </li>
+                ))}
               </ul>
-            </div>
-            <div>
-              <p className="font-semibold text-base text-gray-900 mb-2">Poor Results?</p>
-              <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 ml-4">
-                <li>Try a different AI model from our recommendations</li>
-                <li>Adjust image quality or composition</li>
-                <li>Experiment with similar prompts in the same category</li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold text-base text-gray-900 mb-2">Technical Issues?</p>
-              <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 ml-4">
-                <li>Clear your browser cache</li>
-                <li>Try a different browser</li>
-                <li>Check your internet connection</li>
-                <li>Contact us if problems persist</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+            </motion.div>
 
-      <div className="bg-gray-100 rounded-lg p-8 mb-12">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6">Understanding Our Platform</h2>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <h2 className="text-xl font-semibold text-green-600 mb-3">What We Provide:</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 space-y-2 ml-4">
-              <li>Curated, tested prompts</li>
-              <li>Direct links to AI platforms</li>
-              <li>Community gallery</li>
-              <li>Style categorization</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold text-red-600 mb-3">What We Don't Provide:</h2>
-            <ul className="list-disc list-inside text-base text-gray-700 space-y-2 ml-4">
-              <li>Image processing services</li>
-              <li>AI model hosting</li>
-              <li>Image storage</li>
-              <li>Editing software</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+            {/* What We Provide Section */}
+            <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-6">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
+                <h3 className="text-xl font-bold mb-4 text-green-400">What We Provide</h3>
+                <ul className="space-y-2 text-gray-300">
+                  <li>• Curated, tested prompts</li>
+                  <li>• Direct links to AI platforms</li>
+                  <li>• Community gallery</li>
+                  <li>• Style categorization</li>
+                </ul>
+              </div>
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-rose-500/10 border border-red-500/20">
+                <h3 className="text-xl font-bold mb-4 text-red-400">What We Don't Provide</h3>
+                <ul className="space-y-2 text-gray-300">
+                  <li>• Image processing services</li>
+                  <li>• AI model hosting</li>
+                  <li>• Image storage</li>
+                  <li>• Editing software</li>
+                </ul>
+              </div>
+            </motion.div>
 
-      <div className="bg-yellow-50 rounded-lg p-8 mb-12 border-l-4 border-yellow-400">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6">Safety and Ethics</h2>
-        <p className="text-lg text-gray-700 leading-relaxed mb-4 font-semibold">Use Responsibly:</p>
-        <ul className="list-disc list-inside text-base text-gray-700 space-y-2 ml-4">
-          <li>Respect copyright and intellectual property</li>
-          <li>Don't create offensive or harmful content</li>
-          <li>Follow AI platform guidelines</li>
-          <li>Credit original artists when appropriate</li>
-        </ul>
-      </div>
-
-      <div className="bg-indigo-50 rounded-lg p-8 mb-12">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6">Getting Help</h2>
-        <p className="text-lg text-gray-700 leading-relaxed mb-4 font-semibold">Need Assistance?</p>
-        <ul className="list-disc list-inside text-base text-gray-700 space-y-2 ml-4">
-          <li>Check our FAQ section</li>
-          <li>Browse community discussions</li>
-          <li>Contact support at [your email address]</li>
-          <li>Follow us on social media for updates</li>
-        </ul>
-      </div>
-
-      <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-8">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6">Pro Tips</h2>
-        <div className="space-y-4">
-          <p className="text-base text-gray-700 leading-relaxed">
-            <span className="font-semibold">Bookmark Favorites:</span> Save prompts you love for quick access later.
-          </p>
-          <p className="text-base text-gray-700 leading-relaxed">
-            <span className="font-semibold">Build Collections:</span> Use multiple prompts to create themed image series.
-          </p>
-          <p className="text-base text-gray-700 leading-relaxed">
-            <span className="font-semibold">Share Feedback:</span> Let us know which prompts work best so we can improve our library.
-          </p>
-          <p className="text-base text-gray-700 leading-relaxed">
-            <span className="font-semibold">Stay Updated:</span> New prompts are added regularly, so check back often for fresh creative options.
-          </p>
+            {/* CTA */}
+            <motion.div variants={itemVariants} className="text-center mt-12">
+              <motion.a href="/category" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full font-semibold" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <FaSearch className="w-5 h-5" />
+                <span>Explore Prompts</span>
+              </motion.a>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
-    </div>
-        </div>
-      </div>
       </div>
     </Layout>
   )

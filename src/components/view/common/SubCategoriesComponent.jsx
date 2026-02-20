@@ -5,7 +5,7 @@ import { t } from "@/utils";
 import errorimg from "@/assets/images/error.svg";
 import ThemeSvg from "@/components/ThemeSvg";
 import ShareButton from "@/components/Common/ShareButton";
-import placeholder from '@/assets/images/placeholder.png'
+import placeholder from '@/assets/images/placeholder.jpg'
 
 const SubCategoriesComponent = ({ subCategory, handleChangeSubCategory }) => {
   const [showAll, setShowAll] = useState(false);

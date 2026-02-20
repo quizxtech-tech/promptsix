@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import ThemeSvg from "@/components/ThemeSvg";
 import errorimg from "@/assets/images/error.svg";
 import ShareButton from "@/components/Common/ShareButton";
-import placeholder from '@/assets/images/placeholder.png'
+import placeholder from '@/assets/images/placeholder.jpg'
 
 const CategoriesComponent = ({ category, handleChangeCategory }) => {
   const [showAll, setShowAll] = useState(false);

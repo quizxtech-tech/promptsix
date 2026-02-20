@@ -25,13 +25,17 @@ import {
   setUserCoinScoreApi,
   unlockPremiumCatApi,
 } from "@/api/apiRoutes";
+import { fetchAllCategories } from "@/utils/buildTimeApi";
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
 });
 
-const QuizZone = () => {
-  const [category, setCategory] = useState({ all: "", selected: "" });
-  const [isLoading, setIsLoading] = useState(true);
+const QuizZone = ({ initialCategories = null }) => {
+  const [category, setCategory] = useState({
+    all: initialCategories || "",
+    selected: initialCategories?.[0] || ""
+  });
+  const [isLoading, setIsLoading] = useState(!initialCategories);
   const selectcurrentLanguage = useSelector(selectCurrentLanguage);
 
   const router = useRouter();
@@ -48,8 +52,8 @@ const QuizZone = () => {
     if (!response?.error) {
       let categories = response.data;
       let filteredCategories = categories.filter((cat) => cat.id !== "4" && cat.id !== "3");
-      
-      
+
+
       setCategory({ ...category, all: filteredCategories, selected: filteredCategories[0] });
       setIsLoading(false)
     }
@@ -63,7 +67,7 @@ const QuizZone = () => {
 
   //handle category
   const handleChangeCategory = async (data) => {
-    
+
     dispatch(selectedCategorySuccess(data));
     // this is for premium category only
     if (data.has_unlocked === "0" && data.is_premium === "1") {
@@ -186,7 +190,7 @@ const QuizZone = () => {
           ) : (
             <CategoriesComponent
               category={category}
-                handleChangeCategory={handleChangeCategory}
+              handleChangeCategory={handleChangeCategory}
             />
           )}
         </ul>
@@ -194,4 +198,25 @@ const QuizZone = () => {
     </Layout>
   );
 };
+
+// SSG: Pre-fetch categories at build time
+export async function getStaticProps() {
+  try {
+    const categories = await fetchAllCategories();
+
+    return {
+      props: {
+        initialCategories: categories,
+      },
+    };
+  } catch (error) {
+    console.error('[SSG] Error in getStaticProps:', error);
+    return {
+      props: {
+        initialCategories: null,
+      },
+    };
+  }
+}
+
 export default withTranslation()(QuizZone);

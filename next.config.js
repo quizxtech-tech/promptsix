@@ -38,7 +38,7 @@ const nextConfig = {
     return config;
   },
   async exportPathMap(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
-    
+
     if (dir && outDir && fs.existsSync(path.join(dir, '.htaccess'))) {
       fs.copyFileSync(path.join(dir, '.htaccess'), path.join(outDir, '.htaccess'))
     } else {
@@ -48,9 +48,13 @@ const nextConfig = {
 };
 
 // Conditionally set the output based on the environment
+// Only use static export for PRODUCTION builds
 if (process.env.NEXT_PUBLIC_SEO === "false") {
   if (process.env.NEXT_PUBLIC_VERCEL === "false") {
-  nextConfig.output = "export";
+    // Only export in production, not in dev mode
+    if (process.env.NODE_ENV === 'production') {
+      nextConfig.output = "export";
+    }
   }
   nextConfig.images.unoptimized = true;
 }

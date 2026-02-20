@@ -59,7 +59,7 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
   const [notificationmodal, setNotificationModal] = useState(false);
   const [webLanWidth, setWebLanWidth] = useState(0);
   const [quizLanWidth, setQuizLanWidth] = useState(0);
-  const quizLanWidthRef = useRef(null); 
+  const quizLanWidthRef = useRef(null);
   const webLanWidthRef = useRef(null);
   //openMobileMenu
   const openMobileMenu = (menu) => {
@@ -285,7 +285,7 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
 
     // Small delay to ensure elements are rendered
     const timeoutId = setTimeout(updateWidths, 100);
-    
+
     return () => clearTimeout(timeoutId);
   }, [mobileNav]); // Re-run when mobile menu opens/closes
 
@@ -360,10 +360,10 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
               )}
 
               {systemconfig &&
-              systemconfig.language_mode === "1" &&
-              (router.pathname === "/" || router.pathname === "/quiz-play") &&
-              languages &&
-              languages.length > 1 ? (
+                systemconfig.language_mode === "1" &&
+                (router.pathname === "/" || router.pathname === "/quiz-play") &&
+                languages &&
+                languages.length > 1 ? (
                 <div className="flex items-center justify-between w-full ">
                   <p className="font-semibold text-white mb-0">
                     {t("quiz_language")} :
@@ -405,7 +405,7 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                               ? selectcurrentLanguage.name
                               : t("language")}
                           </NavigationMenuTrigger>
-                          <NavigationMenuContent className="bg-white rounded-[5px] " style={{width: getWidth(quizLanWidth)}}>
+                          <NavigationMenuContent className="bg-white rounded-[5px] " style={{ width: getWidth(quizLanWidth) }}>
                             {languages &&
                               languages.map((data) => (
                                 <div
@@ -441,9 +441,10 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                       </span>
                       <FaRegBell />
                     </button>
-                    <div className="darkmode ps-4 mt-2">
+                    {/* Dark mode toggle hidden - light mode only */}
+                    {/* <div className="darkmode ps-4 mt-2">
                       <ThemeToggle />
-                    </div>
+                    </div> */}
                   </div>
                 ) : (
                   ""
@@ -471,11 +472,10 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                 </i>
               </span>
               <ul
-                className={`my-3 pl-0 list-none ${
-                  isProfileOpen
-                    ? "animate-dropdown-open"
-                    : "animate-dropdown-close"
-                }`}
+                className={`my-3 pl-0 list-none ${isProfileOpen
+                  ? "animate-dropdown-open"
+                  : "animate-dropdown-close"
+                  }`}
               >
                 {/* <li className="py-2 float-left w-full relative hover:[&>a]:!text-primary-color group">
                   <Link
@@ -537,9 +537,10 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                   >
                     <IoExitOutline className="text-[22px] ml-[3px]" />
                   </button>
-                  <div className="darkmode ps-2 mt-2">
+                  {/* Dark mode toggle hidden - light mode only */}
+                  {/* <div className="darkmode ps-2 mt-2">
                     <ThemeToggle />
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 <>
@@ -572,9 +573,8 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                     {t(menu?.title)}
                   </Link>
                   <ul
-                    className={`${
-                      navTitle === menu?.title ? "!block" : "hidden"
-                    }`}
+                    className={`${navTitle === menu?.title ? "!block" : "hidden"
+                      }`}
                   >
                     {menu.sub_menus.map((sub, i) => (
                       <li
@@ -591,11 +591,10 @@ const MobileMenus = ({ setIsActive, mobileNav }) => {
                     ))}
                   </ul>
                   <a
-                    className={`mt-4 text-lg cursor-pointer  !p-0 border-0 h-[26px] w-full leading-[26px] top-0 font-normal text-center absolute right-0 flex justify-end items-center no-underline capitalize ${
-                      navTitle === menu.title
-                        ? "text-primary-color"
-                        : "text-white"
-                    }`}
+                    className={`mt-4 text-lg cursor-pointer  !p-0 border-0 h-[26px] w-full leading-[26px] top-0 font-normal text-center absolute right-0 flex justify-end items-center no-underline capitalize ${navTitle === menu.title
+                      ? "text-primary-color"
+                      : "text-white"
+                      }`}
                     onClick={() => openMobileMenu(menu?.title)}
                   >
                     <FaAngleDown />

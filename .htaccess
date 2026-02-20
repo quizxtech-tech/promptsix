@@ -17,9 +17,17 @@ RewriteRule ^quiz-zone/review-answer/?$ /quiz-zone/review-answer/index.html [L,Q
 # ------------------------------
 RewriteRule ^category/?$ /category/index.html [L,QSA]
 
-# Dynamic subcategory routes - ALL go to the same [subcategories] folder
+# Dynamic subcategory routes - Check static first, then fallback to [subcategories]
+RewriteCond %{DOCUMENT_ROOT}/category/sub-categories/$1/index.html -f
+RewriteRule ^category/sub-categories/([^/]+)/?$ /category/sub-categories/$1/index.html [L,QSA]
 RewriteRule ^category/sub-categories/([^/]+)/?$ /category/sub-categories/\[subcategories\]/index.html [L,QSA]
+
+RewriteCond %{DOCUMENT_ROOT}/category/sub-categories/$1/prompt/index.html -f
+RewriteRule ^category/sub-categories/([^/]+)/prompt/?$ /category/sub-categories/$1/prompt/index.html [L,QSA]
 RewriteRule ^category/sub-categories/([^/]+)/prompt/?$ /category/sub-categories/\[subcategories\]/prompt/index.html [L,QSA]
+
+RewriteCond %{DOCUMENT_ROOT}/category/sub-categories/$1/promptDetails/index.html -f
+RewriteRule ^category/sub-categories/([^/]+)/promptDetails/?$ /category/sub-categories/$1/promptDetails/index.html [L,QSA]
 RewriteRule ^category/sub-categories/([^/]+)/promptDetails/?$ /category/sub-categories/\[subcategories\]/promptDetails/index.html [L,QSA]
 
 # Non-dynamic category routes
@@ -117,10 +125,16 @@ RewriteRule ^multi-match-questions/review-answer/?$ /multi-match-questions/revie
 RewriteRule ^prompt-heroes/?$ /prompt-heroes/index.html [L,QSA]
 
 # ------------------------------
-# TRENDING
+# TRENDING - STATIC FIRST, DYNAMIC FALLBACK
 # ------------------------------
 RewriteRule ^trending/?$ /trending/index.html [L,QSA]
-RewriteRule ^trending/prompt/[^/]+/?$ /trending/prompt/[promptDetail]/index.html [L,QSA]
+
+# Check if static HTML exists for this specific slug
+RewriteCond %{DOCUMENT_ROOT}/trending/prompt/$1/index.html -f
+RewriteRule ^trending/prompt/([^/]+)/?$ /trending/prompt/$1/index.html [L,QSA]
+
+# If static doesn't exist, serve the dynamic [promptDetail] template
+RewriteRule ^trending/prompt/([^/]+)/?$ /trending/prompt/\[promptDetail\]/index.html [L,QSA]
 
 # ------------------------------
 # OTHER STATIC PAGES
@@ -166,10 +180,8 @@ RewriteRule ^quiz-play/true-and-false-play/result/?$ /quiz-play/true-and-false-p
 RewriteRule ^quiz-play/true-and-false-play/review-answer/?$ /quiz-play/true-and-false-play/review-answer/index.html [L,QSA]
 
 # ------------------------------
-# FALLBACK 404
+# ERROR HANDLING
 # ------------------------------
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /404/index.html [L]
+ErrorDocument 404 /404/index.html
 
 </IfModule>

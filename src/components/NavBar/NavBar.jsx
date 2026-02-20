@@ -119,7 +119,7 @@ const NavBar = () => {
                 </span>
               </Link>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="!text-left toparrow shadow-dropdownShadow outline-none rounded-[8px] !bg-[var(--background-2)] dark:!bg-[#211A3E]">
+            <DropdownMenuContent className="!text-left toparrow shadow-dropdownShadow outline-none rounded-[8px] !bg-[#211A3E dark:!bg-[#211A3E]">
               {/* <span className=''>
                 <i className=''>
                   <FaAngleDown />

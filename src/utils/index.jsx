@@ -550,16 +550,16 @@ export const reportQuestion = (question_id, isMulti = false) => {
     },
     confirmButtonText: t("continue"),
     input: "textarea",
-    inputLabel: t("reason"),
-    inputPlaceholder: t("enter_reason"),
+    inputLabel: t("tell_us_about_prompt"),
+    inputPlaceholder: t("tell_us_about_prompt"),
     inputAttributes: {
-      "aria-label": t("enter_reason"),
+      "aria-label": t("tell_us_about_prompt"),
     },
     // Add validation to ensure message is not empty
     preConfirm: (value) => {
       if (!value || value.trim() === "") {
         MySwal.showValidationMessage(
-          t("reason_required") || "Please provide a reason for reporting"
+          t("thank_you_for_your_suggestion")
         );
         return false;
       }
@@ -576,7 +576,7 @@ export const reportQuestion = (question_id, isMulti = false) => {
           });
           console.log(response);
           if (!response?.error) {
-            Swal.fire(t("success"), t("que_reported"), "success");
+            Swal.fire(t("success"), t("thank_you_for_your_suggestion"));
           } else {
             Swal.fire(t("ops"), `${t("Please")} ${t("try_again")}`);
             console.log(response);
@@ -591,7 +591,7 @@ export const reportQuestion = (question_id, isMulti = false) => {
             //   // throw new Error("Failed to fetch data");
             // }
             if (!response?.error) {
-              Swal.fire(t("success"), t("que_reported"), "success");
+              Swal.fire(t("success"), t("thank_you_for_your_suggestion"));
             }
             if (response.error) {
               Swal.fire(t("ops"), `${t("Please")} ${t("try_again")}`, "error");

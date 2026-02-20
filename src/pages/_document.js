@@ -40,7 +40,7 @@ const CustomDocument = () => {
         <meta name="theme-color" content="#0090FF" />
 
         {/* Apple Touch Icon for iOS */}
-        <link rel="apple-touch-icon" href="/placeholder.png" />
+        <link rel="apple-touch-icon" href="/placeholder.jpg" />
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
@@ -56,21 +56,14 @@ const CustomDocument = () => {
           src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
         />
 
-        {/* Dark mode initialization script to prevent flashing */}
+        {/* Force light mode always */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                // Check for stored theme or system preference
-                const theme = localStorage.getItem('theme') || 
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                
-                // Apply theme immediately to prevent flashing
-                if (theme === 'dark') {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
+                // Always force light mode
+                localStorage.setItem('theme', 'light');
+                document.documentElement.classList.remove('dark');
               })();
             `,
           }}

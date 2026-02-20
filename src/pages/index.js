@@ -1,13 +1,10 @@
-import Meta from '@/components/SEO/Meta'
-import dynamic from 'next/dynamic'
-const Home = dynamic(() => import('./home'), { ssr: false })
+import Home from './home'
+
 const Index = () => {
-  return (
-    <div>
-      <Meta />
-      <Home />
-    </div>
-  )
+  return <Home />
 }
+
+// Pass through getStaticProps from Home component
+export { getStaticProps } from './home';
 
 export default Index

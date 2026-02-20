@@ -451,5 +451,7 @@
   "you_won": "You won",
   "speed_bonus": "Speed Bonus",
   "timer": "Timer",
-  "cannot_join_with_this_room_code": "You can not join with this room code"
+  "cannot_join_with_this_room_code": "You can not join with this room code",
+  "thank_you_for_your_suggestion": "Thank you for your suggestion",
+  "tell_us_about_prompt": "Tell us about prompt"
 }

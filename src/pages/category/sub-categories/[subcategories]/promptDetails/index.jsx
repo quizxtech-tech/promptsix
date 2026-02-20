@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import toast from "react-hot-toast";
 import { withTranslation } from "react-i18next";
-import { isLogin, t } from "@/utils";
+import { isLogin, reportQuestion, t } from "@/utils";
 import { useSelector } from "react-redux";
 import { selectCurrentLanguage } from "@/store/reducers/languageSlice";
 import Breadcrumb from "@/components/Common/Breadcrumb";
@@ -14,7 +14,7 @@ import { getSelectedCategory, getSelectedSubCategory } from "@/store/reducers/te
 import { IoCopyOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCheckmarkCircle, IoSparkles, IoArrowForward } from "react-icons/io5";
-import placeholder from '@/assets/images/placeholder.png'
+import placeholder from '@/assets/images/placeholder.jpg'
 import chatGPT from "@/assets/images/chatgpt.svg";
 import gemini from "@/assets/images/gemini.svg";
 import qwen from "@/assets/images/qwen.jpeg";
@@ -25,7 +25,9 @@ import krea from "@/assets/images/krea.webp";
 import ShareButton from "@/components/Common/ShareButton";
 import Image from "next/image";
 import unlock from "@/assets/images/unlock.jpg";
+import { fetchAllCategories, fetchPromptsForCategory, getRecommendedPrompts, createSlug } from "@/utils/buildTimeApi";
 import { Sparkles, Zap, TrendingUp, Users, ArrowRight, Copy, Wand2, ImagePlus, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FaExclamationTriangle } from "react-icons/fa";
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
 });
@@ -91,10 +93,10 @@ const imageVariants = {
   }
 };
 
-const PromptDetails = () => {
-  const [questionDetails, setQuestionDetails] = useState(null);
-  const [recommendedQuestions, setRecommendedQuestions] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuestions = [] }) => {
+  const [questionDetails, setQuestionDetails] = useState(initialQuestionDetails);
+  const [recommendedQuestions, setRecommendedQuestions] = useState(initialRecommendedQuestions);
+  const [isLoading, setIsLoading] = useState(!initialQuestionDetails);
   const [copied, setCopied] = useState(false);
   const selectcurrentLanguage = useSelector(selectCurrentLanguage);
   const selectedCategory = useSelector(getSelectedCategory);
@@ -450,7 +452,7 @@ const PromptDetails = () => {
 
               <div className="relative p-4 sm:p-8 lg:p-10">
                 {/* Prompt Section */}
-                {isLogin() ? (<motion.div
+                {isLogin() ? (<><motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
@@ -518,7 +520,18 @@ const PromptDetails = () => {
                   >
                     {questionDetails?.optionb}
                   </p>
-                </motion.div>) : (<>
+                </motion.div>
+                  <div className="bg-[var(--background-2)] dark:bg-[#3c3555] text-center rounded-full mt-2 w-[200px] flex-center text-base	 ">
+                    <button
+                      title="Report Question"
+                      className=""
+                      onClick={() => reportQuestion(questionDetails?.id)}
+                    >
+                      {/* <FaExclamationTriangle clas   Name="h-[24px] w-[24px]" /> */}
+                      {t("tell_us_about_prompt")}
+                    </button>
+                  </div>
+                </>) : (<>
                   <div>
                     <Image src={unlock} alt="" width={600} height={600} className="mx-auto" ></Image>
                     <motion.a

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Sparkles, Zap, TrendingUp, Users, ArrowRight, Copy, Wand2, ImagePlus, Star, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -15,92 +13,95 @@ import couple from '../../../public/images/icon/couple.png';
 import rocket from '../../../public/images/icon/rocket.png'
 import studio from '../../../public/images/icon/studio.png';
 import trending from '../../../public/images/icon/trending.png';
-const HomePage = () => {
+const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => {
 
-  
 
-  const [hero, setHero] = useState([]);
+
+  const [hero, setHero] = useState(initialPromptHeroes);
 
   const getPromptHero = async () => {
 
-                const popularResponse = await getQuestionApi({
-                                category_id: 4,
-                                level: "1",
-                            });
-                            if (!popularResponse.error) {
-                              setHero(popularResponse.data);
-                            }else{
-                              setHero(promptHeroes);
-                            }
-                            
-                          }
+    const popularResponse = await getQuestionApi({
+      category_id: 4,
+      level: "1",
+    });
+    if (!popularResponse.error) {
+      setHero(popularResponse.data.reverse());
+    } else {
+      setHero(promptHeroes.reverse());
+    }
+
+  }
 
   useEffect(() => {
-    getPromptHero();
-}, [])
+    // Only fetch if no initial data provided (for client-side navigation or refresh)
+    if (initialPromptHeroes.length === 0) {
+      getPromptHero();
+    }
+  }, [])
 
-  
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const [trendingPrompts, setTrendingPrompts] = useState([]);
+  const [trendingPrompts, setTrendingPrompts] = useState(initialTrendingPrompts);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
   const router = useRouter();
 
 
-     const getAllData = async () => {
+  const getAllData = async () => {
     try {
-        // Second API call - Questions (only if Level API succeeded)
-        const questionsResponse = await getQuestionApi({
-            category_id: 3,
-            level: "1",
+      // Second API call - Questions (only if Level API succeeded)
+      const questionsResponse = await getQuestionApi({
+        category_id: 3,
+        level: "1",
+      });
+
+
+      if (!questionsResponse.error) {
+
+
+
+
+        // Transform API data to trending prompts format
+        const transformedTrendingPrompts = questionsResponse.data.map((data) => {
+          // Generate random uses if optionc is empty
+          const getRandomUses = () => {
+            const randomNum = (Math.random() * 15 + 5).toFixed(1); // Random between 5K - 20K
+            return `${randomNum}K`;
+          };
+
+          // Generate random tag if optiond is empty
+          const getRandomTag = () => {
+            const tags = ["Hot", "Trending", "Popular", "New", "Featured"];
+            return tags[Math.floor(Math.random() * tags.length)];
+          };
+
+          return {
+            title: data?.question || "Untitled Prompt",
+            description: data?.optiona || "No description available",
+            image: data?.image || "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=300&fit=crop",
+            uses: data?.optionc && data.optionc.trim() !== "" ? data.optionc : getRandomUses(),
+            tag: data?.optiond && data.optiond.trim() !== "" ? data.optiond : getRandomTag(),
+            prompt: data?.optionb || "", // Store the actual prompt
+            id: data?.id // Store ID for reference
+          };
         });
 
+        // Update the state with transformed data
+        setTrendingPrompts(transformedTrendingPrompts.reverse());
 
-        if (!questionsResponse.error) {
-           
+      } else {
 
-           
-
-            // Transform API data to trending prompts format
-            const transformedTrendingPrompts = questionsResponse.data.map((data) => {
-                // Generate random uses if optionc is empty
-                const getRandomUses = () => {
-                    const randomNum = (Math.random() * 15 + 5).toFixed(1); // Random between 5K - 20K
-                    return `${randomNum}K`;
-                };
-
-                // Generate random tag if optiond is empty
-                const getRandomTag = () => {
-                    const tags = ["Hot", "Trending", "Popular", "New", "Featured"];
-                    return tags[Math.floor(Math.random() * tags.length)];
-                };
-
-                return {
-                    title: data?.question || "Untitled Prompt",
-                    description: data?.optiona || "No description available",
-                    image: data?.image || "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=300&fit=crop",
-                    uses: data?.optionc && data.optionc.trim() !== "" ? data.optionc : getRandomUses(),
-                    tag: data?.optiond && data.optiond.trim() !== "" ? data.optiond : getRandomTag(),
-                    prompt: data?.optionb || "", // Store the actual prompt
-                    id: data?.id // Store ID for reference
-                };
-            });
-
-            // Update the state with transformed data
-            setTrendingPrompts(transformedTrendingPrompts);
-
-        }else{
-
-          setTrendingPrompts(trendingData);
-        }
+        setTrendingPrompts(trendingData.reverse());
+      }
 
     } catch (error) {
-        console.error("API Error:", error);
-        // Keep dummy data on error
+      console.error("API Error:", error);
+      // Keep dummy data on error
     }
-};
+  };
 
 
 
@@ -115,7 +116,7 @@ const HomePage = () => {
     {
       title: "Unleash Creative Superpowers",
       subtitle: "Transform into superheroes, explore anime worlds, and celebrate festivals",
-      image: trendingPrompts[1]?.image ||  "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop",
+      image: trendingPrompts[1]?.image || "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop",
       gradient: "from-blue-600 via-cyan-600 to-teal-600"
     },
     {
@@ -135,13 +136,18 @@ const HomePage = () => {
     { name: "fan of car", image: car.src, color: "from-indigo-500 to-blue-500", count: "350+" }
   ];
 
-  
 
-  
+
+
 
 
   useEffect(() => {
-    getAllData();
+    // Only fetch if no initial data provided (for client-side navigation or refresh)
+    if (initialTrendingPrompts.length === 0) {
+      getAllData();
+    }
+
+    // Setup hero slider timer
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000);
@@ -150,16 +156,16 @@ const HomePage = () => {
 
   const handlePromptClick = async (prompt) => {
     console.log(prompt);
-    
-if(isLogin()){
 
-  const title = prompt.title.replaceAll(" ", "-");
-  router.push(`/trending/prompt/${title}/?id=${prompt.id}`);
+    if (isLogin()) {
 
-}else {
-  toast.error("Please login to view prompt details");
-  router.push('/auth/login');
-}   
+      const title = prompt.title.replaceAll(" ", "-");
+      router.push(`/trending/prompt/${title}/?id=${prompt.id}`);
+
+    } else {
+      toast.error("Please login to view prompt details");
+      router.push('/auth/login');
+    }
   }
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -172,14 +178,17 @@ if(isLogin()){
         {/* Animated Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-blue-900/20" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
-        
+
         {/* Floating Particles */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-1 h-1 bg-purple-400 rounded-full"
-              initial={{ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }}
+              initial={{
+                x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1920,
+                y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 1080
+              }}
               animate={{
                 y: [null, Math.random() * -100 - 50],
                 opacity: [0, 1, 0]
@@ -240,7 +249,7 @@ if(isLogin()){
                       Explore Prompts
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </motion.a>
-                    
+
                     <motion.a
                       href={`${process.env.NEXT_PUBLIC_APP_WEB_URL}/trending`}
                       whileHover={{ scale: 1.05 }}
@@ -265,7 +274,7 @@ if(isLogin()){
               <div className="relative aspect-square max-w-lg mx-auto">
                 {/* Glass Card Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20" />
-                
+
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentSlide}
@@ -304,9 +313,8 @@ if(isLogin()){
                     <button
                       key={index}
                       onClick={() => setCurrentSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentSlide ? 'w-8 bg-purple-500' : 'bg-white/30'
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'w-8 bg-purple-500' : 'bg-white/30'
+                        }`}
                     />
                   ))}
                 </div>
@@ -348,7 +356,7 @@ if(isLogin()){
               <ImagePlus className="w-4 h-4 text-blue-400" />
               <span className="text-xs sm:text-sm font-medium">Explore Categories</span>
             </motion.div>
-            
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
                 Discover AI Prompts
@@ -372,7 +380,7 @@ if(isLogin()){
               >
                 <div className="group !pt-0 relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
                   <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300 `} />
-                  
+
                   <div className="relative z-10 flex-center flex-col">
                     <div className="text-3xl sm:text-4xl transition duration-1000 transform group-hover:scale-150"><img src={category.image} alt="" /></div>
                     <h3 className="text-xs sm:text-sm font-semibold mb-1 sm:mb-2">{category.name}</h3>
@@ -420,7 +428,7 @@ if(isLogin()){
               <TrendingUp className="w-4 h-4 text-orange-400" />
               <span className="text-xs sm:text-sm font-medium">What's Hot</span>
             </motion.div>
-            
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
                 Trending Prompts
@@ -451,7 +459,7 @@ if(isLogin()){
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
+
                     {/* Tag */}
                     <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-xs font-bold">
                       {prompt.tag}
@@ -468,7 +476,7 @@ if(isLogin()){
                   <div className="p-2 sm:p-3">
                     <h3 className="text-lg sm:text-xl font-bold mb-2">{prompt.title}</h3>
                     <p className="text-sm text-gray-400 mb-4">{prompt.description}</p>
-                    
+
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -523,7 +531,7 @@ if(isLogin()){
               <Users className="w-4 h-4 text-yellow-400" />
               <span className="text-xs sm:text-sm font-medium">Community Showcase</span>
             </motion.div>
-            
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
                 Prompt Heroes
@@ -554,7 +562,7 @@ if(isLogin()){
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                    
+
                     {/* Likes */}
                     <div className="absolute top-2 sm:top-3 right-2 sm:right-3 flex items-center gap-1 px-2 sm:px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-xs">
                       <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
@@ -615,14 +623,14 @@ if(isLogin()){
             >
               <Sparkles className="w-12 h-12 sm:w-16 sm:h-16 text-purple-400" />
             </motion.div>
-            
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Ready to Transform Your Images?
             </h2>
             <p className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-12 px-4">
               Join thousands of creators using AI to bring their imagination to life
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
               <motion.a
                 href={`${process.env.NEXT_PUBLIC_APP_WEB_URL}/category`}

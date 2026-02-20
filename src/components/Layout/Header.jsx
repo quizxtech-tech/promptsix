@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { signOut } from "firebase/auth";
 import { getUserCoinsApi } from "@/api/apiRoutes";
-import placeholder from '@/assets/images/placeholder.png'
+import placeholder from '@/assets/images/placeholder.jpg'
 import logo from '@/assets/images/logo.png'
 
 const Sidebar = dynamic(() => import("../NavBar/Sidebar"), { ssr: false });

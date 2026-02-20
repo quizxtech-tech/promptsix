@@ -28,9 +28,10 @@ import PushNotificationLayout from "../FirebaseNotification/FirebaseNotification
 import toast from "react-hot-toast";
 import { IoHomeOutline, IoGridOutline, IoFlameOutline, IoPeopleCircleOutline, IoClose } from "react-icons/io5";
 import InstallPWAButton from "../installPWAButton";
-const TopHeader = dynamic(() => import("../NavBar/TopHeader"), { ssr: false });
-const Header = dynamic(() => import("./Header"), { ssr: false });
-const Footer = dynamic(() => import("./Footer"), { ssr: false });
+// Enable SSR for SEO - these components need to render server-side
+const TopHeader = dynamic(() => import("../NavBar/TopHeader"), { ssr: true });
+const Header = dynamic(() => import("./Header"), { ssr: true });
+const Footer = dynamic(() => import("./Footer"), { ssr: true });
 
 const Layout = ({ children }) => {
   const navigate = useRouter();

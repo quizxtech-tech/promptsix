@@ -180,8 +180,8 @@ const TopHeader = () => {
       // };
 
       // getLanguages();
-    
-    setCurrentLanguage("English (US)", "en", "14");
+
+      setCurrentLanguage("English (US)", "en", "14");
     }
   }, [router, selectcurrentLanguage]);
 
@@ -388,7 +388,7 @@ const TopHeader = () => {
         <div className="container ">
           <div className=" justify-between items-center grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="">
-             
+
             </div>
 
             <div className="">
@@ -500,9 +500,10 @@ const TopHeader = () => {
                     setNotificationModal={setNotificationModal}
                   />
                 </div>
-                <div className="darkmode ">
+                {/* Dark mode toggle hidden - light mode only */}
+                {/* <div className="darkmode ">
                   <ThemeToggle />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -522,19 +523,19 @@ const TopHeader = () => {
                     colorMap={
                       DarkMode
                         ? {
-                            "#090029": "var(--primary-color)",
-                            "#3B82F6": "var(--primary-color)",
-                            "#212121": "var(--primary-color)",
-                            "#C564BB": "var(--primary-color)",
-                            "#45536D": "var(--primary-color)",
-                            "#ffcaf9": "var(--primary-light)",
-                            "#CECCD4": "var(--primary-light)",
-                            0.2: "1",
-                            white: "#221a3f",
-                          }
+                          "#090029": "var(--primary-color)",
+                          "#3B82F6": "var(--primary-color)",
+                          "#212121": "var(--primary-color)",
+                          "#C564BB": "var(--primary-color)",
+                          "#45536D": "var(--primary-color)",
+                          "#ffcaf9": "var(--primary-light)",
+                          "#CECCD4": "var(--primary-light)",
+                          0.2: "1",
+                          white: "#221a3f",
+                        }
                         : {
-                            "#090029": "black",
-                          }
+                          "#090029": "black",
+                        }
                     }
                   />
                 </span>

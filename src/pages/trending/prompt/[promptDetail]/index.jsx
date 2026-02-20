@@ -14,7 +14,7 @@ import { getSelectedCategory, getSelectedSubCategory } from "@/store/reducers/te
 import { IoCopyOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCheckmarkCircle, IoSparkles, IoArrowForward } from "react-icons/io5";
-import placeholder from '@/assets/images/placeholder.png'
+import placeholder from '@/assets/images/placeholder.jpg'
 import chatGPT from "@/assets/images/chatgpt.svg";
 import gemini from "@/assets/images/gemini.svg";
 import qwen from "@/assets/images/qwen.jpeg";
@@ -23,9 +23,11 @@ import freepik from "@/assets/images/freepik.png";
 import canva from "@/assets/images/canva.jpeg";
 import krea from "@/assets/images/krea.webp";
 import ShareButton from "@/components/Common/ShareButton";
-import { Wand2,ArrowRight } from "lucide-react";
+import { Wand2, ArrowRight } from "lucide-react";
 import unlock from "@/assets/images/unlock.jpg";
 import Image from "next/image";
+import { fetchAllTrendingPrompts, fetchPromptById, getRecommendedPrompts, createSlug } from "@/utils/buildTimeApi";
+
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
 });
@@ -36,8 +38,8 @@ const aiModels = [
   { name: "ChatGPT", image: chatGPT, url: "https://chat.openai.com", description: "OpenAI's conversational AI" },
   { name: "krea", image: krea, url: "https://www.krea.ai/features/ai-image-generator", description: "Anthropic's AI assistant" },
   { name: "freepik", image: freepik, url: "https://www.freepik.com/ai/image-generator", description: "Anthropic's AI assistant" },
-  { name: "Qwen-Image-Edit",  image: qwen, url: "https://qwenimageedit.run/", description: "Qwen-Image-Edit provides a free chat-style image editor for long and precise visual edits using advanced prompt processing."},
-  { name: "Adobe Firefly", image: adobe, url: "https://firefly.adobe.com", description: "Adobe’s free Firefly web editor supports prompt-based editing, generative fill, style transfer, and precise visual refinements for creative professionals."},
+  { name: "Qwen-Image-Edit", image: qwen, url: "https://qwenimageedit.run/", description: "Qwen-Image-Edit provides a free chat-style image editor for long and precise visual edits using advanced prompt processing." },
+  { name: "Adobe Firefly", image: adobe, url: "https://firefly.adobe.com", description: "Adobe’s free Firefly web editor supports prompt-based editing, generative fill, style transfer, and precise visual refinements for creative professionals." },
   { name: "canva", image: canva, url: "https://www.canva.com/ai-image-generator/", description: "Anthropic's AI assistant" },
 ];
 
@@ -91,16 +93,46 @@ const imageVariants = {
   }
 };
 
-const PromptDetails = () => {
-  const [questionDetails, setQuestionDetails] = useState(null);
-  const [recommendedQuestions, setRecommendedQuestions] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuestions = [] }) => {
+  const [questionDetails, setQuestionDetails] = useState(initialQuestionDetails);
+  const [recommendedQuestions, setRecommendedQuestions] = useState(initialRecommendedQuestions);
+  const [isLoading, setIsLoading] = useState(!initialQuestionDetails);
   const [copied, setCopied] = useState(false);
   const selectcurrentLanguage = useSelector(selectCurrentLanguage);
   const selectedCategory = useSelector(getSelectedCategory);
   const selectedSubCategory = useSelector(getSelectedSubCategory);
   const router = useRouter();
-  const { catid, subcatid, id } = router.query;
+  const { catid, subcatid, id, promptDetail } = router.query;
+
+  // Redirect old URLs with spaces to slugified URLs
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const currentSlug = router.query.promptDetail;
+    if (currentSlug && questionDetails) {
+      const correctSlug = createSlug(questionDetails.question);
+
+      // If URL has spaces or doesn't match the correct slug, redirect
+      if (currentSlug !== correctSlug) {
+        router.replace({
+          pathname: `/trending/prompt/${correctSlug}`,
+          query: { id: questionDetails.id },
+        });
+      }
+    }
+  }, [router.isReady, questionDetails, router.query.promptDetail]);
+
+  // Handle fallback state in dev mode (when fallback: true)
+  if (router.isFallback) {
+    return (
+      <Layout>
+        <div className="container px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
+          <div className="text-center py-8">Loading prompt details...</div>
+        </div>
+      </Layout>
+    );
+  }
+
 
   // SEO: Generate dynamic meta information
   const generateMetaData = () => {
@@ -449,88 +481,88 @@ const PromptDetails = () => {
               <div className="relative p-4 sm:p-8 lg:p-10">
                 {/* Prompt Section */}
                 {isLogin() ? (<motion.div
-                                  initial={{ y: 20, opacity: 0 }}
-                                  animate={{ y: 0, opacity: 1 }}
-                                  transition={{ delay: 0.5 }}
-                                  className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 sm:p-6 lg:p-8 rounded-2xl shadow-xl overflow-hidden group"
-                                  role="region"
-                                  aria-label="AI Prompt Content"
-                                >
-                                  {/* Animated Background Pattern */}
-                                  <motion.div
-                                    animate={{
-                                      backgroundPosition: ["0% 0%", "100% 100%"],
-                                    }}
-                                    transition={{
-                                      duration: 20,
-                                      repeat: Infinity,
-                                      repeatType: "reverse"
-                                    }}
-                                    className="absolute inset-0 opacity-10"
-                                    style={{
-                                      backgroundImage: "linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6), linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6)",
-                                      backgroundSize: "20px 20px",
-                                      backgroundPosition: "0 0, 10px 10px"
-                                    }}
-                                    aria-hidden="true"
-                                  />
-                
-                                  <motion.button
-                                    onClick={handleCopyPrompt}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 sm:p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group z-10"
-                                    aria-label={copied ? "Prompt copied to clipboard" : "Copy prompt to clipboard"}
-                                  >
-                                    <AnimatePresence mode="wait">
-                                      {copied ? (
-                                        <motion.div
-                                          key="check"
-                                          initial={{ scale: 0, rotate: -180 }}
-                                          animate={{ scale: 1, rotate: 0 }}
-                                          exit={{ scale: 0, rotate: 180 }}
-                                        >
-                                          <IoCheckmarkCircle className="text-lg sm:text-xl text-green-400" aria-hidden="true" />
-                                        </motion.div>
-                                      ) : (
-                                        <motion.div
-                                          key="copy"
-                                          initial={{ scale: 0 }}
-                                          animate={{ scale: 1 }}
-                                          exit={{ scale: 0 }}
-                                        >
-                                          <IoCopyOutline className="text-lg sm:text-xl text-white" aria-hidden="true" />
-                                        </motion.div>
-                                      )}
-                                    </AnimatePresence>
-                                  </motion.button>
-                                  <div className="absolute top-3 right-19 sm:top-4 sm:right-20 "><ShareButton /></div>
-                
-                                  <h2 className="text-sm sm:text-base font-semibold text-purple-400 mb-3 sm:mb-4 flex items-center gap-2">
-                                    <span className="w-1 h-4 sm:h-6 bg-purple-500 rounded-full" aria-hidden="true" />
-                                    {t("prompt")}
-                                  </h2>
-                                  <p
-                                    className="text-xs sm:text-base text-gray-100 leading-relaxed pr-8 sm:pr-12 font-mono"
-                                    itemProp="text"
-                                  >
-                                    {questionDetails?.optionb}
-                                  </p>
-                                </motion.div>) : (<>
-                                  <div>
-                                    <Image src={unlock} alt="" width={600} height={600} className="mx-auto" ></Image>
-                                    <motion.a
-                                      href={`${process.env.NEXT_PUBLIC_APP_WEB_URL}/auth/login`}
-                                      whileHover={{ scale: 1.05 }}
-                                      whileTap={{ scale: 0.95 }}
-                                      className=" max-w-fit mx-auto w-max text-white group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300"
-                                    >
-                                      <Wand2 className="w-5 h-5" />
-                                      Login to Unlock this Prompt
-                                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </motion.a>
-                
-                                  </div></>)}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 sm:p-6 lg:p-8 rounded-2xl shadow-xl overflow-hidden group"
+                  role="region"
+                  aria-label="AI Prompt Content"
+                >
+                  {/* Animated Background Pattern */}
+                  <motion.div
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%"],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                    className="absolute inset-0 opacity-10"
+                    style={{
+                      backgroundImage: "linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6), linear-gradient(45deg, #8b5cf6 25%, transparent 25%, transparent 75%, #8b5cf6 75%, #8b5cf6)",
+                      backgroundSize: "20px 20px",
+                      backgroundPosition: "0 0, 10px 10px"
+                    }}
+                    aria-hidden="true"
+                  />
+
+                  <motion.button
+                    onClick={handleCopyPrompt}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 sm:p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group z-10"
+                    aria-label={copied ? "Prompt copied to clipboard" : "Copy prompt to clipboard"}
+                  >
+                    <AnimatePresence mode="wait">
+                      {copied ? (
+                        <motion.div
+                          key="check"
+                          initial={{ scale: 0, rotate: -180 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          exit={{ scale: 0, rotate: 180 }}
+                        >
+                          <IoCheckmarkCircle className="text-lg sm:text-xl text-green-400" aria-hidden="true" />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="copy"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                        >
+                          <IoCopyOutline className="text-lg sm:text-xl text-white" aria-hidden="true" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
+                  <div className="absolute top-3 right-19 sm:top-4 sm:right-20 "><ShareButton /></div>
+
+                  <h2 className="text-sm sm:text-base font-semibold text-purple-400 mb-3 sm:mb-4 flex items-center gap-2">
+                    <span className="w-1 h-4 sm:h-6 bg-purple-500 rounded-full" aria-hidden="true" />
+                    {t("prompt")}
+                  </h2>
+                  <p
+                    className="text-xs sm:text-base text-gray-100 leading-relaxed pr-8 sm:pr-12 font-mono"
+                    itemProp="text"
+                  >
+                    {questionDetails?.optionb}
+                  </p>
+                </motion.div>) : (<>
+                  <div>
+                    <Image src={unlock} alt="" width={600} height={600} className="mx-auto" ></Image>
+                    <motion.a
+                      href={`${process.env.NEXT_PUBLIC_APP_WEB_URL}/auth/login`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className=" max-w-fit mx-auto w-max text-white group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold flex items-center justify-center gap-2 hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300"
+                    >
+                      <Wand2 className="w-5 h-5" />
+                      Login to Unlock this Prompt
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </motion.a>
+
+                  </div></>)}
               </div>
             </motion.section>
           </article>
@@ -640,10 +672,13 @@ const PromptDetails = () => {
                   initial="rest"
                   animate="rest"
                   custom={index}
-                  onClick={() => router.push({
-                    pathname: router.pathname,
-                    query: { ...router.query, id: question.id },
-                  })}
+                  onClick={() => {
+                    const slug = createSlug(question.question);
+                    router.push({
+                      pathname: `/trending/prompt/${slug}`,
+                      query: { id: question.id },
+                    });
+                  }}
                   className="cursor-pointer group"
                   role="listitem"
                   itemScope
@@ -700,23 +735,94 @@ const PromptDetails = () => {
   );
 };
 
-// SEO: Static generation for better SEO and performance
-// export async function getStaticPaths() {
-//   // This would fetch all question IDs from your API
-//   // For now, return fallback: 'blocking' to generate pages on-demand
-//   return {
-//     paths: [],
-//     fallback: false,
-//   };
-// }
+// SEO: Static generation paths - Generate all prompt pages at build time
+export async function getStaticPaths() {
+  try {
+    console.log('[SSG] Generating static paths for all trending prompts...');
 
-// export async function getStaticProps({ params }) {
-//   // This would fetch the question data server-side
-//   // For client-side data fetching, you can remove this
-//   return {
-//     props: {},
-//     revalidate: 3600, // Revalidate every hour
-//   };
-// }
+    // Fetch all trending prompts
+    const allPrompts = await fetchAllTrendingPrompts();
+
+    // Generate paths for each prompt - include BOTH old and new URL formats
+    const paths = [];
+    allPrompts.forEach((prompt) => {
+      const slug = createSlug(prompt.question);
+
+      // Add slugified version (new format - SEO friendly)
+      paths.push({
+        params: {
+          promptDetail: slug || `prompt-${prompt.id}`
+        },
+      });
+
+      // Add original question text (old format - for existing bookmarks/links)
+      paths.push({
+        params: {
+          promptDetail: prompt.question
+        },
+      });
+    });
+
+    console.log(`[SSG] Generated ${paths.length} static paths (${allPrompts.length} prompts x 2 formats)`);
+
+    return {
+      paths,
+      // Dev mode: use true to allow any URL
+      // Production: use false for static export compatibility  
+      fallback: process.env.NODE_ENV === 'development' ? true : false,
+    };
+  } catch (error) {
+    console.error('[SSG] Error in getStaticPaths:', error);
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const { promptDetail } = params;
+    console.log(`[SSG] Generating static page for: ${promptDetail}`);
+
+    // Fetch all prompts to find the matching one
+    const allPrompts = await fetchAllTrendingPrompts();
+
+    // Find the prompt by matching slug OR original question text
+    let promptData = null;
+    for (const prompt of allPrompts) {
+      const slug = createSlug(prompt.question);
+      // Match by slug OR by original question text (for old URLs)
+      if (slug === promptDetail || prompt.question === promptDetail) {
+        promptData = prompt;
+        break;
+      }
+    }
+
+    if (!promptData) {
+      console.warn(`[SSG] Prompt not found for slug: ${promptDetail}`);
+      return {
+        notFound: true,
+      };
+    }
+
+    // Get recommended prompts
+    const recommended = getRecommendedPrompts(allPrompts, promptData.id, 4);
+
+    console.log(`[SSG] Generated page for prompt: ${promptData.question}`);
+
+    return {
+      props: {
+        initialQuestionDetails: promptData,
+        initialRecommendedQuestions: recommended,
+      },
+    };
+  } catch (error) {
+    console.error('[SSG] Error in getStaticProps:', error);
+    return {
+      notFound: true,
+    };
+  }
+}
 
 export default withTranslation()(PromptDetails);

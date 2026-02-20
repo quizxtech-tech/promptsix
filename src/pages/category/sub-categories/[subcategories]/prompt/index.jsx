@@ -12,26 +12,25 @@ import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
 import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
 import { selecttempdata } from '@/store/reducers/tempDataSlice'
 import ShareButton from "@/components/Common/ShareButton";
-import placeholder from '@/assets/images/placeholder.png'
+import placeholder from '@/assets/images/placeholder.jpg'
+import { fetchAllCategories, fetchPromptsForCategory, createSlug } from "@/utils/buildTimeApi";
 
 const Layout = dynamic(() => import("@/components/Layout/Layout"), {
   ssr: false,
 });
 
-const QuestionPrompt = () => {
-  const [questions, setQuestions] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const QuestionPrompt = ({ initialQuestions = null }) => {
+  const [questions, setQuestions] = useState(initialQuestions || []);
+  const [isLoading, setIsLoading] = useState(!initialQuestions);
   const [categorySlug, setCategorySlug] = useState(null); // Add state for category slug
   const selectcurrentLanguage = useSelector(selectCurrentLanguage);
-  const selectedCategory = useSelector(getSelectedCategory);  
+  const selectedCategory = useSelector(getSelectedCategory);
   const selectedSubCategory = useSelector(getSelectedSubCategory);
   const router = useRouter();
   const { catid, isSubcategory, subcatid, subcategories } = router.query; // Get subcategories from URL
   let getData = useSelector(selecttempdata)
   const dispatch = useDispatch();
-  
-  console.log('Router query:', router.query);
-  console.log('Selected category:', selectedCategory);
+
 
   const getAllData = async () => {
     if (catid) {
@@ -65,7 +64,7 @@ const QuestionPrompt = () => {
             };
           });
 
-          setQuestions(questions);
+          setQuestions(questions.reverse());
           setIsLoading(false);
         }
 
@@ -94,32 +93,29 @@ const QuestionPrompt = () => {
 
   useEffect(() => {
     if (!router.isReady) return;
-    
+
     // Get category slug from URL or Redux
     const slug = subcategories || selectedCategory?.category_slug;
     setCategorySlug(slug);
-    
+
     console.log('Category slug determined:', slug);
-    
+
     getAllData();
   }, [router.isReady, selectcurrentLanguage]);
-
+  ``
   const handleChangeCategory = (question) => {
     dispatch(selectedSubCategorySuccess(question));
-    
+
     // Use categorySlug from state (URL) instead of Redux
     const slugToUse = categorySlug || router.query.subcategories || 'category';
-    
-    console.log('Navigating with slug:', slugToUse);
-    
+    const promptSlug = createSlug(question.question);
+
+    console.log('Navigating with category slug:', slugToUse, 'prompt slug:', promptSlug);
+
     router.push({
-      pathname: `/category/sub-categories/${slugToUse}/promptDetails`,
+      pathname: `/category/sub-categories/${slugToUse}/promptDetails/${promptSlug}`,
       query: {
-        catid: catid,
-        isSubcategory: isSubcategory,
-        subcatid: subcatid,
-        // subcategories: slugToUse,
-        questionId: question.id
+        id: question.id
       },
     });
   }
@@ -174,5 +170,67 @@ const QuestionPrompt = () => {
     </Layout>
   );
 };
+
+// SSG: Generate paths for all category/subcategory combinations
+export async function getStaticPaths() {
+  try {
+    console.log('[SSG] Generating static paths for category prompts...');
+
+    const categories = await fetchAllCategories();
+    const paths = [];
+
+    for (const category of categories) {
+      paths.push({
+        params: {
+          subcategories: category.slug
+        }
+      });
+    }
+
+    console.log(`[SSG] Generated ${paths.length} paths for category prompts`);
+
+    return {
+      paths,
+      fallback: process.env.NODE_ENV === 'development' ? true : false,
+    };
+  } catch (error) {
+    console.error('[SSG] Error in getStaticPaths:', error);
+    return {
+      paths: [],
+      fallback: process.env.NODE_ENV === 'development' ? true : false,
+    };
+  }
+}
+
+// SSG: Fetch prompts for each category at build time
+export async function getStaticProps({ params }) {
+  try {
+    const { subcategories } = params;
+
+    // Find the category by slug
+    const categories = await fetchAllCategories();
+    const category = categories.find(cat => cat.slug === subcategories);
+
+    if (!category) {
+      return { notFound: true };
+    }
+
+    // Fetch prompts for this category
+    const prompts = await fetchPromptsForCategory(category.id);
+
+    return {
+      props: {
+        initialQuestions: prompts,
+      },
+    };
+  } catch (error) {
+    console.error('[SSG] Error in getStaticProps:', error);
+    return {
+      props: {
+        initialQuestions: null,
+      },
+    };
+  }
+}
 
 export default withTranslation()(QuestionPrompt);
