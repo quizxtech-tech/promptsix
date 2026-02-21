@@ -32,7 +32,9 @@ const Routes = ({ children }) => {
 
   const navigate = useRouter();
 
-  const [loading, setLoading] = useState(true);
+  // Always start as false so server and client render the same content (no hydration mismatch)
+  // Web settings are fetched in background via useEffect — no need to block rendering
+  const [loading, setLoading] = useState(false);
 
   const pathname = usePathname();
 
@@ -49,10 +51,10 @@ const Routes = ({ children }) => {
     if (!pathname) return false;
 
     // Check if it's an exact match with allowed routes
-    const exactMatch = allowedRoutes.some(route => 
+    const exactMatch = allowedRoutes.some(route =>
       pathname === route || pathname === `${route}/`
     );
-    
+
     if (exactMatch) return true;
 
     // Check if it starts with /trending/ or /category/
@@ -125,7 +127,7 @@ const Routes = ({ children }) => {
   useEffect(() => {
     if (!loading && pathname) {
       const allowed = isRouteAllowed(pathname);
-      
+
       if (!allowed) {
         // navigate.push("/");
         // toast.error("Access denied. Redirecting to home.");

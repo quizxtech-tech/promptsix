@@ -179,27 +179,34 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-blue-900/20" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
 
-        {/* Floating Particles */}
+        {/* Floating Particles - using deterministic positions to avoid hydration mismatch */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-purple-400 rounded-full"
-              initial={{
-                x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1920,
-                y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 1080
-              }}
-              animate={{
-                y: [null, Math.random() * -100 - 50],
-                opacity: [0, 1, 0]
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2
-              }}
-            />
-          ))}
+          {[...Array(20)].map((_, i) => {
+            // Deterministic pseudo-random values based on index
+            const seed1 = ((i * 137 + 43) % 100) / 100;
+            const seed2 = ((i * 269 + 71) % 100) / 100;
+            const seed3 = ((i * 373 + 29) % 100) / 100;
+            const seed4 = ((i * 491 + 13) % 100) / 100;
+            return (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-purple-400 rounded-full"
+                initial={{
+                  x: seed1 * 1920,
+                  y: seed2 * 1080
+                }}
+                animate={{
+                  y: [null, seed3 * -100 - 50],
+                  opacity: [0, 1, 0]
+                }}
+                transition={{
+                  duration: seed4 * 3 + 2,
+                  repeat: Infinity,
+                  delay: seed1 * 2
+                }}
+              />
+            );
+          })}
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -343,10 +350,10 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
       <section className="py-8 sm:py-10 lg:py-16 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
             <motion.div
@@ -371,11 +378,11 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
             {categories.map((category, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 0 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.00, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ scale: 1.05, y: -4 }}
                 className="group cursor-pointer"
               >
                 <div className="group !pt-0 relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
@@ -393,9 +400,9 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             className="text-center"
           >
             <motion.a
@@ -415,10 +422,10 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
       <section className="py-8 sm:py-10 lg:py-16 relative bg-gradient-to-b from-transparent via-purple-950/20 to-transparent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
             <motion.div
@@ -443,10 +450,10 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
             {trendingPrompts.map((prompt, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 1, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -10 }}
                 className="group cursor-pointer"
               >
@@ -496,9 +503,9 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             className="text-center"
           >
             <motion.a
@@ -518,10 +525,10 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
       <section className="py-8 sm:py-10 lg:py-16 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
             <motion.div
@@ -546,10 +553,10 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
             {hero?.map((hero, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 1, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
                 className="group cursor-pointer"
               >
@@ -584,9 +591,9 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             className="text-center space-y-4"
           >
             <motion.a
@@ -600,7 +607,7 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
             </motion.a>
 
             <div className="text-sm sm:text-base text-gray-400">
-              <p>Share your masterpiece and get featured!</p>
+              <span>Share your masterpiece and get featured!</span>
             </div>
           </motion.div>
         </div>
@@ -611,9 +618,9 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-blue-900/20" />
         <motion.div
           className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           <div className="max-w-4xl mx-auto text-center">
             <motion.div

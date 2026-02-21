@@ -8,27 +8,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentLanguage } from "@/store/reducers/languageSlice";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
 import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
+import { fetchAllPromptHeroes } from "@/utils/buildTimeApi";
+import { generateStructuredData } from "@/components/SEO/SEOHead";
 import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
 import { selecttempdata } from '@/store/reducers/tempDataSlice';
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle,
-  DialogTrigger 
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { IoHeart, IoShareSocial, IoClose, IoSend, IoLogoInstagram } from "react-icons/io5";
 import { FiExternalLink } from "react-icons/fi";
 import ShareButton from "@/components/Common/ShareButton";
 
-const Layout = dynamic(() => import("@/components/Layout/Layout"), {
-    ssr: false,
-});
+import Layout from "@/components/Layout/Layout";
 
 // Animation variants
 const containerVariants = {
@@ -78,14 +77,14 @@ const heartPulseVariants = {
     }
 };
 
-const PromptHeroes = () => {
-    const [popularWorks, setPopularWorks] = useState([]);
-    const [allWorks, setAllWorks] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
+    const [popularWorks, setPopularWorks] = useState(initialPopularWorks);
+    const [allWorks, setAllWorks] = useState(initialAllWorks);
+    const [isLoading, setIsLoading] = useState(!initialPopularWorks.length && !initialAllWorks.length);
     const [selectedWork, setSelectedWork] = useState(null);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [isSubmitDialogOpen, setIsSubmitDialogOpen] = useState(false);
-    
+
     const selectcurrentLanguage = useSelector(selectCurrentLanguage);
     const selectedCategory = useSelector(getSelectedCategory);
     const selectedSubCategory = useSelector(getSelectedSubCategory);
@@ -94,20 +93,20 @@ const PromptHeroes = () => {
     const getData = useSelector(selecttempdata);
 
     // Get Instagram handle from env
-    const instagramHandle =  "@promptland.in" ;
+    const instagramHandle = "@promptland.in";
     const submissionEmail = process.env.NEXT_PUBLIC_SUBMISSION_EMAIL || "submit@yoursite.com";
 
     // SEO: Generate dynamic meta information
     const generateMetaData = () => {
-        const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://yoursite.com';
+        const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://promptland.in';
         const currentUrl = typeof window !== 'undefined' ? window.location.href : `${siteUrl}${router.asPath}`;
         const siteName = "AI Prompt Heroes Gallery"; // Change to your site name
-        
+
         const totalWorks = popularWorks.length + allWorks.length;
         const title = `Prompt Heroes - ${totalWorks}+ Community Creations | ${siteName}`;
         const description = `Explore ${totalWorks}+ amazing AI-generated artworks created by our community using ChatGPT, Midjourney, DALL-E and more. Get inspired and share your own creations!`;
         const imageUrl = popularWorks[0]?.image || `${siteUrl}/default-gallery-image.jpg`;
-        
+
         const keywords = [
             "AI art gallery",
             "community creations",
@@ -127,7 +126,7 @@ const PromptHeroes = () => {
     // SEO: Generate JSON-LD structured data
     const generateStructuredData = () => {
         const metaData = generateMetaData();
-        
+
         // ImageGallery Schema
         const gallerySchema = {
             "@context": "https://schema.org",
@@ -298,10 +297,10 @@ const PromptHeroes = () => {
                         loading={index < 8 ? "eager" : "lazy"}
                         itemProp="image"
                     />
-                    
+
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+
                     {/* Hover Actions */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -320,7 +319,7 @@ const PromptHeroes = () => {
 
                 {/* Content */}
                 <div className="p-4 space-y-3">
-                    <h3 
+                    <h3
                         className="font-bold text-lg text-gray-800 line-clamp-2 group-hover:text-purple-600 transition-colors"
                         itemProp="name"
                     >
@@ -586,7 +585,7 @@ const PromptHeroes = () => {
                                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                                             {selectedWork.question}
                                         </h2>
-                                        
+
                                         <div className="flex items-center gap-4 text-sm text-gray-600">
                                             <div className="flex items-center gap-1.5">
                                                 <IoHeart className="w-5 h-5 text-red-500" />
@@ -615,7 +614,7 @@ const PromptHeroes = () => {
                                         <FiExternalLink className="mr-2" />
                                         Visit Original Post
                                     </Button>
-                                    
+
                                     <Button
                                         onClick={() => {
                                             if (navigator.share) {
@@ -628,7 +627,7 @@ const PromptHeroes = () => {
                                         variant="outline"
                                         size="lg"
                                     >
-                                        <ShareButton showOnTop={true}/>
+                                        <ShareButton showOnTop={true} />
                                     </Button>
                                 </div>
                             </div>
@@ -656,7 +655,7 @@ const PromptHeroes = () => {
                                 <span className="text-2xl">📸</span>
                                 How to Submit
                             </h3>
-                            
+
                             <ol className="space-y-3 text-gray-700">
                                 <li className="flex gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
@@ -664,14 +663,14 @@ const PromptHeroes = () => {
                                     </span>
                                     <span>Upload your AI-generated artwork to any social media platform (Instagram, Twitter, Facebook, etc.)</span>
                                 </li>
-                                
+
                                 <li className="flex gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                                         2
                                     </span>
                                     <div>
                                         <span>Tag or Mention our account: </span>
-                                        <a 
+                                        <a
                                             href={`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`}
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -682,14 +681,14 @@ const PromptHeroes = () => {
                                         </a>
                                     </div>
                                 </li>
-                                
+
                                 <li className="flex gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                                         3
                                     </span>
                                     <div>
                                         <span>Send us details on instagram at: </span>
-                                         <a 
+                                        <a
                                             href={`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`}
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -706,7 +705,7 @@ const PromptHeroes = () => {
                                         </ul>
                                     </div>
                                 </li>
-                                
+
                                 <li className="flex gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                                         4
@@ -726,7 +725,7 @@ const PromptHeroes = () => {
                                 <IoLogoInstagram className="mr-2 w-5 h-5" />
                                 Follow on Instagram
                             </Button>
-                            
+
                             {/* <Button
                                 onClick={() => window.location.href = `mailto:${submissionEmail}`}
                                 variant="outline"
@@ -753,5 +752,82 @@ const PromptHeroes = () => {
         </Layout>
     );
 };
+
+// SSG: Pre-fetch prompt heroes at build time
+export async function getStaticProps() {
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptland.in';
+
+    try {
+        console.log('[SSG] Generating static prompt-heroes page...');
+        const heroesData = await fetchAllPromptHeroes();
+
+        // Separate popular (level 1 is already what we fetch) and all works
+        const processedHeroes = (heroesData || []).map((data) => ({
+            ...data,
+            isBookmarked: false,
+        }));
+
+        console.log(`[SSG] Generated prompt-heroes page with ${processedHeroes.length} heroes`);
+
+        // Generate SEO data
+        const seoData = {
+            title: `AI Prompt Heroes | ${processedHeroes.length}+ Creative AI Art Works`,
+            description: `Discover ${processedHeroes.length}+ stunning AI-generated artworks and prompts from creative heroes. Get inspired, copy prompts, and create your own AI masterpieces.`,
+            keywords: [
+                "AI prompt heroes",
+                "AI art gallery",
+                "AI generated art",
+                "creative AI prompts",
+                "ChatGPT art",
+                "Midjourney prompts",
+                "AI image prompts",
+                "prompt engineering",
+            ],
+            canonical: `${siteUrl}/prompt-heroes`,
+            image: processedHeroes[0]?.image || `${siteUrl}/og-heroes.jpg`,
+            imageAlt: "AI Prompt Heroes - Creative AI Art Gallery",
+            ogType: "website",
+        };
+
+        // Generate structured data
+        const seoStructuredData = [
+            generateStructuredData.itemList({
+                name: "AI Prompt Heroes",
+                items: processedHeroes.slice(0, 20).map((p) => ({
+                    name: p.question || "AI Artwork",
+                    url: `${siteUrl}/prompt-heroes/${p.id}`,
+                })),
+            }),
+            generateStructuredData.breadcrumb([
+                { name: "Home", url: siteUrl },
+                { name: "Prompt Heroes", url: `${siteUrl}/prompt-heroes` },
+            ]),
+        ];
+
+        return {
+            props: {
+                initialPopularWorks: processedHeroes,
+                initialAllWorks: [],
+                seoData,
+                seoStructuredData,
+            },
+        };
+    } catch (error) {
+        console.error('[SSG] Error in getStaticProps:', error);
+        return {
+            props: {
+                initialPopularWorks: [],
+                initialAllWorks: [],
+                seoData: {
+                    title: "AI Prompt Heroes | Creative AI Art Gallery",
+                    description: "Discover stunning AI-generated artworks and prompts from creative heroes.",
+                    canonical: `${siteUrl}/prompt-heroes`,
+                    ogType: "website",
+                },
+                seoStructuredData: [],
+            },
+        };
+    }
+}
 
 export default withTranslation()(PromptHeroes);

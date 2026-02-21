@@ -138,7 +138,7 @@ const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuesti
   const generateMetaData = () => {
     if (!questionDetails) return null;
 
-    const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://yoursite.com';
+    const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://promptland.in';
     const currentUrl = typeof window !== 'undefined' ? window.location.href : `${siteUrl}${router.asPath}`;
     const siteName = "AI Prompt Library"; // Change to your site name
 

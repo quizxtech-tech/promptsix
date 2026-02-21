@@ -12,7 +12,6 @@ import Swal from "sweetalert2";
 import { updateUserDataInfo } from "@/store/reducers/userSlice";
 const MySwal = withReactContent(Swal);
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
 import {
   reviewAnswerShowSuccess,
   selectedCategorySuccess,
@@ -26,9 +25,8 @@ import {
   unlockPremiumCatApi,
 } from "@/api/apiRoutes";
 import { fetchAllCategories } from "@/utils/buildTimeApi";
-const Layout = dynamic(() => import("@/components/Layout/Layout"), {
-  ssr: false,
-});
+import { generateStructuredData } from "@/components/SEO/SEOHead";
+import Layout from "@/components/Layout/Layout";
 
 const QuizZone = ({ initialCategories = null }) => {
   const [category, setCategory] = useState({
@@ -201,12 +199,51 @@ const QuizZone = ({ initialCategories = null }) => {
 
 // SSG: Pre-fetch categories at build time
 export async function getStaticProps() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptland.in';
+
   try {
     const categories = await fetchAllCategories();
+
+    // Generate SEO data for category page
+    const seoData = {
+      title: `AI Prompt Categories | Browse ${categories?.length || 0}+ Categories`,
+      description: `Explore ${categories?.length || 0}+ categories of professional AI prompts for ChatGPT, Gemini, Claude, and more. Find the perfect prompt for image generation, writing, coding, and creative projects.`,
+      keywords: [
+        "AI prompt categories",
+        "ChatGPT prompts",
+        "Gemini prompts",
+        "AI image prompts",
+        "prompt library",
+        "AI tools",
+        "prompt engineering",
+        ...(categories || []).slice(0, 10).map(c => c.category_name).filter(Boolean),
+      ],
+      canonical: `${siteUrl}/category`,
+      image: `${siteUrl}/og-category.jpg`,
+      imageAlt: "AI Prompt Categories - Browse All Categories",
+      ogType: "website",
+    };
+
+    // Generate structured data
+    const seoStructuredData = [
+      generateStructuredData.itemList({
+        name: "AI Prompt Categories",
+        items: (categories || []).map(c => ({
+          name: c.category_name,
+          url: `${siteUrl}/category/sub-categories/${c.id}`,
+        })),
+      }),
+      generateStructuredData.breadcrumb([
+        { name: "Home", url: siteUrl },
+        { name: "Categories", url: `${siteUrl}/category` },
+      ]),
+    ];
 
     return {
       props: {
         initialCategories: categories,
+        seoData,
+        seoStructuredData,
       },
     };
   } catch (error) {
@@ -214,6 +251,13 @@ export async function getStaticProps() {
     return {
       props: {
         initialCategories: null,
+        seoData: {
+          title: "AI Prompt Categories | Browse Prompts",
+          description: "Explore categories of professional AI prompts for ChatGPT, Gemini, Claude, and more.",
+          canonical: `${siteUrl}/category`,
+          ogType: "website",
+        },
+        seoStructuredData: [],
       },
     };
   }

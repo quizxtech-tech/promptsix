@@ -7,17 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentLanguage } from "@/store/reducers/languageSlice";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
 import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
 import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
 import { selecttempdata } from '@/store/reducers/tempDataSlice'
 import ShareButton from "@/components/Common/ShareButton";
 import placeholder from '@/assets/images/placeholder.jpg'
 import { fetchAllTrendingPrompts, createSlug } from "@/utils/buildTimeApi";
+import { generateTrendingSEO } from "@/utils/seoUtils";
+import { generateStructuredData } from "@/components/SEO/SEOHead";
 
-const Layout = dynamic(() => import("@/components/Layout/Layout"), {
-    ssr: false,
-});
+import Layout from "@/components/Layout/Layout";
 
 const QuestionPrompt = ({ initialQuestions = [] }) => {
     const [questions, setQuestions] = useState(initialQuestions);
@@ -165,6 +164,8 @@ const QuestionPrompt = ({ initialQuestions = [] }) => {
 
 // getStaticProps for Static Site Generation
 export async function getStaticProps() {
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptland.in';
+
     try {
         console.log('[SSG] Generating static trending listing page...');
 
@@ -183,17 +184,42 @@ export async function getStaticProps() {
 
         console.log(`[SSG] Generated trending page with ${processedPrompts.length} prompts`);
 
+        // Generate SEO data
+        const seoData = generateTrendingSEO({
+            promptCount: processedPrompts.length,
+            siteUrl,
+        });
+
+        // Generate structured data
+        const seoStructuredData = [
+            generateStructuredData.itemList({
+                name: "Trending AI Prompts",
+                items: processedPrompts.slice(0, 20).map((p) => ({
+                    name: p.question,
+                    url: `${siteUrl}/trending/prompt/${createSlug(p.question)}`,
+                })),
+            }),
+            generateStructuredData.breadcrumb([
+                { name: "Home", url: siteUrl },
+                { name: "Trending", url: `${siteUrl}/trending` },
+            ]),
+        ];
+
         return {
             props: {
                 initialQuestions: processedPrompts,
+                seoData,
+                seoStructuredData,
             },
         };
     } catch (error) {
         console.error('[SSG] Error in getStaticProps:', error);
-        // Return empty array on error to prevent build failure
+        const seoData = generateTrendingSEO({ promptCount: 0, siteUrl });
         return {
             props: {
                 initialQuestions: [],
+                seoData,
+                seoStructuredData: [],
             },
         };
     }

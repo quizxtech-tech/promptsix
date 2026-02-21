@@ -264,9 +264,9 @@ const Layout = ({ children }) => {
   }, [webSettings]);
 
   // this function is for primary color gradient
-  const primaryColor = document.documentElement.style.getPropertyValue("--primary-color");
-
   useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const primaryColor = document.documentElement.style.getPropertyValue("--primary-color");
     if (primaryColor) {
       const hsl = hexToHSL(primaryColor);
       const lightHex = hslToHex(hsl.h, hsl.s, Math.min(hsl.s + 15, 100));
@@ -275,7 +275,7 @@ const Layout = ({ children }) => {
       document.documentElement.style.setProperty('--gradient-from', lightHex);
       document.documentElement.style.setProperty('--gradient-to', darkHex);
     }
-  }, [primaryColor]);
+  }, [webSettings]);
 
   function hexToHSL(hex) {
     hex = hex.replace('#', '');

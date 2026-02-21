@@ -108,7 +108,7 @@ const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuesti
   const generateMetaData = () => {
     if (!questionDetails) return null;
 
-    const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://yoursite.com';
+    const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://promptland.in';
     const currentUrl = typeof window !== 'undefined' ? window.location.href : `${siteUrl}${router.asPath}`;
     const siteName = "AI Prompt Library"; // Change to your site name
 
@@ -762,11 +762,11 @@ export async function getStaticProps({ params }) {
   const categories = await fetchAllCategories();
   const category = categories.find(cat => cat.slug === subcategories);
   if (!category) return { notFound: true };
-  
+
   const allPrompts = await fetchPromptsForCategory(category.id);
   let prompt = allPrompts.find(p => createSlug(p.question) === promptSlug || p.question === promptSlug);
   if (!prompt) return { notFound: true };
-  
+
   return {
     props: {
       initialQuestionDetails: prompt,

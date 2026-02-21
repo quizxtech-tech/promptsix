@@ -52,7 +52,7 @@ export default function SEOHead({
     nofollow = false,
 }) {
     const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "AI Prompt Library";
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yoursite.com";
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://promptland.in";
 
     // Build robots content
     const robotsContent = noindex || nofollow
@@ -169,7 +169,7 @@ export const generateStructuredData = {
             "name": process.env.NEXT_PUBLIC_SITE_NAME || "AI Prompt Library",
             "logo": {
                 "@type": "ImageObject",
-                "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com'}/logo.png`
+                "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://promptland.in'}/logo.png`
             }
         }
     }),

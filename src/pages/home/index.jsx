@@ -21,7 +21,7 @@ const Home = ({ initialTrendingPrompts, initialPromptHeroes }) => {
 
 // Enable static generation and pass SEO data through pageProps
 export async function getStaticProps() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptland.in';
 
   // Generate home page SEO data
   const seoData = generateHomeSEO({ siteUrl });

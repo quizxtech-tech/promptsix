@@ -104,7 +104,12 @@ const TopHeader = () => {
   const webLanWidthRef = useRef(null);
   const quizLanWidthRef = useRef(null);
 
-  const DarkMode = document.documentElement.classList.contains("dark");
+  const [DarkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    setDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+
   //notification
   const [notificationmodal, setNotificationModal] = useState(false);
 
