@@ -187,7 +187,7 @@ const Wallet = () => {
       setPaymentIdModal(false);
 
       const response = await getUserCoinsApi({});
-      
+
       if (!response?.error) {
         setActiveTab("pending");
         setRedeemInput(0);
@@ -357,14 +357,14 @@ const Wallet = () => {
   return (
     <Layout>
       <section className="container px-2 mb-14 ">
-      <div className="mb-24 max-1200:mb-20 max-767:mb-12">
-            <Breadcrumb
-              showBreadcrumb={true}
-              title={t("profile")}
-              content={t("home")}
-              contentFive={t("profile")}
-              />
-            </div>
+        <div className="mb-24 max-1200:mb-20 max-767:mb-12">
+          <Breadcrumb
+            showBreadcrumb={true}
+            title={t("profile")}
+            content={t("home")}
+            contentFive={t("profile")}
+          />
+        </div>
         <div className="">
           <div className="">
             <div className="flex flex-wrap relative between-1200-1399:flex-nowrap justify-evenly gap-9">
@@ -375,7 +375,7 @@ const Wallet = () => {
                 </div>
               </div>
               <div className="w-full md:w-full lg:w-[70%] xl:w-[70%] morphisam !m-0 darkSecondaryColor">
-              <div className="font-bold text-[42px] mb-5 text-center ">{t("wallet")}</div>
+                <div className="font-bold text-[42px] mb-5 text-center ">{t("wallet")}</div>
                 <div>
                   <div className="w-full flex flex-col gap-8 ">
                     <div className="bg-white rounded-[16px] font-sans pb-5 pt-4 darkSecondaryColor">
@@ -436,7 +436,7 @@ const Wallet = () => {
                       </h2>
                       {loading ? (
                         <div className="text-center">
-                          <Skeleton count={5} className="skeleton"/>
+                          <Skeleton count={5} className="skeleton" />
                         </div>
                       ) : (
                         <>
@@ -567,3 +567,7 @@ const Wallet = () => {
 };
 
 export default withTranslation()(Wallet);
+
+export async function getStaticProps() {
+  return { props: {} };
+}

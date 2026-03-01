@@ -24,10 +24,10 @@ const Level = () => {
 
   const router = useRouter();
 
-  const getAllData = async() => {
+  const getAllData = async () => {
     setLevel([]);
 
-    const response =await getMultiMatchLevelApi({
+    const response = await getMultiMatchLevelApi({
       category_slug: router.query.catid,
       subcategory_slug:
         router?.query?.isSubcategory == 0 ? "" : router.query.subcatid,
@@ -42,7 +42,7 @@ const Level = () => {
       setLevelLoading(false);
       toast.error(error.message);
     }
-    
+
   };
 
   useEffect(() => {
@@ -84,3 +84,11 @@ const Level = () => {
   );
 };
 export default withTranslation()(Level);
+
+export async function getStaticPaths() {
+  return { paths: [], fallback: false };
+}
+
+export async function getStaticProps() {
+  return { props: {} };
+}

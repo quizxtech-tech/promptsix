@@ -44,7 +44,7 @@ const ArrangeQuestion = () => {
   const [level, setLevel] = useState(1);
   const [isFunctionCalled, setIsFunctionCalled] = useState(false);
 
- 
+
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [update_questions, setUpdate_questions] = useState(questions);
@@ -67,7 +67,7 @@ const ArrangeQuestion = () => {
 
   const navigate = useRouter();
 
-  
+
   // store data get
   const userData = useSelector((state) => state.User);
 
@@ -140,13 +140,13 @@ const ArrangeQuestion = () => {
 
   }, [questions, currentQuestion]);
 
-  const selectedOptions = () =>{
-    if(isSelectAns){
+  const selectedOptions = () => {
+    if (isSelectAns) {
       let selOpt = selectedoptions.length === 0
         ? ['']
         : selectedoptions;
       return selOpt;
-    }else{
+    } else {
       const totalOptions = ['a', 'b', 'c', 'd', 'e'];
       const questionOptions = questions[currentQuestion].answer.length;
       const selectedOptions = totalOptions.slice(0, questionOptions);
@@ -173,12 +173,12 @@ const ArrangeQuestion = () => {
 
   // button option answer check
   const checkAnswer = async () => {
-    if(isFunctionCalled){
+    if (isFunctionCalled) {
       return;
     }
     setIsFunctionCalled(true);
     answerOptionClicked.current = true;
-let latestUpdateQuestions = null;
+    let latestUpdateQuestions = null;
     let seconds = child.current?.getMinuteandSeconds();
     child.current.pauseTimer();
     dispatch(setTotalSecond(TIMER_SECONDS));
@@ -199,10 +199,10 @@ let latestUpdateQuestions = null;
       let updatedQuestions = update_questions.map((data) => {
         return data.id === id
           ? {
-              ...data,
-              selected_answer: selOpt,
-              isAnswered: selectedoptions?.length > 0 ? true : false,
-            }
+            ...data,
+            selected_answer: selOpt,
+            isAnswered: selectedoptions?.length > 0 ? true : false,
+          }
           : data;
       });
       setUpdate_questions(updatedQuestions);
@@ -242,10 +242,10 @@ let latestUpdateQuestions = null;
       let updatedQuestions = update_questions.map((data) => {
         return data.id === id
           ? {
-              ...data,
-              selected_answer: selOpt,
-              isAnswered: selOpt?.length > 0 ? true : false,
-            }
+            ...data,
+            selected_answer: selOpt,
+            isAnswered: selOpt?.length > 0 ? true : false,
+          }
           : data;
       });
       setUpdate_questions(updatedQuestions);
@@ -254,12 +254,12 @@ let latestUpdateQuestions = null;
 
     dispatch(percentageSuccess(result_score));
 
-     
+
     const nextQuestionForApi = currentQuestion + 1;
     if (nextQuestionForApi == questions?.length) {
-    
-       // function for apiQuestions
-       const questionsForApi = latestUpdateQuestions?.map((item) => ({
+
+      // function for apiQuestions
+      const questionsForApi = latestUpdateQuestions?.map((item) => ({
         id: item.id,
         answer: item.selected_answer.length > 0 ? isSelectAns ? item.selected_answer.sort().join(",") : item.selected_answer.join(",") : "",
       }));
@@ -280,7 +280,7 @@ let latestUpdateQuestions = null;
       }
     }
 
-    
+
   };
 
   useEffect(() => {
@@ -315,7 +315,7 @@ let latestUpdateQuestions = null;
     setInCorrAns(inCorrAns + 1);
     setIsAnswerd(true);
     let selOpt = selectedOptions()
-    
+
     // Sequence Question
     let { id } = questions[currentQuestion];
     let updatedQuestions = update_questions.map((data) => {
@@ -366,7 +366,7 @@ let latestUpdateQuestions = null;
         ? { ...data, selected_answer: selectedoptions, isAnswered: true }
         : data;
     });
-    
+
   };
 
   let count = 0;
@@ -516,3 +516,11 @@ ArrangeQuestion.defaultProps = {
 };
 
 export default withTranslation()(ArrangeQuestion);
+
+export async function getStaticPaths() {
+  return { paths: [], fallback: false };
+}
+
+export async function getStaticProps() {
+  return { props: {} };
+}

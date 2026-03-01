@@ -233,14 +233,14 @@ const Bookmark = () => {
   return (
     <Layout>
       <div className="container px-2 mb-14 ">
-      <div className="mb-24 max-1200:mb-20 max-767:mb-12">
-            <Breadcrumb
-              showBreadcrumb={true}
-              title={t("profile")}
-              content={t("home")}
-              contentFive={t("profile")}
-              />
-            </div>
+        <div className="mb-24 max-1200:mb-20 max-767:mb-12">
+          <Breadcrumb
+            showBreadcrumb={true}
+            title={t("profile")}
+            content={t("home")}
+            contentFive={t("profile")}
+          />
+        </div>
         <div className="flex flex-wrap relative between-1200-1399:flex-nowrap justify-evenly gap-9">
           <div className="h-max w-full xl:w-1/4 lg:w-2/3 md:w-full">
             <div className="darkSecondaryColor flex flex-col min-w-0 break-words  rounded-[16px] bg-[var(--background-2)] border border-[#f5f5f5] dark:border-[#ffffff1a] dark:border-[2px] max-1200:p-[12px]  relative">
@@ -292,7 +292,7 @@ const Bookmark = () => {
                     )}
                     {loading ? (
                       <div className="text-center ">
-                        <Skeleton count={5} className="skeleton"/>
+                        <Skeleton count={5} className="skeleton" />
                       </div>
                     ) : quizzoneQue?.length > 0 ? (
                       quizzoneQue.slice(0, visible).map((question, key) => {
@@ -378,7 +378,7 @@ const Bookmark = () => {
                     )}
                     {loading ? (
                       <div className="text-center ">
-                        <Skeleton count={5} className="skeleton"/>
+                        <Skeleton count={5} className="skeleton" />
                       </div>
                     ) : guessthewordQue?.length > 0 ? (
                       guessthewordQue.slice(0, visible).map((question, key) => {
@@ -459,7 +459,7 @@ const Bookmark = () => {
                     )}
                     {loading ? (
                       <div className="text-center ">
-                        <Skeleton count={5} className="skeleton"/>
+                        <Skeleton count={5} className="skeleton" />
                       </div>
                     ) : audioquizQue?.length > 0 ? (
                       audioquizQue.slice(0, visible).map((question, key) => {
@@ -526,3 +526,7 @@ const Bookmark = () => {
 };
 
 export default withTranslation()(Bookmark);
+
+export async function getStaticProps() {
+  return { props: {} };
+}

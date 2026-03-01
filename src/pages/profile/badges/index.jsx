@@ -3,9 +3,13 @@ import Badges from '@/components/Profile/Badges'
 const Index = () => {
   return (
     <div>
-        <Badges/>
+      <Badges />
     </div>
   )
 }
 
 export default Index
+
+export async function getStaticProps() {
+  return { props: {} };
+}

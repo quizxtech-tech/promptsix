@@ -43,7 +43,7 @@ const LeftTabProfile = () => {
 
   const path = router.pathname;
 
-  const DarkMode = document.documentElement.classList.contains("dark");
+  const DarkMode = typeof document !== 'undefined' && document.documentElement.classList.contains("dark");
   // sign out
   const handleSignout = (e) => {
     e.preventDefault();
@@ -103,11 +103,10 @@ const LeftTabProfile = () => {
     <>
       <div className="flex max-1200:flex-row flex-col max-1200:gap-[6px] gap-[10px] px-[9px] py-0 max-1200:overflow-x-scroll max-1200:p-0 max-1200:py-2">
         <div
-          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[19px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-            path === "/profile"
+          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[19px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile"
               ? "bg-primary-color text-white invert(1.5) rounded-tl-[16px] -mt-[2px] rounded-tr-[16px] [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
               : ""
-          }`}
+            }`}
           onClick={() => router.push("/profile")}
         >
           <span>
@@ -120,11 +119,10 @@ const LeftTabProfile = () => {
           <span> {t("profile")}</span>
         </div>
         <div
-          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-            path === "/profile/statistics"
+          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile/statistics"
               ? "bg-primary-color text-white invert(1.5) [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
               : ""
-          }`}
+            }`}
           onClick={() => router.push("/profile/statistics")}
         >
           <span>
@@ -134,11 +132,10 @@ const LeftTabProfile = () => {
         </div>
 
         <div
-          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-            path === "/profile/bookmark"
+          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile/bookmark"
               ? "bg-primary-color text-white  invert(1.5)  [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
               : ""
-          }`}
+            }`}
           onClick={() => router.push("/profile/bookmark")}
         >
           <span>
@@ -152,67 +149,62 @@ const LeftTabProfile = () => {
         </div>
 
         <div
-          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-            path === "/profile/badges"
+          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile/badges"
               ? "bg-primary-color text-white invert(1.5)  [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
               : ""
-          }`}
+            }`}
           onClick={() => router.push("/profile/badges")}
         >
           <span>
-            <img src={getImageSource(badgesIcon.src)} alt="badges" className="dark:[filter:brightness(300)] dark:opacity-60"/>
+            <img src={getImageSource(badgesIcon.src)} alt="badges" className="dark:[filter:brightness(300)] dark:opacity-60" />
           </span>
           <span>{t("badges")}</span>
         </div>
 
         <div
-          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-            path === "/profile/leaderboard"
+          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile/leaderboard"
               ? "bg-primary-color text-white invert(1.5)  [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
               : ""
-          }`}
+            }`}
           onClick={() => router.push("/profile/leaderboard")}
         >
           <span>
-            <img src={getImageSource(leaderboardIcon.src)} alt="leaderboard" className="dark:[filter:brightness(300)] dark:opacity-60"/>
+            <img src={getImageSource(leaderboardIcon.src)} alt="leaderboard" className="dark:[filter:brightness(300)] dark:opacity-60" />
           </span>
           <span>{t("leader_board")}</span>
         </div>
 
         <div
-          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-            path === "/profile/coin-history"
+          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile/coin-history"
               ? "bg-primary-color text-white invert(1.5)  [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
               : ""
-          }`}
+            }`}
           onClick={() => router.push("/profile/coin-history")}
         >
           <span>
-            <img src={getImageSource(coinIcon.src)} alt="coin-history" className="dark:[filter:brightness(300)] dark:opacity-60"/>
+            <img src={getImageSource(coinIcon.src)} alt="coin-history" className="dark:[filter:brightness(300)] dark:opacity-60" />
           </span>
           <span>{t("coin_history")}</span>
         </div>
         {systemconfig?.payment_mode === "1" ? (
           <div
-            className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-              path === "/profile/wallet"
+            className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile/wallet"
                 ? "bg-primary-color text-white invert(1.5)  [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
                 : ""
-            }`}
+              }`}
             onClick={() => router.push("/profile/wallet")}
           >
             <span>
-              <img src={getImageSource(walletIcon.src)} alt="wallet" className="dark:[filter:brightness(300)] dark:opacity-60"/>
+              <img src={getImageSource(walletIcon.src)} alt="wallet" className="dark:[filter:brightness(300)] dark:opacity-60" />
             </span>
             <span> {t("wallet")}</span>
           </div>
         ) : null}
         <div
-          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${
-            path === "/profile/invite-friends"
+          className={`max-1200:py-2 max-1200:px-4 max-1200:gap-[12px] max-1200:[&>span]:w-max px-[24px] py-[18px] cursor-pointer max-1200:mx-0 -mx-[10px]  text-[16px] font-bold text-center flex justify-start items-center gap-[20px] ${path === "/profile/invite-friends"
               ? "bg-primary-color text-white invert(1.5)  [&>span>img]:[filter:invert(1.5)_brightness(1.5)] max-1200:rounded-full [&>span>img]:dark:opacity-100"
               : ""
-          }`}
+            }`}
           onClick={() => router.push("/profile/invite-friends")}
         >
           {/* <span>
@@ -224,9 +216,9 @@ const LeftTabProfile = () => {
               colorMap={{ "#090029": "var(--primary-color)" }}
             />
           </span> */}
-           <span>
-              <img src={getImageSource(inviteIcon.src)} alt="wallet" className="dark:[filter:brightness(300)] dark:opacity-60"/>
-            </span>
+          <span>
+            <img src={getImageSource(inviteIcon.src)} alt="wallet" className="dark:[filter:brightness(300)] dark:opacity-60" />
+          </span>
           <span> {t("invite_friends")} </span>
         </div>
         <div
@@ -234,7 +226,7 @@ const LeftTabProfile = () => {
           onClick={(e) => handleSignout(e)}
         >
           <span>
-            <img src={getImageSource(logouttabImg.src)} alt="invite-friends" className="dark:[filter:brightness(300)] dark:opacity-60"/>
+            <img src={getImageSource(logouttabImg.src)} alt="invite-friends" className="dark:[filter:brightness(300)] dark:opacity-60" />
           </span>
           <span> {t("logout_account")} </span>
         </div>
@@ -243,7 +235,7 @@ const LeftTabProfile = () => {
           onClick={(e) => deleteAccountClick(e)}
         >
           <span>
-            <img src={getImageSource(DeleteImg.src)} alt="invite-friends" className="dark:[filter:brightness(300)] dark:opacity-60"/>
+            <img src={getImageSource(DeleteImg.src)} alt="invite-friends" className="dark:[filter:brightness(300)] dark:opacity-60" />
           </span>
           <span> {t("delete_account")} </span>
         </div>
@@ -254,22 +246,22 @@ const LeftTabProfile = () => {
             <DialogDescription>
               <div className="flex flex-col items-center justify-center gap-1 text-text-color font-sans ">
                 <span>
-                <ThemeSvg 
-                  className="w-[200px] sm:w-[190px]"
-                  src={warningImg.src}
-                  colorMap={DarkMode ? {
-                    "#090029": "var(--primary-color)",
-                    "#3B82F6": "var(--primary-color)",
-                    "#212121": "var(--primary-color)",
-                    "#C564BB": "var(--primary-color)",
-                    "#45536D": "var(--primary-color)",
-                    "#ffcaf9": "var(--primary-light)",
-                    "#CECCD4": "var(--primary-light)",
-                    "0.2": "1",
-                    "white": "#221a3f",
-                  } : {
-                    "#090029": "black",
-                  }}
+                  <ThemeSvg
+                    className="w-[200px] sm:w-[190px]"
+                    src={warningImg.src}
+                    colorMap={DarkMode ? {
+                      "#090029": "var(--primary-color)",
+                      "#3B82F6": "var(--primary-color)",
+                      "#212121": "var(--primary-color)",
+                      "#C564BB": "var(--primary-color)",
+                      "#45536D": "var(--primary-color)",
+                      "#ffcaf9": "var(--primary-light)",
+                      "#CECCD4": "var(--primary-light)",
+                      "0.2": "1",
+                      "white": "#221a3f",
+                    } : {
+                      "#090029": "black",
+                    }}
                   />
                 </span>
                 <span className="text-[24px] font-semibold sm:text-[42px] sm:p-4 font-sans">
@@ -305,23 +297,23 @@ const LeftTabProfile = () => {
             <DialogDescription>
               <div className="flex flex-col items-center justify-center gap-1 text-text-color font-sans">
                 <span>
-                <ThemeSvg
-                  className="w-[200px] sm:w-[190px]"
-                  src={deleteAccImg.src}
-                  colorMap={DarkMode ? {
-                    "#090029": "var(--primary-color)",
-                    "#3B82F6": "var(--primary-color)",
-                    "#212121": "var(--primary-color)",
-                    "#C564BB": "var(--primary-color)",
-                    "#45536D": "var(--primary-color)",
-                    "#ffcaf9": "var(--primary-light)",
-                    "#CECCD4": "var(--primary-light)",
-                    "#7f7d91": "var(--primary-light)",
-                    "0.2": "1",
-                    "white": "#221a3f",
-                  } : {
-                    "#090029": "black",
-                  }}
+                  <ThemeSvg
+                    className="w-[200px] sm:w-[190px]"
+                    src={deleteAccImg.src}
+                    colorMap={DarkMode ? {
+                      "#090029": "var(--primary-color)",
+                      "#3B82F6": "var(--primary-color)",
+                      "#212121": "var(--primary-color)",
+                      "#C564BB": "var(--primary-color)",
+                      "#45536D": "var(--primary-color)",
+                      "#ffcaf9": "var(--primary-light)",
+                      "#CECCD4": "var(--primary-light)",
+                      "#7f7d91": "var(--primary-light)",
+                      "0.2": "1",
+                      "white": "#221a3f",
+                    } : {
+                      "#090029": "black",
+                    }}
                   />
                   {/* <img
                     className="w-[200px] sm:w-[190px] dark:[filter:invert(0.9)]"

@@ -22,7 +22,7 @@ const CoinHistory = () => {
   const [incometotal, setInocmetotal] = useState(0);
   const [losetotal, setLosetotal] = useState(0);
   const [allCurrentPage, setAllCurrentPage] = useState(0);
-  
+
   const [incomeCurrentPage, setIncomeCurrentPage] = useState(0);
   const [loseCurrentPage, setLoseCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,9 +31,9 @@ const CoinHistory = () => {
   const [incomeApiCall, setIncomeApiCall] = useState(false);
   const [loseApiCall, setLoseApiCall] = useState(false);
   const [allApiCall, setAllApiCall] = useState(false);
-  
+
   const handlePageChange = (selectedPage, eventKey) => {
-    
+
     switch (eventKey) {
       case "all":
         setAllCurrentPage(selectedPage.selected);
@@ -58,7 +58,7 @@ const CoinHistory = () => {
     setIsLoading(false);
 
     if (!response?.error) {
-      
+
       setAllData(response.data);
       setTotal(response.total);
     }
@@ -122,7 +122,7 @@ const CoinHistory = () => {
       setLoseApiCall(true);
       fetchLoseData();
     }
-  }, [activeTab,allCurrentPage,incomeCurrentPage,loseCurrentPage ]);
+  }, [activeTab, allCurrentPage, incomeCurrentPage, loseCurrentPage]);
 
   // render data of points based on status and welcome bonus with type check
   const renderPoints = (data) => {
@@ -158,14 +158,14 @@ const CoinHistory = () => {
   return (
     <Layout>
       <section className="container px-2 mb-14 ">
-      <div className="mb-24 max-1200:mb-20 max-767:mb-12">
-            <Breadcrumb
-              showBreadcrumb={true}
-              title={t("profile")}
-              content={t("home")}
-              contentFive={t("profile")}
-              />
-            </div>
+        <div className="mb-24 max-1200:mb-20 max-767:mb-12">
+          <Breadcrumb
+            showBreadcrumb={true}
+            title={t("profile")}
+            content={t("home")}
+            contentFive={t("profile")}
+          />
+        </div>
         <div className="">
           <div className="">
             <div className="flex flex-wrap relative between-1200-1399:flex-nowrap justify-evenly gap-9">
@@ -204,7 +204,7 @@ const CoinHistory = () => {
                       {isLoading ? (
                         // Show skeleton loading
                         <div className="w-full">
-                          <Skeleton height={20} count={5} className="skeleton"/>
+                          <Skeleton height={20} count={5} className="skeleton" />
                         </div>
                       ) : allData?.length > 0 ? (
                         allData.map((data, index) => (
@@ -241,7 +241,7 @@ const CoinHistory = () => {
                       {isLoading ? (
                         // Show skeleton loading
                         <div className="w-full">
-                          <Skeleton height={20} count={5} className="skeleton"/>
+                          <Skeleton height={20} count={5} className="skeleton" />
                         </div>
                       ) : incomeData?.length > 0 ? (
                         incomeData.map((data, index) => (
@@ -278,7 +278,7 @@ const CoinHistory = () => {
                       {isLoading ? (
                         // Show skeleton loading
                         <div className="w-full">
-                          <Skeleton height={20} count={5} className="skeleton"/>
+                          <Skeleton height={20} count={5} className="skeleton" />
                         </div>
                       ) : loseData?.length > 0 ? (
                         loseData.map((data, index) => (
@@ -373,3 +373,7 @@ const CoinHistory = () => {
 };
 
 export default withTranslation()(CoinHistory);
+
+export async function getStaticProps() {
+  return { props: {} };
+}
