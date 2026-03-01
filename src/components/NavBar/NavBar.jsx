@@ -28,10 +28,9 @@ const NavBar = () => {
             className={`text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color`}
           >
             <span
-              className={`${
-                pathname === "/" &&
+              className={`${pathname === "/" &&
                 "!border !border-primary-color darkSecondaryColor"
-              } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
+                } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
             >
               {t("home")}
             </span>
@@ -43,10 +42,9 @@ const NavBar = () => {
             className={`text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color`}
           >
             <span
-              className={`${
-                pathname === "/category/" &&
+              className={`${pathname === "/category/" &&
                 "!border !border-primary-color darkSecondaryColor"
-              } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
+                } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
             >{`${t("Explore Prompts")}`}</span>
           </Link>
         </li>
@@ -57,23 +55,33 @@ const NavBar = () => {
             className={`text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color`}
           >
             <span
-              className={`${
-                pathname === "/trending/" &&
+              className={`${pathname === "/trending/" &&
                 "!border !border-primary-color darkSecondaryColor"
-              } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
+                } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
             >{`${t("trending")}`}</span>
           </Link>
         </li>
-         <li>
+        <li>
+          <Link
+            href="/blog"
+            className={`text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color`}
+          >
+            <span
+              className={`${pathname === "/blog/" &&
+                "!border !border-primary-color darkSecondaryColor"
+                } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
+            >{`${t("Blog")}`}</span>
+          </Link>
+        </li>
+        <li>
           <Link
             href="/prompt-heroes"
             className={`text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color`}
           >
             <span
-              className={`${
-                pathname === "/prompt-heroes/" &&
+              className={`${pathname === "/prompt-heroes/" &&
                 "!border !border-primary-color darkSecondaryColor"
-              } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
+                } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
             >{`${t("Prompt Heroes")}`}</span>
           </Link>
         </li>
@@ -83,10 +91,9 @@ const NavBar = () => {
             className={`text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color`}
           >
             <span
-              className={`${
-                pathname === "/instruction/" &&
+              className={`${pathname === "/instruction/" &&
                 "!border !border-primary-color darkSecondaryColor"
-              } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
+                } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
             >
               {t("instruction")}
             </span>
@@ -100,13 +107,12 @@ const NavBar = () => {
                 className="text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color group outline-none"
               >
                 <span
-                  className={`${
-                    (pathname === "/contact-us/" ||
+                  className={`${(pathname === "/contact-us/" ||
                       pathname === "/about-us/" ||
                       pathname === "/terms-conditions/" ||
                       pathname === "/privacy-policy/") &&
                     "!border !border-primary-color darkSecondaryColor"
-                  } tracking-wide flex gap-1 font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
+                    } tracking-wide flex gap-1 font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
                 >
                   {t("more")}{" "}
                   <Image

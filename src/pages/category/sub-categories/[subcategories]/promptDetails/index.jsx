@@ -250,6 +250,7 @@ const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuesti
           console.log(randomQuestions);
 
           setRecommendedQuestions(randomQuestions);
+          console.log(randomQuestions);
         }
         setIsLoading(false);
       } catch (error) {
@@ -278,6 +279,12 @@ const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuesti
 
   const metaData = generateMetaData();
   const structuredData = generateStructuredData();
+  const recomendedQuestionClick = (question) => {
+    const slug = createSlug(question.question);
+    console.log('Navigating to:', `/category/sub-categories/${router.query.subcategories}/promptDetails/${slug}`);
+    console.log('Question object:', question);
+    router.push(`/category/sub-categories/${router.query.subcategories}/promptDetails/${slug}`);
+  };
 
   return (
     <Layout>
@@ -655,10 +662,12 @@ const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuesti
                   initial="rest"
                   animate="rest"
                   custom={index}
-                  onClick={() => router.push({
-                    pathname: router.pathname,
-                    query: { ...router.query, questionId: question.id },
-                  })}
+                  // onClick={() => {
+                  //   const slug = createSlug(question.question);
+                  //   console.log(`/category/sub-categories/${router.query.subcategories}/promptDetails/${slug}`);
+                  //   router.push(`/category/sub-categories/${router.query.subcategories}/promptDetails/${slug}`);
+                  // }}
+                  onClick={() => recomendedQuestionClick(question)}
                   className="cursor-pointer group"
                   role="listitem"
                   itemScope

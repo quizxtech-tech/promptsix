@@ -276,6 +276,17 @@ const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuesti
     getQuestionDetails();
   }, [router.isReady, questionId, selectcurrentLanguage]);
 
+  // Sync state when navigating between different prompt slugs.
+  // Next.js reuses the same component instance for same-layout routes,
+  // so useState() initial values don't reset — we must do it manually.
+  useEffect(() => {
+    if (initialQuestionDetails) {
+      setQuestionDetails(initialQuestionDetails);
+      setRecommendedQuestions(initialRecommendedQuestions);
+      setIsLoading(false);
+    }
+  }, [initialQuestionDetails?.id]);
+
   const metaData = generateMetaData();
   const structuredData = generateStructuredData();
 
@@ -655,10 +666,10 @@ const PromptDetails = ({ initialQuestionDetails = null, initialRecommendedQuesti
                   initial="rest"
                   animate="rest"
                   custom={index}
-                  onClick={() => router.push({
-                    pathname: router.pathname,
-                    query: { ...router.query, questionId: question.id },
-                  })}
+                  onClick={() => {
+                    const slug = createSlug(question.question);
+                    router.push(`/category/sub-categories/${router.query.subcategories}/promptDetails/${slug}`);
+                  }}
                   className="cursor-pointer group"
                   role="listitem"
                   itemScope
