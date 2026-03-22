@@ -330,3 +330,47 @@ export async function fetchAllCategoryPrompts() {
     }
 }
 
+/**
+ * Fetch all top creators at build time (category 37)
+ * 
+ * @returns {Promise<Array>} Array of top creator objects
+ */
+export async function fetchAllTopCreators() {
+    try {
+        const url = `${API_BASE_URL}${API_ENDPOINT}get_questions_by_level`;
+
+        // Create FormData for the API request
+        const formData = new FormData();
+        formData.append('category', '37'); // Category 37 is for top creators
+        formData.append('language_id', DEFAULT_LANGUAGE_ID);
+        formData.append('level', '1');
+
+        console.log('[Build Time] Fetching all top creators from:', url);
+
+        const response = await fetch(url, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (!response.ok) {
+            throw new Error(`API responded with status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+            console.error('[Build Time] API Error:', data.message);
+            return [];
+        }
+
+        console.log(`[Build Time] Successfully fetched ${data.data?.length || 0} top creators`);
+        return data.data || [];
+
+    } catch (error) {
+        console.error('[Build Time] Error fetching top creators:', error);
+        // Return empty array instead of crashing the build
+        return [];
+    }
+}
+
+

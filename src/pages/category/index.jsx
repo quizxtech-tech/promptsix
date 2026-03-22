@@ -49,7 +49,7 @@ const QuizZone = ({ initialCategories = null }) => {
 
     if (!response?.error) {
       let categories = response.data;
-      let filteredCategories = categories.filter((cat) => cat.id !== "4" && cat.id !== "3");
+      let filteredCategories = categories.filter((cat) => cat.id !== "4" && cat.id !== "3" && cat.id !== "37");
 
 
       setCategory({ ...category, all: filteredCategories, selected: filteredCategories[0] });

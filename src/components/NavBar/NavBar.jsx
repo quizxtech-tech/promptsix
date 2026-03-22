@@ -87,15 +87,15 @@ const NavBar = () => {
         </li>
         <li>
           <Link
-            href="/instruction"
+            href="/top-creators"
             className={`text-sm font-medium leading-5 block py-2.5 px-4 rounded-lg text-text-color`}
           >
             <span
-              className={`${pathname === "/instruction/" &&
+              className={`${pathname === "/top-creators" &&
                 "!border !border-primary-color darkSecondaryColor"
                 } tracking-wide flex font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
             >
-              {t("instruction")}
+              {t("Top Creators")}
             </span>
           </Link>
         </li>
@@ -108,9 +108,9 @@ const NavBar = () => {
               >
                 <span
                   className={`${(pathname === "/contact-us/" ||
-                      pathname === "/about-us/" ||
-                      pathname === "/terms-conditions/" ||
-                      pathname === "/privacy-policy/") &&
+                    pathname === "/about-us/" ||
+                    pathname === "/terms-conditions/" ||
+                    pathname === "/privacy-policy/") &&
                     "!border !border-primary-color darkSecondaryColor"
                     } tracking-wide flex gap-1 font-semibold text-left capitalize p-2 hover:border hover:border-primary-color rounded-[5px] border border-transparent text-[16px] `}
                 >
@@ -132,6 +132,18 @@ const NavBar = () => {
                 </i>
               </span> */}
               <ul className="mb-0 p-3">
+                <li>
+                  <Link
+                    href="/instruction"
+                    className={
+                      isActive("/instruction") ? "navbar__link--active" : ""
+                    }
+                  >
+                    <span className="tracking-wide flex font-normal text-left capitalize !mb-3">
+                      {t("instruction")}
+                    </span>
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/contact-us"

@@ -23,7 +23,7 @@ import {
     DialogTrigger
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { IoHeart, IoShareSocial, IoClose, IoSend, IoLogoInstagram } from "react-icons/io5";
+import { IoHeart, IoShareSocial, IoClose } from "react-icons/io5";
 import { FiExternalLink } from "react-icons/fi";
 import ShareButton from "@/components/Common/ShareButton";
 
@@ -81,9 +81,8 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
     const [popularWorks, setPopularWorks] = useState(initialPopularWorks);
     const [allWorks, setAllWorks] = useState(initialAllWorks);
     const [isLoading, setIsLoading] = useState(!initialPopularWorks.length && !initialAllWorks.length);
-    const [selectedWork, setSelectedWork] = useState(null);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [isSubmitDialogOpen, setIsSubmitDialogOpen] = useState(false);
+    const [selectedWork, setSelectedWork] = useState(null);
 
     const selectcurrentLanguage = useSelector(selectCurrentLanguage);
     const selectedCategory = useSelector(getSelectedCategory);
@@ -92,9 +91,7 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
     const dispatch = useDispatch();
     const getData = useSelector(selecttempdata);
 
-    // Get Instagram handle from env
-    const instagramHandle = "@promptland.in";
-    const submissionEmail = process.env.NEXT_PUBLIC_SUBMISSION_EMAIL || "submit@yoursite.com";
+
 
     // SEO: Generate dynamic meta information
     const generateMetaData = () => {
@@ -269,6 +266,25 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
         }
     };
 
+    const renderMedia = (rawUrl, isCard = false) => {
+        if (!rawUrl) return <img src="/images/homeSkeleton.png" alt="Skeleton" className={`w-full h-full ${isCard ? 'object-cover' : 'object-contain'}`} />;
+
+        // Extract URL from HTML wrapper if provided by WYSIWYG editor
+        const urlMatch = rawUrl.match(/(https?:\/\/[^\s"<]+)/);
+        const url = urlMatch ? urlMatch[0] : rawUrl;
+
+        return (
+            <div className={`w-full h-full flex items-center justify-center overflow-hidden ${!isCard ? 'bg-black' : ''}`}>
+                <img
+                    src={url}
+                    alt="Media"
+                    className={`w-full h-full ${isCard ? 'object-cover' : 'object-contain'}`}
+                    loading="lazy"
+                />
+            </div>
+        );
+    };
+
     // Work Card Component
     const WorkCard = ({ work, index }) => (
         <motion.article
@@ -284,19 +300,17 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
         >
             <motion.div
                 variants={cardHoverVariants}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 relative"
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 relative flex flex-col h-full"
             >
                 {/* Image Container */}
-                <figure className="relative h-64 overflow-hidden">
-                    <motion.img
+                <figure className="relative h-80 overflow-hidden bg-black">
+                    <motion.div
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.6 }}
-                        src={work.image || "/images/homeSkeleton.png"}
-                        alt={`${work.question} - AI generated artwork`}
-                        className="w-full h-full object-cover"
-                        loading={index < 8 ? "eager" : "lazy"}
-                        itemProp="image"
-                    />
+                        className="w-full h-full"
+                    >
+                        {renderMedia(work.note || work.image, true)}
+                    </motion.div>
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -338,7 +352,7 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                             <FiExternalLink className="w-4 h-4" />
                         </Button>
 
-                        <motion.div
+                        {/* <motion.div
                             whileHover="pulse"
                             variants={heartPulseVariants}
                             className="flex items-center gap-1.5 text-red-500"
@@ -347,7 +361,7 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                             <span className="font-semibold text-sm">
                                 {work.optionb || 0}
                             </span>
-                        </motion.div>
+                        </motion.div> */}
                     </div>
                 </div>
 
@@ -356,9 +370,7 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                 <meta itemProp="interactionCount" content={`${work.optionb} likes`} />
             </motion.div>
         </motion.article>
-    );
-
-    const metaData = generateMetaData();
+    ); const metaData = generateMetaData();
     const structuredData = generateStructuredData();
 
     return (
@@ -433,14 +445,6 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                     <p className="text-lg md:text-xl text-gray-600 mb-6">
                         Discover amazing AI-generated creations from our talented community
                     </p>
-                    <Button
-                        onClick={() => setIsSubmitDialogOpen(true)}
-                        size="lg"
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold shadow-lg"
-                    >
-                        <IoSend className="mr-2" />
-                        Submit Your Work
-                    </Button>
                 </motion.header>
 
                 {isLoading ? (
@@ -540,15 +544,8 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                                     No works yet
                                 </h3>
                                 <p className="text-gray-600 mb-6">
-                                    Be the first to share your amazing AI creations!
+                                    We are shortlisting the best creators.
                                 </p>
-                                <Button
-                                    onClick={() => setIsSubmitDialogOpen(true)}
-                                    size="lg"
-                                    className="bg-purple-600 hover:bg-purple-700"
-                                >
-                                    Submit Your Work
-                                </Button>
                             </motion.div>
                         )}
                     </div>
@@ -569,13 +566,9 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
 
                     {selectedWork && (
                         <div className="relative">
-                            {/* Image */}
-                            <div className="relative w-full h-[60vh] bg-gray-100">
-                                <img
-                                    src={selectedWork.image}
-                                    alt={selectedWork.question}
-                                    className="w-full h-full object-contain"
-                                />
+                            {/* Media Carousel */}
+                            <div className="relative w-full h-[50vh] md:h-[60vh] bg-black flex items-center justify-center overflow-hidden">
+                                {renderMedia(selectedWork.note || selectedWork.image, false)}
                             </div>
 
                             {/* Content */}
@@ -594,22 +587,15 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                                         </div>
                                     </div>
 
-                                    <Button
-                                        onClick={() => setIsSubmitDialogOpen(true)}
-                                        variant="outline"
-                                        className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50"
-                                    >
-                                        <IoSend className="mr-2" />
-                                        Submit Your Work
-                                    </Button>
+
                                 </div>
 
                                 {/* Actions */}
-                                <div className="flex gap-3">
+                                <div className="flex flex-col sm:flex-row gap-3">
                                     <Button
                                         onClick={() => window.open(selectedWork.optiona, '_blank', 'noopener,noreferrer')}
                                         size="lg"
-                                        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                                        className="min-h-10 flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                                     >
                                         <FiExternalLink className="mr-2" />
                                         Visit Original Post
@@ -633,120 +619,6 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                             </div>
                         </div>
                     )}
-                </DialogContent>
-            </Dialog>
-
-            {/* Submit Work Dialog */}
-            <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
-                <DialogContent className="max-w-2xl">
-                    <DialogHeader>
-                        <DialogTitle className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                            Submit Your Work
-                        </DialogTitle>
-                        <DialogDescription className="text-base">
-                            Share your amazing AI creations with our community and get featured!
-                        </DialogDescription>
-                    </DialogHeader>
-
-                    <div className="space-y-6 py-4">
-                        {/* Instructions */}
-                        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 space-y-4">
-                            <h3 className="font-bold text-lg text-gray-800 flex items-center gap-2">
-                                <span className="text-2xl">📸</span>
-                                How to Submit
-                            </h3>
-
-                            <ol className="space-y-3 text-gray-700">
-                                <li className="flex gap-3">
-                                    <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                        1
-                                    </span>
-                                    <span>Upload your AI-generated artwork to any social media platform (Instagram, Twitter, Facebook, etc.)</span>
-                                </li>
-
-                                <li className="flex gap-3">
-                                    <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                        2
-                                    </span>
-                                    <div>
-                                        <span>Tag or Mention our account: </span>
-                                        <a
-                                            href={`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="font-bold text-purple-600 hover:text-purple-700 inline-flex items-center gap-1"
-                                        >
-                                            <IoLogoInstagram className="w-5 h-5" />
-                                            {instagramHandle}
-                                        </a>
-                                    </div>
-                                </li>
-
-                                <li className="flex gap-3">
-                                    <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                        3
-                                    </span>
-                                    <div>
-                                        <span>Send us details on instagram at: </span>
-                                        <a
-                                            href={`https://www.instagram.com/promptland.in?igsh=OGM1c3l3dG9qcm1s`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="font-bold text-purple-600 hover:text-purple-700 inline-flex items-center gap-1"
-                                        >
-                                            <IoLogoInstagram className="w-5 h-5" />
-                                            {instagramHandle}
-                                        </a>
-                                        <span> with:</span>
-                                        <ul className="mt-2 ml-4 space-y-1 text-sm">
-                                            <li>• Your name</li>
-                                            <li>• Link to your post</li>
-                                            <li>• Brief description of your work</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li className="flex gap-3">
-                                    <span className="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                        4
-                                    </span>
-                                    <span>We'll review your submission and feature it on our gallery!</span>
-                                </li>
-                            </ol>
-                        </div>
-
-                        {/* Quick Contact Buttons */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <Button
-                                onClick={() => window.open(`https://instagram.com/${instagramHandle.replace('@', '')}`, '_blank')}
-                                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-                                size="lg"
-                            >
-                                <IoLogoInstagram className="mr-2 w-5 h-5" />
-                                Follow on Instagram
-                            </Button>
-
-                            {/* <Button
-                                onClick={() => window.location.href = `mailto:${submissionEmail}`}
-                                variant="outline"
-                                className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50"
-                                size="lg"
-                            >
-                                <IoSend className="mr-2" />
-                                Send Email
-                            </Button> */}
-                        </div>
-
-                        {/* Guidelines */}
-                        <div className="text-xs text-gray-500 space-y-1">
-                            <p className="font-semibold">Guidelines:</p>
-                            <ul className="ml-4 space-y-0.5">
-                                <li>• Only submit your original AI-generated work</li>
-                                <li>• Ensure content is appropriate for all audiences</li>
-                                <li>• By submitting, you agree to showcase your work in our gallery</li>
-                            </ul>
-                        </div>
-                    </div>
                 </DialogContent>
             </Dialog>
         </Layout>
