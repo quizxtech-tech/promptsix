@@ -10,7 +10,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { useRouter } from "next/router";
 import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
 import { fetchAllPromptHeroes } from "@/utils/buildTimeApi";
-import { generateStructuredData } from "@/components/SEO/SEOHead";
+
 import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
 import { selecttempdata } from '@/store/reducers/tempDataSlice';
 import { motion, AnimatePresence } from "framer-motion";
@@ -204,7 +204,7 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
             });
 
             if (!popularResponse.error) {
-                setPopularWorks(popularResponse.data || []);
+                setPopularWorks(popularResponse.data.reverse() || []);
             }
 
             // Fetch All Works (Level 2)
@@ -228,7 +228,7 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                     };
                 });
 
-                setAllWorks(works);
+                setAllWorks(works.reverse());
             }
 
             setIsLoading(false);
@@ -333,12 +333,19 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
 
                 {/* Content */}
                 <div className="p-4 space-y-3">
-                    <h3
-                        className="font-bold text-lg text-gray-800 line-clamp-2 group-hover:text-purple-600 transition-colors"
-                        itemProp="name"
-                    >
-                        {work.question}
-                    </h3>
+                    <div className="space-y-1">
+                        <h3
+                            className="font-bold text-lg text-gray-800 line-clamp-2 group-hover:text-purple-600 transition-colors"
+                            itemProp="name"
+                        >
+                            {work.question}
+                        </h3>
+                        {work.optionb && (
+                            <p className="text-sm text-gray-500 font-medium">
+                                Created By <span className="text-purple-600 font-bold">{work.optionb}</span>
+                            </p>
+                        )}
+                    </div>
 
                     {/* Actions Row */}
                     <div className="flex items-center justify-between">
@@ -445,6 +452,21 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                     <p className="text-lg md:text-xl text-gray-600 mb-6">
                         Discover amazing AI-generated creations from our talented community
                     </p>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <Button
+                            onClick={() => router.push('/become-hero')}
+                            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-lg px-8 py-6 rounded-full shadow-[0_0_20px_rgba(219,39,119,0.3)] hover:shadow-[0_0_30px_rgba(219,39,119,0.5)] transition-all duration-300"
+                        >
+                            <span className="flex items-center gap-2">
+                                ✨ Become a Prompt Hero
+                            </span>
+                        </Button>
+                    </motion.div>
                 </motion.header>
 
                 {isLoading ? (
@@ -575,16 +597,21 @@ const PromptHeroes = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                             <div className="p-6 space-y-4">
                                 <div className="flex items-start justify-between gap-4">
                                     <div className="flex-1">
-                                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+                                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
                                             {selectedWork.question}
                                         </h2>
+                                        {selectedWork.optionb && (
+                                            <p className="text-base text-gray-500 font-medium mb-2">
+                                                Created By <span className="text-purple-600 font-bold">{selectedWork.optionb}</span>
+                                            </p>
+                                        )}
 
-                                        <div className="flex items-center gap-4 text-sm text-gray-600">
+                                        {/* <div className="flex items-center gap-4 text-sm text-gray-600">
                                             <div className="flex items-center gap-1.5">
                                                 <IoHeart className="w-5 h-5 text-red-500" />
                                                 <span className="font-semibold">{selectedWork.optionb || 0} likes</span>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
 
 
@@ -663,17 +690,26 @@ export async function getStaticProps() {
 
         // Generate structured data
         const seoStructuredData = [
-            generateStructuredData.itemList({
-                name: "AI Prompt Heroes",
-                items: processedHeroes.slice(0, 20).map((p) => ({
-                    name: p.question || "AI Artwork",
-                    url: `${siteUrl}/prompt-heroes/${p.id}`,
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "AI Prompt Heroes",
+                "numberOfItems": processedHeroes.slice(0, 20).length,
+                "itemListElement": processedHeroes.slice(0, 20).map((p, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "name": p.question || "AI Artwork",
+                    "url": `${siteUrl}/prompt-heroes/${p.id}`,
                 })),
-            }),
-            generateStructuredData.breadcrumb([
-                { name: "Home", url: siteUrl },
-                { name: "Prompt Heroes", url: `${siteUrl}/prompt-heroes` },
-            ]),
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+                    { "@type": "ListItem", "position": 2, "name": "Prompt Heroes", "item": `${siteUrl}/prompt-heroes` },
+                ],
+            },
         ];
 
         return {

@@ -1,0 +1,82 @@
+
+> elite-tailwind@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.28
+  - Environments: .env
+
+   Linting and checking validity of types ...
+ ⨯ ESLint: Invalid Options: - Unknown options: useEslintrc, extensions - 'extensions' has been removed.
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Collecting page data ...
+[SSG] Generating static paths for category prompts...
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[SSG] Generated 29 paths for category prompts
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[SSG] Generating static paths for all trending prompts...
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Fetching prompts for category 19, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 19
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Fetching prompts for category 23, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 23
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated 100 static paths (50 prompts x 2 formats)
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching prompts for category 26, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 26
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching prompts for category 32, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 32
+[Build Time] Fetching prompts for category 33, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 33
+[Build Time] Fetching prompts for category 35, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 35
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching prompts for category 36, subcategory none
+[Build Time] Successfully fetched 1 prompts for category 36
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching prompts for category 34, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 34
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Fetching prompts for category 30, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 30
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+   Generating static pages (0/673) ...
+this is outer subcat

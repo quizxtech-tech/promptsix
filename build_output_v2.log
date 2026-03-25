@@ -1,0 +1,2499 @@
+
+> elite-tailwind@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.28
+  - Environments: .env
+
+   Linting and checking validity of types ...
+ ⨯ ESLint: Invalid Options: - Unknown options: useEslintrc, extensions - 'extensions' has been removed.
+   Creating an optimized production build ...
+
+warn - The `min-*` and `max-*` variants are not supported with a `screens` configuration containing objects.
+ ✓ Compiled successfully
+   Collecting page data ...
+[SSG] Generating static paths for category prompts...
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[SSG] Generated 29 paths for category prompts
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[SSG] Generating static paths for all trending prompts...
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated 100 static paths (50 prompts x 2 formats)
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Fetching prompts for category 19, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 19
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Fetching prompts for category 23, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 23
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching prompts for category 26, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 26
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching prompts for category 32, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 32
+[Build Time] Fetching prompts for category 33, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 33
+[Build Time] Fetching prompts for category 35, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 35
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching prompts for category 36, subcategory none
+[Build Time] Successfully fetched 1 prompts for category 36
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching prompts for category 34, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 34
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Fetching prompts for category 30, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 30
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+   Generating static pages (0/673) ...
+this is outer subcat
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[Build Time] Transformed 50 trending prompts for home page
+[Build Time] Fetching all prompt heroes from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 2 prompt heroes
+[Build Time] Fetched 2 prompt heroes for home page
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[Build Time] Transformed 50 trending prompts for home page
+[Build Time] Fetching all prompt heroes from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 2 prompt heroes
+[Build Time] Fetched 2 prompt heroes for home page
+[SSG] Generating static top-creators page...
+[Build Time] Fetching all top creators from: https://admin.promptland.in/api/get_questions_by_level
+[SSG] Generated top-creators page with 0 creators
+[SSG] Generating static trending listing page...
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated trending page with 50 prompts
+{}
+[Build Time] API Error: 102
+[SSG] Generating static prompt-heroes page...
+[Build Time] Fetching all prompt heroes from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 2 prompt heroes
+[SSG] Generated prompt-heroes page with 2 heroes
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 23, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 23
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 19, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 19
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 32, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 32
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 26, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 26
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 33, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 33
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 35, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 35
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 36, subcategory none
+[Build Time] Successfully fetched 1 prompts for category 36
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 30, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 30
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 34, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 34
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[SSG] Generating static page for: the-whiskey-cigar-lounge
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Whiskey & Cigar Lounge
+[SSG] Generating static page for: The Magical Butterfly
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Magical Butterfly
+[SSG] Generating static page for: The Whiskey & Cigar Lounge
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Whiskey & Cigar Lounge
+[SSG] Generating static page for: The Social Media illusion
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Social Media illusion
+[SSG] Generating static page for: the-magical-butterfly
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Magical Butterfly
+[SSG] Generating static page for: the-social-media-illusion
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Social Media illusion
+[SSG] Generating static page for: the-live-concert-moment
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[SSG] Generating static page for: luxury-jet-cinematic-walk
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Luxury Jet Cinematic Walk
+[SSG] Generating static page for: the-red-geometric-room
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Red Geometric Room
+[SSG] Generating static page for: The Live Concert Moment
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Live Concert Moment
+[SSG] Generating static page for: the-jungle-equestrian
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Jungle Equestrian
+[SSG] Generating static page for: The Jungle Equestrian
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Jungle Equestrian
+[SSG] Generating static page for: The Red Geometric Room
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Red Geometric Room
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: The Live Concert Moment
+[SSG] Generating static page for: Luxury Jet Cinematic Walk
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Luxury Jet Cinematic Walk
+[SSG] Generating static page for: Retrato Cinematográfico Surreal 8K
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Retrato Cinematográfico Surreal 8K
+[SSG] Generating static page for: Spinning Pink Sari Cinematic Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Spinning Pink Sari Cinematic Portrait
+[SSG] Generating static page for: retrato-cinematogrfico-surreal-8k
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Retrato Cinematográfico Surreal 8K
+[SSG] Generating static page for: spinning-pink-sari-cinematic-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Spinning Pink Sari Cinematic Portrait
+[SSG] Generating static page for: ultra-realistic-saree-portrait-prompt
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Ultra-Realistic Saree Portrait Prompt
+[SSG] Generating static page for: Ultra-Realistic Saree Portrait Prompt
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Ultra-Realistic Saree Portrait Prompt
+[SSG] Generating static page for: Butterfly Color Traditional Net Saree Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Butterfly Color Traditional Net Saree Portrait
+[SSG] Generating static page for: butterfly-color-traditional-net-saree-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Butterfly Color Traditional Net Saree Portrait
+[SSG] Generating static page for: deep-red-silk-saree-golden-hour-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Deep Red Silk Saree Golden Hour Portrait
+[SSG] Generating static page for: Hyper-Realistic South Indian Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Hyper-Realistic South Indian Portrait
+[SSG] Generating static page for: Deep Red Silk Saree Golden Hour Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Deep Red Silk Saree Golden Hour Portrait
+[SSG] Generating static page for: hyper-realistic-south-indian-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Hyper-Realistic South Indian Portrait
+[SSG] Generating static page for: divine-smoke-transformation-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Divine Smoke Transformation Portrait
+[SSG] Generating static page for: Radha Rani Close-Up Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Radha Rani Close-Up Portrait
+[SSG] Generating static page for: Divine Smoke Transformation Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Divine Smoke Transformation Portrait
+[SSG] Generating static page for: minimal-radha-inspired-studio-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Minimal Radha-Inspired Studio Portrait
+[SSG] Generating static page for: Radha at Prem Mandir
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Radha at Prem Mandir
+[SSG] Generating static page for: radha-at-prem-mandir
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Radha at Prem Mandir
+[SSG] Generating static page for: radha-rani-close-up-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Radha Rani Close-Up Portrait
+   Generating static pages (168/673) 
+[SSG] Generating static page for: Minimal Radha-Inspired Studio Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Minimal Radha-Inspired Studio Portrait
+[SSG] Generating static page for: mystical-dance-portrait-of-radha
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Mystical Dance Portrait of Radha
+[SSG] Generating static page for: radha-krishna-devotional-scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Radha-Krishna Devotional Scene
+[SSG] Generating static page for: Radha-Krishna Devotional Scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Radha-Krishna Devotional Scene
+[SSG] Generating static page for: angelic-dreamlike-street-scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Angelic Dreamlike Street Scene
+[SSG] Generating static page for: Angelic Dreamlike Street Scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Angelic Dreamlike Street Scene
+[SSG] Generating static page for: Mystical Dance Portrait of Radha
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Mystical Dance Portrait of Radha
+[SSG] Generating static page for: paper-world-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Paper World Portrait
+[SSG] Generating static page for: Paper World Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Paper World Portrait
+[SSG] Generating static page for: clean-white-background-casual-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Clean White Background Casual Portrait
+[SSG] Generating static page for: Clean White Background Casual Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Clean White Background Casual Portrait
+[SSG] Generating static page for: cinematic-leather-jacket-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Cinematic Leather Jacket Portrait
+[SSG] Generating static page for: Cinematic Leather Jacket Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Cinematic Leather Jacket Portrait
+[SSG] Generating static page for: luxury-brick-wall-editorial-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Luxury Brick Wall Editorial Portrait
+[SSG] Generating static page for: Luxury Brick Wall Editorial Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Luxury Brick Wall Editorial Portrait
+[SSG] Generating static page for: Modern Café Tropical Shirt Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Modern Café Tropical Shirt Portrait
+[SSG] Generating static page for: modern-caf-tropical-shirt-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Modern Café Tropical Shirt Portrait
+[SSG] Generating static page for: dreamy-traditional-portrait-woman
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Dreamy Traditional Portrait (Woman)
+[SSG] Generating static page for: Bedroom Phone Glow Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Bedroom Phone Glow Portrait
+[SSG] Generating static page for: bedroom-phone-glow-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Bedroom Phone Glow Portrait
+[SSG] Generating static page for: Dreamy Traditional Portrait (Woman)
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Dreamy Traditional Portrait (Woman)
+[SSG] Generating static page for: monochrome-double-exposure-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Monochrome Double Exposure Portrait
+[SSG] Generating static page for: celebration-confetti-scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Celebration Confetti Scene
+[SSG] Generating static page for: Celebration Confetti Scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Celebration Confetti Scene
+[SSG] Generating static page for: Monochrome Double Exposure Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Monochrome Double Exposure Portrait
+[SSG] Generating static page for: Night Fair Lights Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Night Fair Lights Portrait
+[SSG] Generating static page for: evening-fairground-leather-look
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Evening Fairground Leather Look
+[SSG] Generating static page for: night-fair-lights-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Night Fair Lights Portrait
+[SSG] Generating static page for: Evening Fairground Leather Look
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Evening Fairground Leather Look
+[SSG] Generating static page for: Enchanted Garden Fantasy Woman
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Enchanted Garden Fantasy Woman
+[SSG] Generating static page for: blue-corset-mirror-room-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Blue Corset Mirror Room Portrait
+[SSG] Generating static page for: Blue Corset Mirror Room Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Blue Corset Mirror Room Portrait
+[SSG] Generating static page for: enchanted-garden-fantasy-woman
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Enchanted Garden Fantasy Woman
+[SSG] Generating static page for: Royal Carriage Fashion Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Royal Carriage Fashion Portrait
+[SSG] Generating static page for: royal-carriage-fashion-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Royal Carriage Fashion Portrait
+[SSG] Generating static page for: cinematic-autumn-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Cinematic Autumn Portrait
+[SSG] Generating static page for: Cinematic Autumn Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Cinematic Autumn Portrait
+[SSG] Generating static page for: Urban Leather Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Urban Leather Portrait
+[SSG] Generating static page for: marble-throne-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Marble Throne Portrait
+[SSG] Generating static page for: Marble Throne Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Marble Throne Portrait
+[SSG] Generating static page for: grand-ballroom-editorial-gown
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Grand Ballroom Editorial Gown
+[SSG] Generating static page for: urban-leather-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Urban Leather Portrait
+[SSG] Generating static page for: Wedding Venue Lehenga Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Wedding Venue Lehenga Portrait
+[SSG] Generating static page for: wedding-venue-lehenga-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Wedding Venue Lehenga Portrait
+[SSG] Generating static page for: seated-indian-bride-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Seated Indian Bride Portrait
+[SSG] Generating static page for: Grand Ballroom Editorial Gown
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Grand Ballroom Editorial Gown
+[SSG] Generating static page for: Seated Indian Bride Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Seated Indian Bride Portrait
+[SSG] Generating static page for: royal-vintage-bridal-editorial
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Royal Vintage Bridal Editorial
+[SSG] Generating static page for: Royal Vintage Bridal Editorial
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Royal Vintage Bridal Editorial
+[SSG] Generating static page for: courtyard-traditional-look
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Courtyard Traditional Look
+[SSG] Generating static page for: Courtyard Traditional Look
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Courtyard Traditional Look
+[SSG] Generating static page for: Ultra-Realistic Full Body Digital Art
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Ultra-Realistic Full Body Digital Art
+[SSG] Generating static page for: balcony-golden-hour-coffee-scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Balcony Golden Hour Coffee Scene
+[SSG] Generating static page for: ultra-realistic-full-body-digital-art
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Ultra-Realistic Full Body Digital Art
+[SSG] Generating static page for: indian-bride-close-up-veil-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Close-Up Veil Portrait
+[SSG] Generating static page for: Balcony Golden Hour Coffee Scene
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Balcony Golden Hour Coffee Scene
+[SSG] Generating static page for: Indian Bride Close-Up Veil Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Close-Up Veil Portrait
+[SSG] Generating static page for: indian-bride-spinning-full-body-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Spinning Full-Body Portrait
+[SSG] Generating static page for: Indian Bride Elegant Close-Up
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Elegant Close-Up
+[SSG] Generating static page for: indian-bride-elegant-close-up
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Elegant Close-Up
+[SSG] Generating static page for: indian-bride-seated-royal-portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Seated Royal Portrait
+[SSG] Generating static page for: Indian Bride Seated Royal Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Seated Royal Portrait
+[SSG] Generating static page for: Indian Bride Spinning Full-Body Portrait
+[Build Time] Fetching all trending prompts from: https://admin.promptland.in/api/get_questions_by_level
+[Build Time] Successfully fetched 50 trending prompts
+[SSG] Generated page for prompt: Indian Bride Spinning Full-Body Portrait
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 7, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Successfully fetched 50 prompts for category 7
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 17, subcategory none
+[Build Time] Successfully fetched 15 prompts for category 17
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 18, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 19, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 19, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 19, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 19
+[Build Time] Successfully fetched 3 prompts for category 19
+[Build Time] Successfully fetched 5 prompts for category 18
+[Build Time] Successfully fetched 3 prompts for category 19
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 22, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 23, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 23
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 23, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 23
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 23, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 23
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 23, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 23
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Successfully fetched 6 prompts for category 22
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 24, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 24
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 26, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 26
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 25, subcategory none
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 26, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 26
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Successfully fetched 6 prompts for category 25
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+   Generating static pages (336/673) 
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 29, subcategory none
+[Build Time] Successfully fetched 13 prompts for category 29
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 32, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 32
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 32, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 32
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 35, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 35
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 33, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 33
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 35, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 35
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 33, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 33
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 35, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 35
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 35, subcategory none
+[Build Time] Successfully fetched 4 prompts for category 35
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 5, subcategory none
+[Build Time] Successfully fetched 50 prompts for category 5
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 9, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 9
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 16, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 15, subcategory none
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Successfully fetched 26 prompts for category 16
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Successfully fetched 5 prompts for category 15
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 8, subcategory none
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Successfully fetched 19 prompts for category 8
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 10, subcategory none
+[Build Time] Successfully fetched 33 prompts for category 10
+[Build Time] Successfully fetched 33 prompts for category 10
+   Generating static pages (504/673) 
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 11, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 46 prompts for category 11
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 36, subcategory none
+[Build Time] Successfully fetched 1 prompts for category 36
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 6, subcategory none
+[Build Time] Successfully fetched 36 prompts for category 6
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 12, subcategory none
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Successfully fetched 28 prompts for category 12
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 13, subcategory none
+[Build Time] Successfully fetched 7 prompts for category 13
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 1, subcategory none
+[Build Time] Successfully fetched 20 prompts for category 1
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 34, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 34
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 34, subcategory none
+[Build Time] Successfully fetched 2 prompts for category 34
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 30, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 30
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 31, subcategory none
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 30, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 30
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 30, subcategory none
+[Build Time] Successfully fetched 3 prompts for category 30
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Successfully fetched 10 prompts for category 31
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Fetching all categories from: https://admin.promptland.in/api/get_categories
+[Build Time] Successfully fetched 29 categories
+[Build Time] Fetching prompts for category 14, subcategory none
+[Build Time] Successfully fetched 18 prompts for category 14
+[Build Time] Successfully fetched 18 prompts for category 14
+ ✓ Generating static pages (673/673)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (pages)                                                                                                Size     First Load JS
+┌ ● / (1196 ms)                                                                                              307 B           412 kB
+├   /_app                                                                                                    0 B             201 kB
+├ ○ /(quiz-play)                                                                                             2.89 kB         204 kB
+├ ○ /(quiz-play)/daily-quiz-dashboard (493 ms)                                                               5.05 kB         263 kB
+├ ○ /(quiz-play)/daily-quiz-dashboard/result                                                                 1.23 kB         269 kB
+├ ○ /(quiz-play)/daily-quiz-dashboard/review-answer                                                          4.71 kB         262 kB
+├ ○ /(quiz-play)/true-and-false-play                                                                         5.03 kB         263 kB
+├ ○ /(quiz-play)/true-and-false-play/result (658 ms)                                                         10.2 kB         282 kB
+├ ○ /(quiz-play)/true-and-false-play/review-answer (620 ms)                                                  4.73 kB         262 kB
+├ ○ /404                                                                                                     7.04 kB         378 kB
+├ ○ /about-us                                                                                                6.56 kB         312 kB
+├ ○ /audio-questions                                                                                         2.58 kB         263 kB
+├ ○ /audio-questions/audio-questions-play (358 ms)                                                           5.08 kB         263 kB
+├ ○ /audio-questions/result                                                                                  1.29 kB         269 kB
+├ ○ /audio-questions/review-answer (358 ms)                                                                  4.64 kB         262 kB
+├ ○ /audio-questions/sub-categories/[subcategories]                                                          2.15 kB         263 kB
+├ ○ /auth/login                                                                                              3.33 kB         204 kB
+├ ○ /auth/otp-verify                                                                                         3.34 kB         204 kB
+├ ○ /auth/reset-password                                                                                     3.31 kB         204 kB
+├ ○ /auth/sign-up                                                                                            3.33 kB         204 kB
+├ ● /blog (663 ms)                                                                                           4.94 kB         329 kB
+├ ● /blog/[id] (2362 ms)                                                                                     5.1 kB          329 kB
+├   ├ /blog/2
+├   ├ /blog/3
+├   ├ /blog/4
+├   └ [+17 more paths]
+├ ● /category (1404 ms)                                                                                      4.81 kB         423 kB
+├ ○ /category/level/[level]                                                                                  2.22 kB         263 kB
+├ ○ /category/level/[level]/dashboard-play                                                                   5.2 kB          263 kB
+├ ○ /category/result                                                                                         1.39 kB         269 kB
+├ ○ /category/review-answer                                                                                  4.7 kB          262 kB
+├ ○ /category/sub-categories/[subcategories]                                                                 2.18 kB         319 kB
+├ ● /category/sub-categories/[subcategories]/prompt (7577 ms)                                                3.14 kB         316 kB
+├   ├ /category/sub-categories/couple-special/prompt (387 ms)
+├   ├ /category/sub-categories/sarees-timeless-drape/prompt (379 ms)
+├   ├ /category/sub-categories/winters-warm-hug/prompt (347 ms)
+├   ├ /category/sub-categories/wedding/prompt (343 ms)
+├   ├ /category/sub-categories/the-taj-mahal-charm/prompt (337 ms)
+├   ├ /category/sub-categories/winter-and-snow/prompt (326 ms)
+├   ├ /category/sub-categories/birthday/prompt (316 ms)
+├   └ [+22 more paths]
+├ ○ /category/sub-categories/[subcategories]/promptDetails (419 ms)                                          2.71 kB         355 kB
+├ ● /category/sub-categories/[subcategories]/promptDetails/[promptSlug] (107543 ms)                          2.79 kB         355 kB
+├   ├ /category/sub-categories/outdoor/promptDetails/iron-bridge-street-style-portrait (625 ms)
+├   ├ /category/sub-categories/couple-special/promptDetails/desert-wanderers-a-timeless-love-story (612 ms)
+├   ├ /category/sub-categories/studio/promptDetails/burgundy-velvet-noir (610 ms)
+├   ├ /category/sub-categories/see-you-multi-time/promptDetails/dual-pose-fan-art-portrait (540 ms)
+├   ├ /category/sub-categories/outdoor/promptDetails/noir-city-isolation-portrait (524 ms)
+├   ├ /category/sub-categories/couple-special/promptDetails/autumn-whispers-a-cozy-forest-stroll (458 ms)
+├   ├ /category/sub-categories/outdoor/promptDetails/floral-butterfly-net-saree-portrait (410 ms)
+├   └ [+429 more paths]
+├ ○ /contact-us                                                                                              6.35 kB         311 kB
+├ ○ /contest-play                                                                                            10.5 kB         278 kB
+├ ○ /contest-play/contest-leaderboard                                                                        5.97 kB         306 kB
+├ ○ /contest-play/contest-play-board                                                                         4.98 kB         263 kB
+├ ○ /contest-play/result                                                                                     1.21 kB         269 kB
+├ ○ /contest-play/review-answer                                                                              4.66 kB         262 kB
+├ ○ /exam-module                                                                                             12.4 kB         289 kB
+├ ○ /exam-module/exam-module-play                                                                            4.98 kB         263 kB
+├ ○ /exam-module/result                                                                                      678 B           268 kB
+├ ○ /fun-and-learn                                                                                           2.57 kB         263 kB
+├ ○ /fun-and-learn/fun-data/[data]                                                                           4.04 kB         264 kB
+├ ○ /fun-and-learn/fun-data/[data]/fun-and-learn-play                                                        9.29 kB         283 kB
+├ ○ /fun-and-learn/result                                                                                    1.31 kB         269 kB
+├ ○ /fun-and-learn/review-answer                                                                             4.67 kB         262 kB
+├ ○ /fun-and-learn/sub-categories/[subcategories]                                                            2.27 kB         263 kB
+├ ○ /group-battle                                                                                            2.98 kB         204 kB
+├ ○ /group-battle/group-play                                                                                 5 kB            263 kB
+├ ○ /group-battle/result                                                                                     1.58 kB         348 kB
+├ ○ /guess-the-word                                                                                          2.58 kB         263 kB
+├ ○ /guess-the-word/guess-the-word-play                                                                      5.13 kB         263 kB
+├ ○ /guess-the-word/result                                                                                   1.3 kB          269 kB
+├ ○ /guess-the-word/review-answer                                                                            5.96 kB         273 kB
+├ ○ /guess-the-word/subcategories/[subcategories]                                                            2.13 kB         263 kB
+├ ● /home (630 ms)                                                                                           224 B           412 kB
+├ ○ /instruction                                                                                             6.42 kB         311 kB
+├ ○ /loading                                                                                                 540 B           202 kB
+├ ○ /maintenance                                                                                             6.36 kB         264 kB
+├ ○ /math-mania                                                                                              2.58 kB         263 kB
+├ ○ /math-mania/math-mania-play                                                                              5.02 kB         263 kB
+├ ○ /math-mania/result                                                                                       1.3 kB          269 kB
+├ ○ /math-mania/review-answer                                                                                7.8 kB          275 kB
+├ ○ /math-mania/sub-categories/[subcategories]                                                               2.17 kB         263 kB
+├ ○ /multi-match-questions                                                                                   2.66 kB         319 kB
+├ ● /multi-match-questions/level/[level]                                                                     2.28 kB         263 kB
+├ ● /multi-match-questions/level/[level]/dashboard-play                                                      11.6 kB         410 kB
+├ ○ /multi-match-questions/result                                                                            1.32 kB         269 kB
+├ ○ /multi-match-questions/review-answer                                                                     5.63 kB         305 kB
+├ ○ /multi-match-questions/sub-categories/[subcategories]                                                    2.18 kB         319 kB
+├ ○ /notifications                                                                                           8.38 kB         273 kB
+├ ○ /play-bookmark-questions                                                                                 16.7 kB         285 kB
+├ ○ /privacy-policy                                                                                          7.02 kB         312 kB
+├ ○ /profile                                                                                                 1.88 kB         203 kB
+├ ● /profile/badges                                                                                          9.43 kB         393 kB
+├ ● /profile/bookmark (1158 ms)                                                                              9.67 kB         405 kB
+├ ● /profile/coin-history                                                                                    12.1 kB         427 kB
+├ ○ /profile/invite-friends                                                                                  1.86 kB         203 kB
+├ ○ /profile/leaderboard (457 ms)                                                                            6.08 kB         406 kB
+├ ○ /profile/statistics                                                                                      1.86 kB         203 kB
+├ ● /profile/wallet                                                                                          11.1 kB         398 kB
+├ ● /prompt-heroes (1623 ms)                                                                                 16 kB           442 kB
+├ ○ /prompt-heroes/[hero]                                                                                    5.55 kB         265 kB
+├ ○ /random-battle                                                                                           2.98 kB         204 kB
+├ ○ /random-battle/play-with-friend-battle                                                                   2.94 kB         204 kB
+├ ○ /random-battle/play-with-friend-play                                                                     4.82 kB         262 kB
+├ ○ /random-battle/random-play                                                                               5.07 kB         263 kB
+├ ○ /random-battle/result                                                                                    1.19 kB         269 kB
+├ ○ /random-battle/review-answer                                                                             4.64 kB         262 kB
+├ ○ /self-learning                                                                                           2.59 kB         263 kB
+├ ○ /self-learning/result                                                                                    1.24 kB         269 kB
+├ ○ /self-learning/review-answer                                                                             4.68 kB         262 kB
+├ ○ /self-learning/selection/[selection]                                                                     5.64 kB         264 kB
+├ ○ /self-learning/self-learning-play                                                                        4.94 kB         263 kB
+├ ○ /self-learning/sub-categories/[subcategories]                                                            2.26 kB         263 kB
+├ ○ /terms-conditions                                                                                        6.73 kB         312 kB
+├ ● /top-creators (845 ms)                                                                                   15.9 kB         442 kB
+├ ● /trending (764 ms)                                                                                       5.02 kB         420 kB
+└ ● /trending/prompt/[promptDetail] (20275 ms)                                                               2.12 kB         354 kB
+    ├ /trending/prompt/the-live-concert-moment (1055 ms)
+    ├ /trending/prompt/The Red Geometric Room (687 ms)
+    ├ /trending/prompt/The Jungle Equestrian (683 ms)
+    ├ /trending/prompt/the-jungle-equestrian (676 ms)
+    ├ /trending/prompt/the-red-geometric-room (642 ms)
+    ├ /trending/prompt/luxury-jet-cinematic-walk (604 ms)
+    ├ /trending/prompt/The Live Concert Moment (549 ms)
+    └ [+89 more paths]
++ First Load JS shared by all                                                                                230 kB
+  ├ chunks/framework-945b357d4a851f4b.js                                                                     44.9 kB
+  ├ chunks/main-2be66b7188da88eb.js                                                                          34.2 kB
+  ├ chunks/pages/_app-c521c97c04ee82bd.js                                                                    118 kB
+  ├ css/19897b00c334b3f4.css                                                                                 29.3 kB
+  └ other shared chunks (total)                                                                              4.13 kB
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses getStaticProps)
+

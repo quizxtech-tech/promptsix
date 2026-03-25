@@ -10,7 +10,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { useRouter } from "next/router";
 import { getLevelDataApi, getQuestionApi } from "@/api/apiRoutes";
 import { fetchAllTopCreators } from "@/utils/buildTimeApi";
-import { generateStructuredData } from "@/components/SEO/SEOHead";
+
 import { getSelectedCategory, getSelectedSubCategory, selectedSubCategorySuccess } from "@/store/reducers/tempDataSlice";
 import { selecttempdata } from '@/store/reducers/tempDataSlice';
 import { motion, AnimatePresence } from "framer-motion";
@@ -202,7 +202,7 @@ const TopCreators = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
             });
 
             if (!popularResponse.error) {
-                setPopularWorks(popularResponse.data || []);
+                setPopularWorks(popularResponse.data.reverse() || []);
             }
 
             // Fetch All Works (Level 2)
@@ -226,7 +226,7 @@ const TopCreators = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                     };
                 });
 
-                setAllWorks(works);
+                setAllWorks(works.reverse());
             }
 
             setIsLoading(false);
@@ -307,7 +307,7 @@ const TopCreators = ({ initialPopularWorks = [], initialAllWorks = [] }) => {
                         transition={{ duration: 0.6 }}
                         className="w-full h-full"
                     >
-                        {renderMedia( work.image, true)}
+                        {renderMedia(work.image, true)}
                     </motion.div>
 
                     {/* Gradient Overlay */}
@@ -645,13 +645,18 @@ export async function getStaticProps() {
         };
 
         const seoStructuredData = [
-            generateStructuredData.itemList({
-                name: "Top Creators",
-                items: processedHeroes.slice(0, 20).map((p) => ({
-                    name: p.question || "Creator",
-                    url: `${siteUrl}/top-creators/${p.id}`,
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "Top Creators",
+                "numberOfItems": processedHeroes.slice(0, 20).length,
+                "itemListElement": processedHeroes.slice(0, 20).map((p, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "name": p.question || "Creator",
+                    "url": `${siteUrl}/top-creators/${p.id}`,
                 })),
-            }),
+            },
         ];
 
         return {
@@ -661,7 +666,7 @@ export async function getStaticProps() {
                 seoData,
                 seoStructuredData
             },
-            revalidate: 3600,
+
         };
     } catch (error) {
         console.error('[SSG] Error generating top-creators static props:', error);
@@ -672,7 +677,7 @@ export async function getStaticProps() {
                 seoData: null,
                 seoStructuredData: []
             },
-            revalidate: 300,
+
         };
     }
 }

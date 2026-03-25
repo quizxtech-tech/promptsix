@@ -32,6 +32,22 @@ const menu_data = [
     active: ''
   },
   {
+    id: 6,
+    mega_menu: false,
+    has_dropdown: false,
+    title: 'Top Creators',
+    link: '/top-creators',
+    active: ''
+  },
+  {
+    id: 7,
+    mega_menu: false,
+    has_dropdown: false,
+    title: 'blog',
+    link: '/blog',
+    active: ''
+  },
+  {
     id: 3,
     mega_menu: false,
     has_dropdown: false,
@@ -50,7 +66,7 @@ const menu_data = [
       { link: '/contact-us', title: 'contact_us' },
       { link: '/about-us', title: 'about_us' },
       { link: '/terms-conditions', title: 't_c' },
-      { link: '/privacy-policy', title: 'privacy_policy'}
+      { link: '/privacy-policy', title: 'privacy_policy' }
     ]
   }
 ]

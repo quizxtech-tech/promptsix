@@ -241,6 +241,11 @@ export async function getStaticPaths() {
       // Add original question text (old format - for existing bookmarks/links)
       paths.push({ params: { promptDetail: prompt.question } });
     });
+
+    // Explicitly add literal fallback path for Next.js static export
+    // This creates out/trending/prompt/[promptDetail]/index.html to serve as a client-side fallback
+    paths.push({ params: { promptDetail: '[promptDetail]' } });
+
     console.log(`[SSG] Generated ${paths.length} static paths (${allPrompts.length} prompts x 2 formats)`);
     return {
       paths,
@@ -256,6 +261,17 @@ export async function getStaticProps({ params }) {
   try {
     const { promptDetail } = params;
     console.log(`[SSG] Generating static page for: ${promptDetail}`);
+
+    // Handle literal fallback path generation
+    if (promptDetail === '[promptDetail]') {
+      return {
+        props: {
+          initialQuestionDetails: null,
+          initialRecommendedQuestions: [],
+        },
+      };
+    }
+
     const allPrompts = await fetchAllTrendingPrompts();
 
     let promptData = null;

@@ -34,12 +34,13 @@ const PromptDetails = () => {
     const siteUrl = typeof window !== "undefined" ? window.location.origin : "https://promptland.in";
     const currentUrl = typeof window !== "undefined" ? window.location.href : `${siteUrl}${router.asPath}`;
     const siteName = "AI Prompt Library";
-    const title = `${questionDetails.question} | ${siteName}`;
-    const description =
+    let title = `${questionDetails.question} | ${siteName}`;
+    let description =
       questionDetails.optiona ||
       `Explore ${questionDetails.question} - Professional AI prompts for ChatGPT, Claude, and Bard. Get instant results with our curated prompt library.`;
     const imageUrl = questionDetails.image || `${siteUrl}/default-og-image.jpg`;
-    const keywords = [
+
+    const keywordsList = [
       questionDetails.question,
       "AI prompts",
       "ChatGPT prompts",
@@ -51,8 +52,17 @@ const PromptDetails = () => {
       "prompt engineering",
       "AI tools",
     ]
-      .filter(Boolean)
-      .join(", ");
+      .filter(Boolean);
+
+    let keywords = keywordsList.join(", ");
+
+    // Specialized SEO for IPL Section (Category ID 36)
+    if (questionDetails.category === 36 || questionDetails.category === "36" || selectedCategory?.id === "36" || selectedCategory?.category_slug === "ipl-ai-photo-editing") {
+      title = `${questionDetails.question} - IPL AI Photo Editing | Promptland`;
+      description = `Create this viral IPL 2026 AI photo: ${questionDetails.question}. Get realistic 3D cricket avatars with your name on the jersey for CSK, RCB, MI, and all teams. Free 4K IPL prompts inside!`;
+      keywords = "IPL AI Photo Editing, IPL 2026 AI Prompts, Gemini IPL Prompt, Bing Image Creator IPL, 3D IPL Avatar Maker, IPL Jersey Name Edit AI, Viral Cricket AI Photo, 3D Boy in IPL Stadium, IPL AI Image Generator Free, Realistic IPL Fan Photo AI, CSK AI Photo Prompt 2026, RCB Jersey Name Editing AI, Mumbai Indians 3D Avatar, KKR 3D Name Art Prompt, Gujarat Titans AI Jersey Edit, Sunrisers Hyderabad AI Prompt, Delhi Capitals AI Photo Maker, Rajasthan Royals 3D Image, LSG New Jersey AI Prompt, Punjab Kings AI Fan Art, Create IPL Jersey with My Name, 3D Name on Cricket Jersey Prompt, Viral IPL Name Art AI, Customize IPL Jersey Number AI, IPL Couple Jersey AI Photo, Boy and Girl IPL AI Prompt, IPL Jersey Name Editor Online, My Name on Virat Kohli Jersey AI, MS Dhoni Style AI Photo with Name, Rohit Sharma 45 Jersey AI Edit, 4K Realistic IPL AI Photo, Cinematic Cricket Stadium AI Art, 8K Ultra HD IPL Prompts, Anime Style IPL Cricket Photo, Cyberpunk IPL Stadium Prompt, IPL Final Match AI Visuals, Trophy Lifting AI Photo Prompt, Cricket World Cup Style IPL Art, Hyper-realistic Sports AI Prompts, Night Stadium Lighting AI Prompt, Best Prompts for Gemini Nano Banana, How to make IPL AI photo in Bing, Midjourney IPL Cricket Prompts, DALL-E 3 IPL Jersey Prompts, AI Photo Editing App for IPL, Promptland IPL Category, Free AI Prompts for Instagram Reels, Trending IPL WhatsApp DP AI, IPL 2026 Schedule AI Image, Viral Cricket Poster AI Prompt";
+    }
+
     return { title, description, imageUrl, currentUrl, keywords, siteName };
   };
 

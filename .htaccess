@@ -11,6 +11,22 @@ RewriteRule ^quiz-zone/level/([^/]+)/?$ /quiz-zone/level/$1/index.html [L,QSA]
 RewriteRule ^quiz-zone/level/([^/]+)/dashboard-play/?$ /quiz-zone/level/$1/dashboard-play/index.html [L,QSA]
 RewriteRule ^quiz-zone/result/?$ /quiz-zone/result/index.html [L,QSA]
 RewriteRule ^quiz-zone/review-answer/?$ /quiz-zone/review-answer/index.html [L,QSA]
+ 
+ # ------------------------------
+ # BLOG
+ # ------------------------------
+ RewriteRule ^blog/?$ /blog/index.html [L,QSA]
+ 
+ # Serve static HTML for specific blog IDs (returns 404 if not found)
+ RewriteCond %{DOCUMENT_ROOT}/blog/$1/index.html -f
+ RewriteRule ^blog/([^/]+)/?$ /blog/$1/index.html [L,QSA]
+ 
+ # ------------------------------
+ # EXAM MODULE
+ # ------------------------------
+ RewriteRule ^exam-module/?$ /exam-module/index.html [L,QSA]
+ RewriteRule ^exam-module/exam-module-play/?$ /exam-module/exam-module-play/index.html [L,QSA]
+ RewriteRule ^exam-module/result/?$ /exam-module/result/index.html [L,QSA]
 
 # ------------------------------
 # CATEGORY MODULE - UPDATED FOR NEXT.JS
@@ -125,6 +141,11 @@ RewriteRule ^multi-match-questions/review-answer/?$ /multi-match-questions/revie
 RewriteRule ^prompt-heroes/?$ /prompt-heroes/index.html [L,QSA]
 
 # ------------------------------
+# TOP CREATORS
+# ------------------------------
+RewriteRule ^top-creators/?$ /top-creators/index.html [L,QSA]
+
+# ------------------------------
 # TRENDING - STATIC FIRST, DYNAMIC FALLBACK
 # ------------------------------
 RewriteRule ^trending/?$ /trending/index.html [L,QSA]
@@ -158,6 +179,7 @@ RewriteRule ^profile/invite-friends/?$ /profile/invite-friends/index.html [L,QSA
 RewriteRule ^profile/statistics/?$ /profile/statistics/index.html [L,QSA]
 RewriteRule ^profile/wallet/?$ /profile/wallet/index.html [L,QSA]
 RewriteRule ^profile/leaderboard/?$ /profile/leaderboard/index.html [L,QSA]
+
 
 # ------------------------------
 # EXTRA ROUTES

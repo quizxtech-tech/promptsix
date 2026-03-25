@@ -570,17 +570,18 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
 
-                    {/* Likes */}
-                    <div className="absolute top-2 sm:top-3 right-2 sm:right-3 flex items-center gap-1 px-2 sm:px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-xs">
-                      <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                      <span className="text-xs">{hero.optionb}</span>
-                    </div>
+                    {/* Removed likes as optionb is now used for Created By */}
                   </div>
 
                   {/* Info Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black to-transparent">
-                    <p className="text-xs font-semibold text-purple-400 mb-1">{hero.optionc}</p>
-                    <p className="text-xs sm:text-sm font-medium">{hero.question}</p>
+                    <p className="text-xs font-semibold text-purple-400 mb-0.5">{hero.optionc}</p>
+                    <p className="text-xs sm:text-sm font-medium mb-1">{hero.question}</p>
+                    {hero.optionb && (
+                      <p className="text-[10px] sm:text-xs text-white/50 font-medium">
+                        Created By <span className="text-purple-400 font-bold">{hero.optionb}</span>
+                      </p>
+                    )}
                   </div>
 
                   {/* Glow Effect */}
