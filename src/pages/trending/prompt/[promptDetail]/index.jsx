@@ -234,26 +234,30 @@ export async function getStaticPaths() {
     console.log("[SSG] Generating static paths for all trending prompts...");
     const allPrompts = await fetchAllTrendingPrompts();
     const paths = [];
+    const seen = new Set();
     allPrompts.forEach((prompt) => {
-      const slug = createSlug(prompt.question);
+      const slug = createSlug(prompt.question) || `prompt-${prompt.id}`;
       // Add slugified version (new format - SEO friendly)
-      paths.push({ params: { promptDetail: slug || `prompt-${prompt.id}` } });
+      if (!seen.has(slug)) {
+        seen.add(slug);
+        paths.push({ params: { promptDetail: slug } });
+      }
       // Add original question text (old format - for existing bookmarks/links)
-      paths.push({ params: { promptDetail: prompt.question } });
+      // Only add if it differs from the slug to avoid duplicate paths
+      if (prompt.question !== slug && !seen.has(prompt.question)) {
+        seen.add(prompt.question);
+        paths.push({ params: { promptDetail: prompt.question } });
+      }
     });
 
-    // Explicitly add literal fallback path for Next.js static export
-    // This creates out/trending/prompt/[promptDetail]/index.html to serve as a client-side fallback
-    paths.push({ params: { promptDetail: '[promptDetail]' } });
-
-    console.log(`[SSG] Generated ${paths.length} static paths (${allPrompts.length} prompts x 2 formats)`);
+    console.log(`[SSG] Generated ${paths.length} unique static paths for ${allPrompts.length} prompts`);
     return {
-      paths,
-      fallback: process.env.NODE_ENV === "development" ? true : false,
+      paths: [{ params: { promptDetail: '__prompt_shell__' } }, ...paths],
+      fallback: false,
     };
   } catch (error) {
     console.error("[SSG] Error in getStaticPaths:", error);
-    return { paths: [], fallback: false };
+    return { paths: [{ params: { promptDetail: '__prompt_shell__' } }], fallback: false };
   }
 }
 
@@ -262,8 +266,8 @@ export async function getStaticProps({ params }) {
     const { promptDetail } = params;
     console.log(`[SSG] Generating static page for: ${promptDetail}`);
 
-    // Handle literal fallback path generation
-    if (promptDetail === '[promptDetail]') {
+    // Handle shell page generation (used as fallback for new admin-added prompts)
+    if (promptDetail === '__prompt_shell__') {
       return {
         props: {
           initialQuestionDetails: null,

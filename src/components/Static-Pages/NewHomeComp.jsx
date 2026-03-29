@@ -5,6 +5,7 @@ import { getQuestionApi } from '@/api/apiRoutes';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import trendingData from '@/data/trending.js';
+import { createSlug } from '@/utils/buildTimeApi';
 import promptHeroes from '@/data/promptHeroes.js';
 import { isLogin } from '@/utils';
 import art from '../../../public/images/icon/art.png';
@@ -155,17 +156,8 @@ const HomePage = ({ initialTrendingPrompts = [], initialPromptHeroes = [] }) => 
   }, []);
 
   const handlePromptClick = async (prompt) => {
-    console.log(prompt);
-
-    if (isLogin()) {
-
-      const title = prompt.title.replaceAll(" ", "-");
-      router.push(`/trending/prompt/${title}/?id=${prompt.id}`);
-
-    } else {
-      toast.error("Please login to view prompt details");
-      router.push('/auth/login');
-    }
+    const slug = createSlug(prompt.title);
+    router.push(`/trending/prompt/${slug}/?id=${prompt.id}`);
   }
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);

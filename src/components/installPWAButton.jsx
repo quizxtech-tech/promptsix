@@ -81,9 +81,9 @@ export default function InstallPWAButton() {
         setIsVisible(true);
         
         // Auto-hide after 20 seconds
-        hideTimer = setTimeout(() => {
-          setIsVisible(false);
-        }, 60000);
+        // hideTimer = setTimeout(() => {
+        //   setIsVisible(false);
+        // }, 60000);
       }, 5000);
     };
 

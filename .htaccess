@@ -154,8 +154,8 @@ RewriteRule ^trending/?$ /trending/index.html [L,QSA]
 RewriteCond %{DOCUMENT_ROOT}/trending/prompt/$1/index.html -f
 RewriteRule ^trending/prompt/([^/]+)/?$ /trending/prompt/$1/index.html [L,QSA]
 
-# If static doesn't exist, serve the dynamic [promptDetail] template
-RewriteRule ^trending/prompt/([^/]+)/?$ /trending/prompt/\[promptDetail\]/index.html [L,QSA]
+# If static doesn't exist, serve the shell template (handles new admin-added prompts)
+RewriteRule ^trending/prompt/([^/]+)/?$ /trending/prompt/__prompt_shell__/index.html [L,QSA]
 
 # ------------------------------
 # OTHER STATIC PAGES

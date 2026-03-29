@@ -115,7 +115,7 @@ const QuestionPrompt = ({ initialQuestions = [] }) => {
         <Layout>
             <Breadcrumb
                 showBreadcrumb={true}
-                title={selectedSubCategory?.subcategory_name || selectedCategory?.category_name}
+                title={"Trending"}
                 content={t("home")}
                 // contentTwo={t("category")}
                 // contentThree={selectedCategory?.category_name}
